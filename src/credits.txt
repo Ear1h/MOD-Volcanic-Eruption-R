@@ -1,0 +1,554 @@
+Put full additional credits here. This will be imported into the release.
+
+----===== Builder Music Changer =====----
+
+Decohack by Ear1h
+Music Changer Icon from gzdoom.pk3
+
+----===== Carousel Icons =====----
+
+All new carousel icons by Carton Kobra
+
+----===== VFX =====----
+
+Snowfall effects & DECOHACK by Bauul, edited by DRON12261 from No Time 2 Freeze
+
+Ash effects from Brutal Doom v20b Starter Pack, DECOHACK based on Snowfall Effects, edited by Ear1h
+Ash Builder Icons edited by Ear1h
+
+Rain Spawner from Brutal Doom v20b Starter Pack, DECOHACK based on Snowfall Effects, edited by Ear1h
+Rain Spawner Builder Icons by RastamanGames, edited by Ear1h
+
+Leaf sprites from Hexen by Raven Software, DECOHACK based on SnowFall Effect, edited by Ear1h
+
+----===== SMOOTH DOOM =====----
+
+Volcanic Eruption uses some code and resources from SD21. The relevant credits
+for code and resources from SD21 are as follows:
+"""
+- Alaux for Smooth Doom MBF21
+- chulgonoxl, for helping to improve the randomization
+
+- Gifty, for Smooth Doom, who credits the following:
+  - Almonds (code help)
+  - Blue Shadow (sprite resources for weapons, lots of coding help)
+  - SidDoyle (gib sprites, mega coding help)
+  - Turbo (shell casing sprites)
+"""
+Note that the credits listed are more comprehensive in SD21; the list above has
+been cut down to only what's relevant (as far as I can discern) to what is used
+in Volcanic Eruption.
+
+
+----===== DSDHACKED  =====----
+BULLET PUFF CODE
+BLOOD + GIBS SPAWNER CODE
+	Alaux; see SMOOTH DOOM 21 credits above
+	
+----===== WEAPONS =====----
+
+* CODING:
+** FAST WEAPON SWITCHING METHOD Aurelius
+
+* GRAPHICS:
+** Per Kristian (original creator of the smooth sprites)
+** IcyFreezy (black gloves from blakglov2.wad)
+
+Fist:
+* SOUNDS:
+** DSFSTATK from Return To Castle Wolfenstein (impact kick)
+** DSFSTMIS from Return To Castle Wolfenstein (miss kick)
+** DSFSTPIK from Doom 3 (fist up)
+
+* Graphics:
+** Leg sprites (PUN2 - PUN3) by Sonic.o fan (Tesefy)
+** Black gloves Fist:
+*** Blox (improved gloved fists)
+*** IcyFreezy (black gloves from blakglov2.wad)
+*** NeuralStunner (PerK HUD fists with gloves)
+
+* CODING:
+** Code base from Minicharge+
+** Random Kicks and Raise pickup A_PlaySound and nerf by Ear1h. 
+
+Double-blade Chainsaw:
+* SOUNDS: 
+** id Software, wildweasel
+
+* Graphics:
+** id Software, Amuscaria.
+
+* CODING:
+** Xim (Decorate), Ear1h (Decohack)
+
+Pistol:
+* SOUNDS: 
+** Daedalus (Complex Doom)
+
+* Graphics:
+** Daedalus (Complex Doom), black gloves edit by Ear1h	
+
+* CODING:
+** Code Base from Minicharge+, edit by Ear1h
+
+Gothic Shotgun:
+* SOUNDS: 
+** DSSHTFIR from Painkiller (2004) (Shotgun Fire)
+** DSSHTPIK from Scrap Gun eject sound edit by Markie (Supercharge mod)
+
+* Graphics:
+** Shotgun Gothic skin sprites by Ultra64, black gloves edit by Ear1h
+
+* CODING:
+** Code Base from Minicharge+, edit by Ear1h
+
+Gothic SuperShotgun:
+* SOUNDS: 
+** DSSSGFRE from Doom (2016) (SuperShotgun Fire)
+** DSSSGUP from Doom Exp (Doom Mod)
+
+* Graphics:
+** Super Shotgun Gothic skin sprites by Ultra64, black gloves edit by Ear1h
+
+* CODING:
+** Code Base from Minicharge+, edit by Ear1h
+
+Chaingun:
+* SOUNDS: 
+** DSCGFIRE from Doom 3 (Chaingun Fire)
+** DSCGUSE from Doom 3 (Chaingun Up)
+
+* Graphics:
+** Smooth Doom by Gifty
+
+* CODING:
+** Code Base from Minicharge+, edit by Ear1h
+
+Q3 RocketLauncher:
+* SOUNDS: 
+** DSRCSEL from SuperCharge (Rocket Pickup)
+** DSRLFIR from Doom 2016 (Rocket Launcher Fire)
+
+* Graphics:
+** Sprites from SuperCharge
+
+* CODING:
+** Code Base from Minicharge+, edit by Ear1h
+
+PlasmaRifle:
+* SOUNDS: 
+** DSPLASMA from Doom 3 (Plasma Fire)
+** DSPLSUSE from Doom 3 (PlasmaRifle Up)
+
+* Graphics:
+** Blox (extra plasma rifle frames)
+
+* CODING:
+** Edit by Ear1h
+
+BFG9000:
+* SOUNDS: 
+** DSBFG from Capcom (Mega Man X5)
+** DSMBFGF: Legendary, Sentey, Strathos, Blood, Overlord, Arkore (lca-v1.5.8.pk3)
+** DSBFGUP from Doom 3 (BFG Up)
+
+* Graphics:
+** Gifty (smooth BFG frames, with significant edits by Tango)
+
+* CODING:
+** Code Base from Minicharge+, edit by Ear1h
+
+----===== PICKUPS =====----
+
+### NOTES
+###
+	The next point will be related to id24 compatibility. 
+	Therefore, the information below will only be relevant for KEX Doom, Helion and future id24 ports.
+###
+
+CODING:
+*** The code associated with pickupsound was written by Ear1h.
+
+Backpack:
+* SOUNDS:
+** DSBACKPC
+
+* Graphics:
+** Brutal Doom v21 by Sergeant_Mark_IV
+
+Clip:
+* SOUNDS:
+** DSCLIP
+
+* Graphics:
+** zrrion the insect (clip pickup sprites)
+
+Clip Box:
+* SOUNDS:
+** DSCBOX
+
+* Graphics:
+** Nmn: new bullet box ammo pickup (slightly modified by Tango)
+
+
+Shell:
+* SOUNDS:
+** DSSHEPC1
+
+* Graphics:
+** Supercharge by Tango
+
+Shell Box:
+* SOUNDS:
+** DSSHEPC1
+
+* Graphics:
+** Supercharge by Tango
+
+Rocket Ammo:
+* SOUNDS:
+** DSSHEPC1
+
+* Graphics:
+** Xaser (rocket ammo single pickup sprite (from Argent, xa-argen_0.5.2.pk3, but slightly modified by Tango))
+
+Rocket Box:
+* SOUNDS:
+** DSSHEPC1
+
+* Graphics:
+** Nmn: rocket box ammo pickup (slightly modified by Tango)
+
+Cell:
+* SOUNDS:
+** DSSHEPC1
+
+* Graphics:
+** Supercharge by Tango
+
+Cell Pack:
+* SOUNDS:
+** DSSHEPC1
+
+* Graphics:
+** Supercharge by Tango
+
+KEYS:
+
+* Graphics:
+** Gifty (Smooth Doom) smooth key/skull key sprites and code
+
+* Sounds: 
+** Quake 1996 (Tech and Rune keys)
+
+AutoMapRevealer:
+
+* Sounds: 
+** Quake 1996 (r_item2.wav)
+
+Berserk:
+
+* Sounds: 
+** DSBERSEK sound from Alien Shooter by Sigma Team
+
+Light Vision:
+
+* Sounds: 
+** DSINFRED from Brutal Doom v21 by Sergeant_Mark_IV
+
+Blur Sphere:
+
+* Sounds: 
+** DSINVIS from Quake (1996)
+
+Invul Sphere:
+
+* Sounds: 
+** DSINVUL from Quake (1996)
+
+Rad Suit:
+
+* Sounds: 
+** DSSUIT from Quake (1996)
+
+Megasphere:
+
+* Graphics:
+** Cyantusk: gold megasphere sprites
+
+* Sounds: 
+** DSMEGA from Painkiller (2004) (Mega Soul Pickup))
+
+Soulsphere:
+
+* Graphics:
+** Gifty (Smooth Doom) smooth soulsphere sprites
+
+* Sounds: 
+** DSSOUL from Painkiller (2004) (Gold Soul Pickup)
+
+BlueArmor:
+
+* Graphics:
+** Brutal Doom v21 by Sergeant_Mark_IV
+
+* Sounds: 
+** DSBLUE from Painkiller (2004) (Gold Armor Pickup)
+
+GreenArmor:
+
+* Graphics:
+** Brutal Doom v21 by Sergeant_Mark_IV
+
+* Sounds: 
+** DSMEDIUM from Painkiller (2004) (Silver Armor Pickup)
+
+Medikit:
+
+* Graphics:
+** Brutal Doom v21 by Sergeant_Mark_IV
+
+* Sounds: 
+** DSMED from Doom 3 (2004)
+
+Stimpack:
+
+* Graphics:
+** Brutal Doom v21 by Sergeant_Mark_IV
+
+* Sounds: 
+** DSMED from Doom 3 (2004)
+
+Armor Bonus:
+* Graphics:
+** Gifty (Smooth Doom) smooth armor bonus sprites
+
+* Sounds: 
+** Brutal Doom v21 by Sergeant_Mark_IV
+
+----===== SPRITES MONSTERS =====----
+
+SHOTGUNNER
+	HorrorMovieGuy (base sprites)
+	Sergeant Mark IV (Brutal Doom; extra gib sprites)
+	
+PLASMA ZOMBIE
+	Captain Toenail
+	Ghastly Dragon
+	Ear1h (helmet edit)
+
+Zombie Marine
+	ProjectBrutality (xdeath sprites & original Helmet)
+	
+DoubleChaingunner:
+	ProjectBrutality (XDeath gibs), edited by Ear1h
+	HorrorMovieGuy, Touhou Hisouten - Scarlet Weather Rhapsody (UberChaingunner Helmet)
+	
+Chaingunner:
+	ProjectBrutality (XDeath gibs), edited by Ear1h
+	HorrorMovieGuy, Touhou Hisouten - Scarlet Weather Rhapsody (UberChaingunner Helmet)
+	
+Grenadier:
+	Supercharge (sprites)
+
+RocketZombie:
+	ProjectBrutality (XDeath gibs and original Helmet)
+	
+Quake 1 Zombie:
+	osjclatchford (sprites)
+	
+Ancient Imp:
+	SuperCharge mod
+	Project Brutality (XDeath gibs), edited by Ear1h
+
+Dark Imp:
+	Sprite Edit: Nanami, Itsnaturetodie
+	Project Brutality (gibs)
+
+Satyr:
+	Sprite Edit: Vader
+	Gibs Sprite: Finalizer
+	
+HELL KNIGHT / BARON OF HELL
+	Gifty (smooth death frames from Smooth Doom)
+	Vdude (red-blooded version of death frames)
+	Tango (recolors)
+	Sergeant Mark IV (Brutal Doom; extra gib sprites)
+	Gifty (smooth projectile explosion frames from Smooth Doom)
+
+Nazi:
+	Brutal Doom: Sprites/Gibs
+
+Dogs:
+	Brutal Wolfenstein v7.0: Sprites/Gibs
+
+SuperSoldier:
+	Hell From Earth (HFE) by Nomakh Thunder (Sprites)
+	
+Cacodemon:
+	Tango and franckFRAG (base spritework)
+	Amuscaria (projectile sprites)
+	Gifty (xdeath sprites from Smooth Doom)
+	
+Gandon4ik-Hissy:
+	Original Hissy credits - id Software, OSJClatchford
+	Rotten Hissy version - DRON12261
+	Rotten Hissy projectile version - Ear1h
+	Rotten Hissy gibs - Project Brutallity (Watcher Sprites), Edited by Ear1h
+	
+DronKamikaze:
+	Sprites - id Software, Hellstorm Archon
+
+PyroDemon:
+	Amuscaria, Maelstrom (sprites)
+	Sprite Edit: Dreadopp, Eriance (the fire sprites)
+
+ARACHNOTRON
+	Amuscaria
+	Raven Software (projectile sprites; slightly modified by Tango)
+	Sergeant Mark IV (Brutal Doom; extra gib sprites)
+	
+CHAINGUN ARACHNO:
+	Based on ARACHNOTRON, edited by Ear1h
+
+Torture Soul:
+	Assmaster (sprites)
+	Id Software (sprite basis)
+	
+DIABOLIST
+	Amuscaria
+	Yholl, SoloSpaghetti, Sgt. Shivers, amv2k9, Kyle873 and Seryder (DoomRL Arsenal Monster Pack, ExplodeDeath2 sprites)
+
+Resurrector:
+	Based on Hordamex Resurrector. Xdeath recolored by Ear1h
+	
+Archvile:
+	SuperCharge mod (Exile)
+
+MANCUBUS
+	Amuscaria
+	Sergeant Mark IV (Brutal Doom; extra gib sprites)
+
+Haedexebus:
+	SuperCharge mod
+
+REVENANT
+	Amuscaria
+	Gifty (smooth projectile explosion frames from Smooth Doom)
+
+Cyberdemon:
+	Gifty (Smooth Doom): cyberdemon smooth death animation sprites
+	Revenant100 aka Marphy Black: cyberdemon sprites from Doom 2 Minor Sprite Fixing Project
+
+ROCKET IN FLIGHT
+	Gifty (smooth explosion frames from Smooth Doom)
+	Daedalus (rocket in flight frames from Complex Doom)
+	
+CyberdemonJR:
+	Sprites from DBP69: Caustic Industry
+	
+DARK CARDINAL
+	Nanami
+	Jimmy
+	zrrion the insect
+	Espi
+	Ebola
+
+DROK* rocket sprites:
+	silentzorah (Doomzone) (specifically comes from dzmod3.wad contained within doomzone.pk3)
+	
+Curse Statue sprites from Minicharge+
+
+Tesla:
+	Sprites: Doom, Doom Beta
+	Sprite Edit: Captain Toenail
+
+Mines:
+	Sprites: LucasArts (Dark Forces), Gothic
+	Sprite Edit: Gothic
+
+----===== SOUND MONSTERS =====----
+
+HQ IWAD SOUNDS
+	Per Kristian
+	
+DoubleChaingunner:
+	Doom 3: Chaingun Prepare Sound
+	
+Chaingunner:
+	Doom 3: Chaingun Fire
+	
+Grenadier:
+	Doom 3: prepare Rocket Launcher sound
+	
+RocketZombie:
+	Doom 3: prepare Rocket Launcher sound
+	
+Quake 1 Zombie:
+	
+Kamikaze:
+	Kamikaze Sound from Serious Sam
+
+Satyr:
+	Sounds: Id Software, Vader
+	
+Nazi:
+	See, Attack, Pain, Death sound from Return To Castle Wolfenstein
+	MP40 shot sound from Return To Castle Wolfenstein
+
+Dogs:
+	Wolfenstein 3d dog sounds
+
+SuperSoldier:
+	Chaingun shot: Venom fire sound from Return To Castle Wolfenstein
+	UberSoldat Steps, Spawn and Death sound from Return To Castle Wolfenstein
+	
+Gandon4ik-Hissy:
+	Sounds - id Software, Scroton, IMX, MagicWazard, Raven Software
+	
+DronKamikaze:
+	Sounds - id Software, Raven Software, Dusted's Pandemonia, Valve(Seek)
+
+PyroDemon:
+	Id Software, Monolith Games
+	Daedalus (Complex Doom)
+	
+CHAINGUN ARACHNO:
+	Sounds: Serious Sam: The First Encounter
+	
+Tortured Soul:
+	id Software
+	
+DIABOLIST:
+	Amuscaria
+	
+Resurrector:
+	Amuscaria
+	
+REVENANT:
+	Cybermeme (death sound from Cyber's Monster Randomizer)
+	Doom 3 (for all the rest of the sounds I think?)
+	
+DARK CARDINAL:
+	FromSoftware (Dark Souls)
+
+Tesla:
+	ZAP sound from Return To Castle Wolfenstein
+
+Mines:
+	Sounds: LucasArts (Dark Forces), id Software (Quake 2)
+	
+DSSLOP (gib sound)
+	Sergeant Mark IV (from Ketchup v5)
+
+BFG BALL EXPLOSION
+	Daedalus (Complex Doom)
+	
+BFG CHARGE
+	Capcom (Mega Man X5)
+	
+BFG FIRE SOUND
+	Legendary, Sentey, Strathos, Blood, Overlord, Arkore (lca-v1.5.8.pk3)
+
+BLOOD + GIBS
+	Sergeant Mark IV (Ketchup)
