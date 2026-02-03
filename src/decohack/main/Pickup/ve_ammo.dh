@@ -1,0 +1,44 @@
+thing MT_CLIP "Clip Pickup"
+{
+	pickupSound "CLIP"
+}
+
+thing MT_MISC17 "Clip Box Pickup"
+{
+	pickupSound "CBOX"
+}
+
+thing MT_MISC22 "Shell Pickup"
+{
+	pickupSound "SHEPC1"
+}
+
+thing MT_MISC23 "Shell Box Pickup"
+{
+	pickupSound "SHEPC2"
+}
+
+thing MT_MISC18 "Rocket Pickup"
+{
+	pickupSound "ROCPCK"
+}
+
+thing MT_MISC19 "Rocket Box Pickup"
+{
+	pickupSound "RCBOX"
+}
+
+thing MT_MISC20 "Plasma Pickup"
+{
+	pickupSound "CELPCK"
+}
+
+thing MT_MISC21  "Plasma Box Pickup"
+{
+	pickupSound "CELPC"
+}
+
+thing MT_MISC24  "Backpack Pickup"
+{
+	pickupSound "BACKPC"
+}

@@ -1,0 +1,170 @@
+thing DoomImpBall { +MISSILE }
+auto thing McImpBallTrail {}
+
+thing DoomImp "Ancient Imp"
+{
+	//$Category "Monsters/Imps"
+	//$Color 4
+	Health 60 // same as default doomimp, this is just here for reference
+	
+	clear states
+	
+	States
+	{
+	Spawn:
+		TROO A 10 A_Look
+		Loop
+	See:
+		TROO AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TROO EF 8 A_FaceTarget
+		TNT1 A 0 A_JumpIfTargetCloser(Scratch, 32.0)
+		TROO G 6 A_MonsterProjectile(DoomImpBall)
+		Goto See
+	Scratch:
+		TROO G 6 A_MonsterMeleeAttack(20, 1, "CLAW")
+		Goto See
+	Pain:
+		TROO H 2
+		TROO H 2 A_Pain
+		Goto See
+	Raise:
+		TROO MLKJI 8
+		Goto See
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser(RandomAllDeath, 160.0)
+		Goto RegularDeath
+		
+	RandomDeath:
+		TNT1 A 0 A_RandomJump(ExplodeDeath, 1D3)
+		TNT1 A 0 A_RandomJump(TorseDeath, 1D2)
+		Goto RegularDeath
+	
+	RandomAllDeath:
+		TNT1 A 0 A_RandomJump(GutsDeath, 1D6)
+		TNT1 A 0 A_RandomJump(HandDeath, 1D5)
+		TNT1 A 0 A_RandomJump(TorseDeath2, 1D4)
+		TNT1 A 0 A_RandomJump(ExplodeDeath, 1D3)
+		TNT1 A 0 A_RandomJump(TorseDeath, 1D2)
+		Goto ExplodeDeath
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto ExplodeDeath
+	
+	RegularDeath:
+		TNT1 A 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 A 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 16.0)
+		TROO I 6
+		TROO J 6 A_Scream
+		TROO K 4
+		TROO L 4 A_Stop
+		TROO M -1 A_BossDeath
+		Stop
+		
+	ExplodeDeath:
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		TROO NOPQRST 4
+		TROO U -1 A_BossDeath
+		Stop
+		
+		// ****************************
+		// DEATH ANIMATIONS
+		// ****************************
+		TorseDeath:
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(GibSpawnerM)
+			TRO3 H 4
+			TRO3 I 4
+			TNT1 A 0 A_Stop
+			TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+			TRO3 J 4
+			TRO3 KL 4
+			TRO3 L -1
+			Stop
+		TorseDeath2:
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(GibSpawnerM)
+			TROG A 4
+			TROG B 4
+			TNT1 A 0 A_Stop
+			TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+			TROG C 4
+			TROG DE 4
+			TROG E -1
+			Stop
+		GutsDeath:
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(GibSpawnerM)
+			TRO5 A 4
+			TRO5 B 4
+			TNT1 A 0 A_Stop
+			TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+			TRO5 C 4
+			TRO5 DE 4
+			TRO5 E -1
+			Stop
+		HandDeath:
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(GibSpawnerM)
+			TRO4 A 5
+			TRO4 B 5
+			TNT1 A 0 A_Stop
+			TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+			TRO4 C 5
+			TRO4 D 5
+			TRO4 D -1
+			Stop
+	}
+}
+
+thing DoomImpBall
+{
+	Radius 6
+	Height 8
+	Speed 13
+	Damage 3
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	
+	SeeSound FIRSHT
+	DeathSound FIRXPL
+	
+	States
+	{
+	Spawn:
+		BIBA AAABBB 1 Bright A_SpawnObject(McImpBallTrail)
+		Loop
+	Death:
+		BIBA CDEFGHI 2 Bright
+		Stop
+	}
+}
+
+thing McImpBallTrail
+{
+	Radius 2
+	Height 4
+
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+TRANSLUCENT
+	
+	States
+	{
+	Spawn:
+		TNT1 A 2
+		BIBT ABCDEF 1 Bright
+		Stop
+	}
+}

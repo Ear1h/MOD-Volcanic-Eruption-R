@@ -1,0 +1,1240 @@
+auto thing SnowFallVFX "Snow Falling"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	+TRANSLUCENT
+	
+	States
+	{
+	Spawn:
+		SNOW A 350 Bright
+		Loop
+	Death:
+		TNT1 A 1
+		Stop
+	}
+}
+
+Auto thing SnowSpawner1 "Snow Spawner (256x256)"
+{
+	//$Category "VFX Spawners/SnowFall"
+	//$Color 16
+	//$Sprite "SBALA1"
+	
+	EdNum 29900
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Snow, 254)
+		TNT1 A 35
+		Loop
+	Snow:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Snow1",26)
+		TNT1 A 0 A_RandomJump("Snow2",26)
+		TNT1 A 0 A_RandomJump("Snow3",26)
+		TNT1 A 0 A_RandomJump("Snow4",26)
+		TNT1 A 0 A_RandomJump("Snow5",26)
+		TNT1 A 0 A_RandomJump("Snow6",26)
+		TNT1 A 0 A_RandomJump("Snow7",26)
+		TNT1 A 0 A_RandomJump("Snow8",26)
+		TNT1 A 0 A_RandomJump("Snow9",26)
+		TNT1 A 0 A_RandomJump("Snow10",26)
+		TNT1 A 0 A_RandomJump("Snow11",26)
+		TNT1 A 0 A_RandomJump("Snow12",26)
+		TNT1 A 0 A_RandomJump("Snow13",26)
+		TNT1 A 0 A_RandomJump("Snow14",26)
+		TNT1 A 0 A_RandomJump("Snow15",26)
+		TNT1 A 0 A_RandomJump("Snow16",26)
+		Goto Spawn
+	Snow1:
+		TNT1 A 0 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		Goto Spawn
+	Snow2:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow3:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		Goto Spawn
+	Snow4:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		Goto Spawn
+	Snow5:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		Goto Spawn
+	Snow6:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		Goto Spawn
+	Snow7:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+	Snow8:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 3 A_SpawnObject(SnowFallVFX, 0.0, 112.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		Goto Spawn
+	Snow9:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow10:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		Goto Spawn
+	Snow11:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		Goto Spawn
+	Snow12:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, -16.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow13:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow14:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 48.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		Goto Spawn
+	Snow15:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -64.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 16.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 128.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -96.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -80.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 80.0, 96.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 32.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		Goto Spawn
+	Snow16:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 96.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, -48.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -32.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -80.0, -64.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 64.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 112.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 80.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 112.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, -112.0, 128.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		Goto Spawn
+	}
+}
+
+Auto thing SnowSpawner2 "Snow Spawner (128x128)"
+{
+	//$Category "VFX Spawners/SnowFall"
+	//$Color 16
+	//$Sprite "SBALA2"
+	
+	EdNum 29901
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Snow, 254)
+		TNT1 A 35
+		Loop
+	Snow:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Snow1",26)
+		TNT1 A 0 A_RandomJump("Snow2",26)
+		TNT1 A 0 A_RandomJump("Snow3",26)
+		TNT1 A 0 A_RandomJump("Snow4",26)
+		TNT1 A 0 A_RandomJump("Snow5",26)
+		TNT1 A 0 A_RandomJump("Snow6",26)
+		TNT1 A 0 A_RandomJump("Snow7",26)
+		TNT1 A 0 A_RandomJump("Snow8",26)
+		TNT1 A 0 A_RandomJump("Snow9",26)
+		TNT1 A 0 A_RandomJump("Snow10",26)
+		TNT1 A 0 A_RandomJump("Snow11",26)
+		TNT1 A 0 A_RandomJump("Snow12",26)
+		TNT1 A 0 A_RandomJump("Snow13",26)
+		TNT1 A 0 A_RandomJump("Snow14",26)
+		TNT1 A 0 A_RandomJump("Snow15",26)
+		TNT1 A 0 A_RandomJump("Snow16",26)
+		Goto Spawn
+	Snow1:
+		TNT1 A 0 A_Turn(90)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		Goto Spawn
+	Snow2:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow3:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		Goto Spawn
+	Snow4:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		Goto Spawn
+	Snow5:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		Goto Spawn
+	Snow6:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		Goto Spawn
+	Snow7:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+	Snow8:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 3 A_SpawnObject(SnowFallVFX, 0.0, 56.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		Goto Spawn
+	Snow9:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow10:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		Goto Spawn
+	Snow11:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		Goto Spawn
+	Snow12:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -8.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow13:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow14:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 8.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		Goto Spawn
+	Snow15:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -32.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 8.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 64.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -48.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -40.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 40.0, 48.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		Goto Spawn
+	Snow16:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 48.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -40.0, -32.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 32.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 56.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -8.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 56.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, -56.0, 64.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 8 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		Goto Spawn
+	}
+}
+
+Auto thing SnowSpawner3 "Snow Spawner (64x64)"
+{
+	//$Category "VFX Spawners/SnowFall"
+	//$Color 16
+	//$Sprite "SBALA3"
+	
+	EdNum 29903
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Snow, 254)
+		TNT1 A 35
+		Loop
+	Snow:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Snow1",26)
+		TNT1 A 0 A_RandomJump("Snow2",26)
+		TNT1 A 0 A_RandomJump("Snow3",26)
+		TNT1 A 0 A_RandomJump("Snow4",26)
+		TNT1 A 0 A_RandomJump("Snow5",26)
+		TNT1 A 0 A_RandomJump("Snow6",26)
+		TNT1 A 0 A_RandomJump("Snow7",26)
+		TNT1 A 0 A_RandomJump("Snow8",26)
+		TNT1 A 0 A_RandomJump("Snow9",26)
+		TNT1 A 0 A_RandomJump("Snow10",26)
+		TNT1 A 0 A_RandomJump("Snow11",26)
+		TNT1 A 0 A_RandomJump("Snow12",26)
+		TNT1 A 0 A_RandomJump("Snow13",26)
+		TNT1 A 0 A_RandomJump("Snow14",26)
+		TNT1 A 0 A_RandomJump("Snow15",26)
+		TNT1 A 0 A_RandomJump("Snow16",26)
+		Goto Spawn
+	Snow1:
+		TNT1 A 0 A_Turn(90)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		Goto Spawn
+	Snow2:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow3:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		Goto Spawn
+	Snow4:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		Goto Spawn
+	Snow5:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 44.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		Goto Spawn
+	Snow6:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		Goto Spawn
+	Snow7:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+	Snow8:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 3 A_SpawnObject(SnowFallVFX, 0.0, 28.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		Goto Spawn
+	Snow9:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow10:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		Goto Spawn
+	Snow11:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		Goto Spawn
+	Snow12:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -4.0, 0.0, 0.0, 0.0,  -2.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow13:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		Goto Spawn
+	Snow14:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 24.0, 0.0, 0.0, 0.0,   -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 4.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		Goto Spawn
+	Snow15:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 4.0, 0.0, 0.0, 0.0,   -3.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -16.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 32.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -24.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -20.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 20.0, 24.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 16.0, 0.0, 0.0, 0.0,   -3.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		Goto Spawn
+	Snow16:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, -24.0, 0.0, 0.0, 0.0,  -2.2)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, -16.0, 0.0, 0.0, 0.0,  -2.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -20.0, -16.0, 0.0, 0.0, 0.0,  -2.0)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 16.0, 16.0, 0.0, 0.0, 0.0,   -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 28.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -4.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 28.0, 0.0, 0.0, 0.0,  -3.4)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, -28.0, 32.0, 0.0, 0.0, 0.0,  -3.6)
+		TNT1 A 16 A_SpawnObject(SnowFallVFX, 0.0, 24.0, 0.0,  0.0, 0.0, 0.0,   -2.8)
+		Goto Spawn
+	}
+}
+
+Auto thing SnowSpawner4 "Snow Spawner (Single)"
+{
+	//$Category "VFX Spawners/SnowFall"
+	//$Color 16
+	//$Sprite "SBALA4"
+	
+	EdNum 29904
+	
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Snow, 254)
+		TNT1 A 35
+		Loop
+	Snow:
+		TNT1 A 20
+		TNT1 A 0 A_RandomJump("Snow1",7)
+		TNT1 A 0 A_RandomJump("Snow2",7)
+		TNT1 A 0 A_RandomJump("Snow3",7)
+		TNT1 A 0 A_RandomJump("Snow4",7)
+		TNT1 A 0 A_RandomJump("Snow5",7)
+		TNT1 A 0 A_RandomJump("Snow6",7)
+		TNT1 A 0 A_RandomJump("Snow7",7)
+		TNT1 A 0 A_RandomJump("Snow8",7)
+		TNT1 A 0 A_RandomJump("Snow9",7)
+		TNT1 A 0 A_RandomJump("Snow10",7)
+		TNT1 A 0 A_RandomJump("Snow11",7)
+		Goto Spawn
+	Snow1:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.6)
+		Goto Spawn
+		Snow2:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+		Snow3:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -2.0)
+		Goto Spawn
+		Snow4:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -2.2)
+		Goto Spawn
+		Snow5:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,   -2.4)
+		Goto Spawn
+		Snow6:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -2.8)
+		Goto Spawn
+		Snow7:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -3.0)
+		Goto Spawn
+		Snow8:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -3.2)
+		Goto Spawn
+		Snow9:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -3.4)
+		Goto Spawn
+		Snow10:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -3.6)
+		Goto Spawn
+		Snow11:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -3.8)
+		Goto Spawn
+	}
+}
+
+Auto thing SnowSpawner5 "Snow Spawner (Single frequent)"
+{
+	//$Category "VFX Spawners/SnowFall"
+	//$Color 16
+	//$Sprite "SBALA5"
+	
+	EdNum 29905
+	
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Snow, 254)
+		TNT1 A 35
+		Loop
+	Snow:
+		TNT1 A 15
+		TNT1 A 0 A_RandomJump("Snow1",15)
+		TNT1 A 0 A_RandomJump("Snow2",15)
+		TNT1 A 0 A_RandomJump("Snow3",15)
+		TNT1 A 0 A_RandomJump("Snow4",15)
+		TNT1 A 0 A_RandomJump("Snow5",15)
+		TNT1 A 0 A_RandomJump("Snow6",15)
+		TNT1 A 0 A_RandomJump("Snow7",15)
+		TNT1 A 0 A_RandomJump("Snow8",15)
+		TNT1 A 0 A_RandomJump("Snow9",15)
+		TNT1 A 0 A_RandomJump("Snow10",15)
+		TNT1 A 0 A_RandomJump("Snow11",15)
+		Goto Spawn
+	Snow1:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.6)
+		Goto Spawn
+		Snow2:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+		Snow3:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -2.0)
+		Goto Spawn
+		Snow4:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -2.2)
+		Goto Spawn
+		Snow5:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,   -2.4)
+		Goto Spawn
+		Snow6:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -2.8)
+		Goto Spawn
+		Snow7:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -3.0)
+		Goto Spawn
+		Snow8:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -3.2)
+		Goto Spawn
+		Snow9:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -3.4)
+		Goto Spawn
+		Snow10:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -3.6)
+		Goto Spawn
+		Snow11:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(SnowFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -3.8)
+		Goto Spawn
+	}
+}

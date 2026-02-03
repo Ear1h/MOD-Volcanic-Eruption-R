@@ -1,0 +1,144 @@
+auto thing DoubleGuyHead { +MISSILE }
+
+thing ChaingunGuy "Zombie Chaingunner"
+{
+	//$Category "Monsters/Zombies"
+	//$Color 6
+	Health 70
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 8
+	PainChance 170
+	clear states
+
+	States
+	{
+	Spawn:
+		CGGY A 10 A_Look
+		Loop
+	See:
+		CGGY AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		CGGY E 10 A_FaceTarget
+		Goto MissileRefire
+	MissileRefire:
+// 		TNT1 A 0 A_SpawnItemEx("MonsterChaingunCasing",random(14,15),-15,random(32,33), random(1,2),0,random(4,6), random(-85,-95))
+		TNT1 A 0 A_PlaySound("CGFIRE")
+		TNT1 A 0 A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		CGGY F 4 Bright
+// 		TNT1 A 0 A_SpawnItemEx("MonsterChaingunCasing",random(14,15),-15,random(32,33), random(1,2),0,random(4,6), random(-85,-95))
+		TNT1 A 0 A_PlaySound("CGFIRE")
+		TNT1 A 0 A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		CGGY E 4 Bright
+		CGGY F 1 Bright A_CPosRefire
+		Goto MissileRefire
+	Pain:
+		CGGY G 3
+		CGGY G 3 A_Pain
+		Goto See
+	Raise:
+		CGGY N 5
+		CGGY MLKJIH 5
+		Goto See
+	
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser(RandomAllDeath, 144.0)
+		Goto RandomDeath
+	
+	RandomDeath:
+		TNT1 A 0 A_RandomJump(CrackDeath, 1D3)
+		TNT1 A 0 A_RandomJump(ExplodeDeath, 1D2)
+		Goto RegularDeath
+	
+	RandomAllDeath:
+		TNT1 A 0 A_RandomJump(CrackDeath, 1D5)
+		TNT1 A 0 A_RandomJump(ExplodeDeath, 1D4)
+		TNT1 A 0 A_RandomJump(HeadDeath, 1D3)
+		TNT1 A 0 A_RandomJump(BackDeath, 1D2)
+		Goto RegularDeath
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto ExplodeDeath
+
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		CGGY H 5
+		TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+		CGGY I 5
+		CGGY J 5
+		CGGY KLM 5
+		CGGY N -1 A_BossDeath
+		Stop
+
+	HeadDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		CGDT A 3 A_SpawnObject(DoubleGuyHead, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+		CGDT BCD 3
+		CGDT E -1 A_BossDeath
+		Stop
+		
+	CrackDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		CGD3 A 3 A_SpawnObject(DoubleGuyHead, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+		CGD3 BC 3
+		CGD3 D -1 A_BossDeath
+		Stop
+		
+	BackDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		CGD2 A 3 A_SpawnObject(DoubleGuyHead, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+		CGD2 BCDE 3
+		CGD2 F -1 A_BossDeath
+		Stop
+	
+	ExplodeDeath:
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		CGGY O 5
+		CGGY P 5 A_XScream
+		CGGY Q 5 
+		CGGY RS 5
+		CGGY T -1 A_BossDeath
+		Stop
+  }
+}
+
+thing DoubleGuyHead
+{
+    Radius 8
+	Height 16
+	Mass 100
+	
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+	
+    States
+    {
+    Spawn:
+		DPHE ABCDE 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -4.0)
+		Loop
+    Death:
+		DPHE A 500
+        Stop
+    }
+}

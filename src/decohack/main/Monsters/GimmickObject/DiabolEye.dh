@@ -1,0 +1,117 @@
+auto thing DiabolistCurseSeeker { +MISSILE }
+auto thing DiabolistCurseStatue {}
+
+thing DiabolistCurseStatue "Diabolist Curse Statue"
+{
+	//$Category "Monsters/Objects"
+	//$Color 18
+	
+	EdNum 10050
+
+	Radius 16
+	Height 54
+	PainChance 0
+	Mass 700
+	ReactionTime 8
+
+	+FULLVOLSOUNDS
+	+SOLID
+
+	SeeSound "MDISIT"
+	
+	States
+	{
+	Spawn:
+		DEYE ABCB 6 Bright A_Look
+		Loop
+	See:
+		TNT1 A 0 A_JumpIfTargetInSight(PlaceFire1)
+		Goto SkipFire1
+	PlaceFire1:
+		TNT1 A 0 A_MonsterProjectile(DiabolistCurseSeeker)
+	SkipFire1:
+		DEYE A 3 Bright
+	
+		TNT1 A 0 A_JumpIfTargetInSight(PlaceFire2)
+		Goto SkipFire2
+	PlaceFire2:
+		TNT1 A 0 A_MonsterProjectile(DiabolistCurseSeeker)
+	SkipFire2:
+		DEYE A 3 Bright
+	
+		TNT1 A 0 A_JumpIfTargetInSight(PlaceFire3)
+		Goto SkipFire3
+	PlaceFire3:
+		TNT1 A 0 A_MonsterProjectile(DiabolistCurseSeeker)
+	SkipFire3:
+		DEYE B 3 Bright
+	
+		TNT1 A 0 A_JumpIfTargetInSight(PlaceFire4)
+		Goto SkipFire4
+	PlaceFire4:
+		TNT1 A 0 A_MonsterProjectile(DiabolistCurseSeeker)
+	SkipFire4:
+		DEYE B 3 Bright
+
+		TNT1 A 0 A_JumpIfTargetInSight(PlaceFire5)
+		Goto SkipFire5
+	PlaceFire5:
+		TNT1 A 0 A_MonsterProjectile(DiabolistCurseSeeker)
+	SkipFire5:
+		DEYE C 3 Bright
+		
+		TNT1 A 0 A_JumpIfTargetInSight(PlaceFire6)
+		Goto SkipFire6
+	PlaceFire6:
+		TNT1 A 0 A_MonsterProjectile(DiabolistCurseSeeker)
+	SkipFire6:
+		DEYE C 3 Bright
+	
+		TNT1 A 0 A_JumpIfTargetInSight(PlaceFire7)
+		Goto SkipFire7
+	PlaceFire7:
+		TNT1 A 0 A_MonsterProjectile(DiabolistCurseSeeker)
+	SkipFire7:
+		DEYE B 3 Bright
+	
+		TNT1 A 0 A_JumpIfTargetInSight(PlaceFire8)
+		Goto SkipFire8
+	PlaceFire8:
+		TNT1 A 0 A_MonsterProjectile(DiabolistCurseSeeker)
+	SkipFire8:
+		DEYE B 3 Bright
+		Goto See
+	}
+}
+
+thing DiabolistCurseSeeker
+{
+	Radius 4
+	Height 8
+	Speed 30
+	Mass 100
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	+NOCLIP
+
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump(SkipSound, 200)
+		TNT1 A 0 A_PlaySound(MDIFLM)
+		Goto SkipSound
+	SkipSound:
+		TNT1 A 0 A_Fire
+		// Attempt at making sure if the player moves out of sight in the 1
+		// frame it takes to spawn, that the plume won't spawn. Otherwise it'll
+		// spawn right in front of the statue awkwardly
+		TNT1 A 0 A_JumpIfTracerInSight(PlaceFire)
+		Stop
+	PlaceFire:
+		TNT1 A 0 A_SpawnObject(DiabolistFireSingle)
+		Stop
+	}
+}

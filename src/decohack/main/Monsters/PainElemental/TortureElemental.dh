@@ -1,0 +1,247 @@
+auto thing TorturedSoulBall { +MISSILE }
+auto thing TorturedSoulBallTrail { }
+auto thing TorturedSoulPoison { +MISSILE }
+auto thing TorturedSoulChunkSpawner {}
+auto thing TorturedSoulChunk { +MISSILE }
+
+auto thing TorturedSoul "Tortured Soul"
+{
+	//$Category "Monsters/Elemental"
+	//$Color 13
+	
+	EdNum 10021
+
+	Health 360
+	Speed 8
+	Radius 30
+	Height 56 
+	PainChance 64
+	Mass 900 
+	ReactionTime 8
+	SplashGroup 270
+
+	+SHOOTABLE
+	+COUNTKILL
+	+SOLID
+	+NOGRAVITY
+	+FLOAT
+	
+	SeeSound "MTSSIT" 
+	PainSound "MTSPN"
+	DeathSound "MTSDTH"
+	ActiveSound "MTSACT"
+	
+	// Obituary "%o was tormented by the Tortured Soul." 
+	States 
+	{ 
+	Spawn: 
+		TORT A 10 A_Look 
+		Loop 
+	See: 
+		TORT AABBCC 3 A_Chase 
+		Loop 
+	Missile: 
+		TORT D 10 A_FaceTarget 
+		TORT E 4 A_FaceTarget 
+		TORT E 0 A_PlaySound("MTSATK")
+		TORT F 4 Bright A_MonsterProjectile(TorturedSoulBall, 0.0) 
+		Goto See 
+	Pain:
+		TORT G 1 A_PlaySound("MTSPSN")
+		// We need the spawning of the projectile to not be the first pain state,
+		// otherwise it seems to trigger for every bullet that causes pain. So if you
+		// shoot it with a shotgun, it shoots more poison than intended
+		TNT1 A 0 A_RandomJump(PainGas1, 1D2)
+		Goto PainGas2
+	PainGas1:
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 15.0)
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 88.0)
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 140.0)
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 205.0)
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 280.0)
+		Goto PainFinish
+	PainGas2:
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 33.0)
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 65.0)
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 112.0)
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 196.0)
+		TNT1 A 0 A_MonsterProjectile(TorturedSoulPoison, 224.0)
+		Goto PainFinish
+	PainFinish:
+		TORT G 2
+		TORT G 3 A_Pain 
+		Goto See 
+	  
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Scream
+		TORT H 3
+		TORT I 3
+		TORT JK 3
+		TORT L 0 A_MonsterProjectile(TorturedSoulPoison, 0.0)
+		TORT L 0 A_MonsterProjectile(TorturedSoulPoison, 45.0)
+		TORT L 0 A_MonsterProjectile(TorturedSoulPoison, 90.0)
+		TORT L 0 A_MonsterProjectile(TorturedSoulPoison, 135.0)
+		TORT L 0 A_MonsterProjectile(TorturedSoulPoison, 180.0)
+		TORT L 0 A_MonsterProjectile(TorturedSoulPoison, 225.0)
+		TORT L 0 A_MonsterProjectile(TorturedSoulPoison, 270.0)
+		TORT L 0 A_MonsterProjectile(TorturedSoulPoison, 315.0)
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		TORT L 4
+		TNT1 AAAA 0 A_SpawnObject(TorturedSoulChunkSpawner)
+		TORT M 4
+		TORT N 4
+		TNT1 A 35 A_BossDeath
+		Stop 
+	} 
+}
+
+thing TorturedSoulBall 
+{
+    Speed 6
+	Radius 8
+	Height 8
+	Damage 2
+    
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+
+    DeathSound "FIRXPL"
+
+    States 
+    { 
+    Spawn:
+		// Commenting this out for now, seems like too much packed into one monster
+// 		TNT1 A 0 A_RandomJump (SpawnLoopTracer, 1D3)
+		HEFG A 1 Bright A_SpawnObject(TorturedSoulBallTrail)
+		HEFG A 1 Bright
+		HEFG B 1 Bright A_SpawnObject(TorturedSoulBallTrail)
+		HEFG B 1 Bright
+        Loop 
+	SpawnLoopTracer:
+		HEFG A 1 Bright A_SpawnObject(TorturedSoulBallTrail)
+		HEFG A 1 Bright
+		HEFG B 1 Bright A_SpawnObject(TorturedSoulBallTrail)
+		HEFG B 1 Bright A_SeekTracer(30.0, 5.0)
+		Goto Spawn
+    Death: 
+		HEFG CD 3 Bright
+		HEFG EF 2 Bright
+		HEFG GH 2 Bright
+        Stop 
+    } 
+}
+
+thing TorturedSoulBallTrail
+{
+	Radius 2
+	Height 4
+
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+TRANSLUCENT
+	
+	States
+	{
+	Spawn:
+		TNT1 A 2
+		GLIT DEFGHIJKLMN 1
+		Stop
+	}
+}
+
+thing TorturedSoulPoison 
+{
+    Radius 4
+    Height 8
+    Speed 2
+	Damage 0
+	Mass 100
+	SplashGroup 270
+
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+    +TRANSLUCENT
+	+RIP
+
+    States 
+    { 
+    Spawn: 
+        TRPS AABBCCDDEEFFGGDDEEFFGGDDEEFFGGDDEEFFGGDDEEFFGGDDCCBBAA 2 A_RadiusDamage(2, 24)
+        Stop 
+    Death: 
+        TRPS DDCCBBAA 2 A_RadiusDamage(2, 24)
+        Stop 
+    } 
+}
+
+thing TorturedSoulChunkSpawner
+{
+	+NOSECTOR
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+TELEPORT
+	
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump(Spawn2, 1D4)
+		TNT1 A 0 A_RandomJump(Spawn3, 1D3)
+		TNT1 A 0 A_RandomJump(Spawn4, 1D2)
+		Goto Spawn1
+	// Random spawn states taken from Smooth Doom 21
+	Spawn1:
+		TNT1 A 1 A_SpawnObject(TorturedSoulChunk, 0.0, -1.0, -0.5, 0.4, 4.1, 2.2, 12.0)
+		stop
+	Spawn2:
+		TNT1 A 1 A_SpawnObject(TorturedSoulChunk, 0.0, 0.8, -0.3, -0.6, -3.0, 1.5, 6.7)
+		stop
+	Spawn3:
+		TNT1 A 1 A_SpawnObject(TorturedSoulChunk, 0.0, -0.4, -0.0, 0.3, -2.4, -4.0, 7.4)
+		stop
+	Spawn4:
+		TNT1 A 1 A_SpawnObject(TorturedSoulChunk, 0.0, -0.2, 0.2, -1.0, -4.6, -3.7, 9.8)
+		stop
+	}
+}
+
+thing TorturedSoulChunk
+{
+    Radius 8
+	Height 16
+	Mass 400
+
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	
+	SeeSound MBLD00
+	DeathSound MBLD01
+
+    States
+    {
+    Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("SpawnA", 1D2)
+		Goto SpawnB
+	SpawnA:
+		TSGI ABCDEFGH 2 //A_SpawnItemEx("NewFlyingBlood",0,0,8,Random(5,-5),Random(5,-5),Random(3,6),0)
+		Loop
+	SpawnB:
+		TSGI IJKLMNOP 2 // A_SpawnItemEx("NewFlyingBlood",0,0,8,Random(5,-5),Random(5,-5),Random(3,6),0)
+		Loop
+    Death:
+		TSGI Q 500
+        Stop
+    }
+}

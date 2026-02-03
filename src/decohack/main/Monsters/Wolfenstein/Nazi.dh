@@ -1,0 +1,142 @@
+auto thing NaziHead { +MISSILE }
+auto thing NaziHelmet { +MISSILE }
+
+thing WolfensteinSS "Nazi MP40"
+{
+	//$Category "Monsters/Wolfenstein"
+	//$Color 1
+	
+	Health 60
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 10
+	
+	seesound "NASIT"
+	painsound "NAPAIN"
+	deathsound "NADTH"
+	
+	splashgroup 180
+	infightinggroup 180
+	projectilegroup  180
+	
+	dropitem MTF_AMMO_BULLETS
+	clear states
+	States
+	{
+	Spawn:
+		NAZI A 10 A_Look
+		Loop
+	See:
+		NAZI AABBCC 2 A_Chase
+		Loop
+	Missile:
+		TNT1 A 0 A_PlaySound("NAFIRE")
+	Missile2:
+		NAZI E 2 A_FaceTarget
+		NAZI F 2 Bright
+		{
+					A_PlaySound("MP40FI")
+					A_MonsterBulletAttack(14.0, 0.0, 1, 4, 1)
+		}
+		NAZI E 2 A_FaceTarget
+		NAZI F 2 Bright
+		{
+					A_PlaySound("MP40FI")
+					A_MonsterBulletAttack(14.0, 1.0, 1, 4, 1)
+		}
+		NAZI F 1 A_CPosRefire	
+		Goto Missile2
+	Pain:
+		NAZI G 3
+		NAZI G 3 A_Pain
+		Goto See
+	Raise:
+		NAZI L 5
+		NAZI KJIH 5
+		Goto See
+		
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto DeathRandom1
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto HeadDeath
+		
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump(HeadDeath, 1D2)
+		Goto RegularDeath
+	
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 24.0)
+		TNT1 A 0 A_Scream
+		NAZI H 5
+		NAZI I 5
+		NAZI J 5
+		NAZI KL 5 A_Stop
+		NAZI L -1 A_BossDeath
+		Stop
+		
+	HeadDeath:
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		TNT1 A 0 A_SpawnObject(NaziHead, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+		NAZH A 4 A_SpawnObject(NaziHelmet, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+		NAZH B 4 
+		NAZH C 4
+		NAZH D 4
+		NAZH E 4
+		NAZH E -1 A_BossDeath
+		Stop
+	}
+}
+
+thing NaziHead
+{
+    Radius 8
+	Height 16
+	Mass 100
+	
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+	
+    States
+    {
+    Spawn:
+		BR8B ABCDEIJKL 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -4.0)
+		Loop
+    Death:
+		BR8B A 500
+        Stop
+    }
+}
+
+thing NaziHelmet
+{
+    Radius 8
+	Height 16
+	Mass 100
+	
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+	
+    States
+    {
+    Spawn:
+		GERH ABCD 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -4.0)
+		Loop
+    Death:
+		GERH A 500
+        Stop
+    }
+}

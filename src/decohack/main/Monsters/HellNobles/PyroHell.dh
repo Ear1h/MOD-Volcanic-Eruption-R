@@ -1,0 +1,294 @@
+auto thing PyroBall {}
+auto thing PyroFire {}
+auto thing PyroDemonHead {+MISSILE}
+auto thing PyroDemonTorso {+MISSILE}
+auto thing PyroDemonHorn1 {+MISSILE}
+auto thing PyroDemonHorn2 {+MISSILE}
+
+auto thing PyroDemon: thing BaronOfHell "Fire Baron"
+{
+	//$Category "Monsters/Nobles"
+	//$Color 2
+	EdNum 10014
+
+	Health 1200
+	Speed 10
+	Radius 24
+	Height 64
+	ReactionTime 8
+	PainChance 10
+	Mass 1000
+	projectilegroup 181
+	SplashGroup 181
+
+	clear flags
+	+SOLID
+	+SHOOTABLE
+	+COUNTKILL
+	+NOBLOOD
+
+	SeeSound  "PYSIT"
+	
+	clear states
+
+	states
+	{
+			Spawn:
+		PYRO A 10 A_Look
+		Loop
+	See:
+		PYRO AA 3 A_Chase
+		PYRO BB 3 A_Chase
+		PYRO CC 3 A_Chase
+		PYRO DD 3 A_Chase
+		Loop
+	Missile:
+		PYRO MN 8 Bright A_FaceTarget
+		PYRO O 4 Bright A_MonsterProjectile (PyroBall)
+		PYRO P 4 Bright
+		Goto See
+	Pain:
+		PYRO Q 2
+		PYRO Q 2 A_Pain
+		Goto See
+		
+	// ****************************
+	// DAMAGE TYPE DEATH SWITCHES
+	// ****************************
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser("DeathRandom2", 64.0)
+		Goto DeathRandom1
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto TorsolessDeath
+		
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump("HeadlessDeath", 1D2)
+		Goto RegularDeath
+		
+	DeathRandom2:
+		TNT1 A 0 A_RandomJump("TorsolessDeath", 1D3)
+		TNT1 A 0 A_RandomJump("HeadlessDeath", 1D2)
+		Goto RegularDeath
+	
+	
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		PYD1 A 16
+		PYD1 BBBBCCCCDDDDEEEE 1
+		PYD1 F 0 A_PlaySound("PYFD1")
+		PYD1 F 4
+		PYD1 GGGGHHHHIIIIJJJJKKLL 1
+		PYD1 M -1
+		Stop
+	
+	HeadlessDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_SpawnObject(PyroDemonHead, -180.0, 0.0, 0.0, 56.0, 10.0, 0.0, 6.0)
+		TNT1 A 0 A_SpawnObject(PyroDemonHorn1, 43.0, 0.0, 0.0, 60.0, 5.0, 0.0, 4.0)
+		TNT1 A 0 A_SpawnObject(PyroDemonHorn1, 098.0, 0.0, 0.0, 62.0, 7.0, 0.0, 1.0)
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		PYD2 A 16
+		PYD2 BBBBCCCCDDDDEEEE 1
+		PYD2 F 0 A_PlaySound("PYFD1")
+		PYD2 FFFF 1 
+		PYD1 GGGGHHHHIIIIJJJJKKLL 1 
+		PYD1 M -1
+		Stop
+	
+	TorsolessDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_SpawnObject(PyroDemonHead, -180.0, 0.0, 0.0, 56.0, 10.0, 0.0, 6.0)
+		TNT1 A 0 A_SpawnObject(PyroDemonHorn1, 43.0, 0.0, 0.0, 60.0, 5.0, 0.0, 4.0)
+		TNT1 A 0 A_SpawnObject(PyroDemonTorso, 0.0, 0.0, 0.0, 56.0, 10.0, 0.0, 6.0)
+		TNT1 A 0 A_SpawnObject(PyroDemonHorn1, 098.0, 0.0, 0.0, 62.0, 7.0, 0.0, 1.0)
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		PYD3 A 16
+		PYD3 B 4
+		PYD3 C 12
+		PYD3 F 0 A_PlaySound("PYFD1")
+		PYD3 FFFF 1
+		PYD3 GGGGHHHH 1
+		PYD1 IIIIJJJJKKLL 1 
+		PYD1 M -1
+		Stop
+	}
+}
+
+thing PyroBall "Pyro Ball"
+{
+	Damage 5
+	Speed 15
+	FastSpeed 20
+	projectilegroup 181
+	infightinggroup 181
+	SplashGroup 181
+	Radius 6
+	Height 16
+
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	+TRANSLUCENT
+
+	SeeSound  PYFD2
+	DeathSound BAREXP
+
+	states
+	{
+		spawn:
+			DCMT ABC 4 Bright
+			loop
+		death:
+			TNT1 A 0  A_PlaySound("BAREXP")
+			TNT1 A 0 A_SpawnObject(PyroFire)
+			PCMD ABCDEFGHIJKLMN 2 Bright
+			stop
+	}
+}
+
+thing PyroFire
+{
+	SplashGroup 181
+	+DROPOFF
+	+TRANSLUCENT
+	
+	states
+	{
+		spawn:
+				CFCF A 4 bright A_RadiusDamage(10, 128)
+				CFCF B 4 bright
+				CFCF C 4 bright
+				CFCF D 0 bright A_PlaySound(PYGFR)
+				CFCF D 4 bright A_RadiusDamage(10, 128)
+				CFCF E 4 bright
+				CFCF F 4 bright
+				CFCF G 4 bright A_RadiusDamage(10, 128)
+				CFCF H 4 bright
+				CFCF I 4 bright
+				CFCF J 0 bright A_PlaySound(PYGFR)
+				CFCF J 4 bright A_RadiusDamage(10, 128)
+				CFCF K 4 bright
+				CFCF L 4 bright
+				CFCF M 4 bright A_RadiusDamage(10, 128)
+				CFCF N 4 bright
+				CFCF A 4 bright
+				CFCF B 0 bright A_PlaySound(PYGFR)
+				CFCF B 4 bright A_RadiusDamage(10, 128)
+				CFCF C 4 bright
+				CFCF D 4 bright
+				CFCF E 4 bright A_RadiusDamage(10, 128)
+				CFCF F 4 bright
+				CFCF G 4 bright
+				CFCF H 0 bright A_PlaySound(PYGFR)
+				CFCF H 4 bright A_RadiusDamage(10, 128)
+				CFCF I 4 bright
+				CFCF K 4 bright
+				CFCF L 4 bright A_RadiusDamage(10, 128)
+				CFCF M 4 bright
+				CFCF N 4 bright 	A_PlaySound(PYGFR)
+				CFCF OP 4
+				stop
+	}
+}
+
+thing PyroDemonHead
+{
+    Radius 8
+    Height 16
+	Speed 7
+	Mass 4
+    +NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+    States
+    {
+    Spawn:
+		PHDL ABCDEFGH 3
+		Loop
+    Death:
+		TNT1 A 0 A_PlaySound("PYFD2")
+		TNT1 A 0 A_RemoveFlags(NOBLOCKMAP)
+		PHDL  H 500
+		Stop
+    }
+}
+
+thing PyroDemonTorso
+{
+    Radius 8
+    Height 16
+	Speed 7
+	Mass 4
+
+		+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+	
+    States
+    {
+    Spawn:
+		PYCL EFGHABCD 3
+		Loop
+    Death:
+		TNT1 A 0 A_PlaySound("PYFD2")
+		TNT1 A 0 A_RemoveFlags(NOBLOCKMAP)
+		PYCL D 500
+		Stop
+    }
+}
+
+thing PyroDemonHorn1
+{
+    Radius 4
+    Height 8
+	Speed 7
+	Mass 4
+	
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+	
+    States
+    {
+    Spawn:
+		PHN1 ABCDEFGH 3
+		Loop
+    Death:
+		TNT1 A 0 A_RemoveFlags(NOBLOCKMAP)
+		PHN1 D 500
+		Stop
+    }
+}
+
+thing PyroDemonHorn2 : thing PyroDemonHorn1
+{
+    States
+    {
+    Spawn:
+		PHN2 HGFEDCBA 3
+		Loop
+    Death:
+		TNT1 A 0 A_RemoveFlags(NOBLOCKMAP)
+		PHN2 A 500
+		Stop
+    }
+}

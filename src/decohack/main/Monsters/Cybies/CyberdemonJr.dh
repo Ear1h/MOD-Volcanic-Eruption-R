@@ -1,0 +1,52 @@
+auto thing CyberdemonJr: thing Cyberdemon "Weak Cyberdemon"
+{
+	//$Category "Monsters/Cybies"
+	//$Color 17
+	
+	Health 1000
+	SplashGroup 16
+	ProjectileGroup 16
+	Ednum 10041
+	
+	clear states
+	States
+	{
+	Spawn:
+		WEAK A 10 A_Look
+		Loop
+	See:
+		WEAK A 3 A_Hoof
+		WEAK ABBCC 3 A_Chase
+		WEAK D 3 A_Metal
+		WEAK D 3 A_Chase
+		Loop
+	Missile:
+		WEAK E 6 A_FaceTarget
+		TNT1 A 0 A_PlaySound("RLFIR")
+		WEAK F 8 Bright A_MonsterProjectile(MonsterDarkRocket, 0.0, 0.0, 0.0, CYBERDEMON_ROCKET_FIRE_Z)
+		WEAK E 4
+		WEAK E 12 A_FaceTarget
+		TNT1 A 0 A_PlaySound("RLFIR")
+		WEAK F 8 Bright A_MonsterProjectile(MonsterDarkRocket, 0.0, 0.0, 0.0, CYBERDEMON_ROCKET_FIRE_Z)
+		WEAK E 4
+		WEAK E 12 A_FaceTarget
+		TNT1 A 0 A_PlaySound("RLFIR")
+		WEAK F 8 Bright A_MonsterProjectile(MonsterDarkRocket, 0.0, 0.0, 0.0, CYBERDEMON_ROCKET_FIRE_Z)
+		WEAK E 4
+		Goto See
+	Pain:
+		WEAK G 10 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		WEAK H 10
+		WEAK I 5 A_Scream
+		WEAK JK 6
+		WEAK LM 6 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		WEAK NO 6
+		WEAK P 30
+		WEAK P -1 A_BossDeath
+		Stop
+	}
+}

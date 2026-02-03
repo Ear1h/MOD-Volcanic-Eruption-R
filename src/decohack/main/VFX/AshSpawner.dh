@@ -1,0 +1,584 @@
+auto thing AshFallVFX "Ash Falling"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	
+	States
+	{
+	Spawn:
+		ASHX ABCDEFGH 3
+		Loop
+	Death:
+		ASHX F 175
+		Stop
+	}
+}
+
+auto thing AshFallVFX2 "Ash Falling 2"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	
+	States
+	{
+	Spawn:
+		ASHV ABCDEFGH 3
+		Loop
+	Death:
+		ASHV F 175
+		Stop
+	}
+}
+
+auto thing AshFallVFX3 "Ash Falling 3"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	
+	States
+	{
+	Spawn:
+		ASHZ ABC 6
+		Loop
+	Death:
+		ASHZ C 175
+		Stop
+	}
+}
+
+Auto thing AshSpawner "Ash Spawner (256x256)"
+{
+	//$Category "VFX Spawners/Ashes"
+	//$Color 16
+	//$Sprite "ASHIA1"
+	
+	EdNum 29906
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Ash, 254)
+		TNT1 A 35
+		Loop
+	Ash:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Ash1",32)
+		TNT1 A 0 A_RandomJump("Ash2",32)
+		TNT1 A 0 A_RandomJump("Ash3",32)
+		TNT1 A 0 A_RandomJump("Ash4",32)
+		TNT1 A 0 A_RandomJump("Ash5",32)
+		TNT1 A 0 A_RandomJump("Ash6",32)
+		TNT1 A 0 A_RandomJump("Ash7",32)
+		TNT1 A 0 A_RandomJump("Ash8",32)
+		Goto Spawn
+	Ash1:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -32.0, 64.0, 0.0, 0.0, 0.0,   -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 48.0, 80.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, 48.0, 0.0, 0.0, 0.0,   -0.8)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 80.0, -32.0, 0.0, 0.0, 0.0,  -0.9)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 16.0, 48.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -0.8)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -64.0, 112.0, 0.0, 0.0, 0.0,  -1.2)
+		Goto Spawn
+	Ash2:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -32.0, 64.0, 0.0, 0.0, 0.0,   -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 48.0, 80.0, 0.0, 0.0, 0.0,   -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 0.0, 48.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 80.0, -32.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 16.0, 48.0, 0.0, 0.0, 0.0,   -1.1)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -1.3)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -64.0, 112.0, 0.0, 0.0, 0.0,  -1.4)
+		Goto Spawn
+	Ash3:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -112.0, 48.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -16.0, 64.0, 0.0, 0.0, 0.0,   -1.3)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -80.0, 112.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, -64.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -48.0, 16.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 112.0, 48.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -48.0, -32.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -48.0, -16.0, 0.0, 0.0, 0.0,  -1.6)
+		Goto Spawn
+	Ash4:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -64.0, -80.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -48.0, 64.0, 0.0, 0.0, 0.0,   -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, -16.0, 32.0, 0.0, 0.0, 0.0,   -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -48.0, -48.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -96.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 48.0, -16.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 48.0, 32.0, 0.0, 0.0, 0.0,   -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -96.0, -48.0, 0.0, 0.0, 0.0,  -1.4)
+		Goto Spawn
+	Ash5:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 48.0, -48.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, -64.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 96.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 96.0, 128.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, -32.0, 16.0, 0.0, 0.0, 0.0,   -1.0)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 96.0, -80.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -80.0, 48.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -64.0, 96.0, 0.0, 0.0, 0.0,   -1.2)
+		Goto Spawn
+	Ash6:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, -80.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 48.0, -32.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 80.0, 48.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, -80.0, 128.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -80.0, 80.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 16.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 128.0, -32.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, -16.0, 0.0, 0.0, 0.0,  -1.6)
+		Goto Spawn
+	Ash7:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -48.0, 80.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 112.0, 0.0,  0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, -32.0, -64.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -80.0, 64.0, 0.0, 0.0, 0.0,   -1.3)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 64.0, 112.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, -48.0, -112.0, 0.0, 0.0, 0.0, -1.2)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 80.0, 64.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, -16.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		Goto Spawn
+	Ash8:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, -64.0, 48.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 16.0, 128.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 112.0, -96.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 32.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 80.0, 128.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, -32.0, -112.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 48.0, 48.0, 0.0, 0.0, 0.0,   -1.4)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 96.0, 32.0, 0.0, 0.0, 0.0,   -1.2)
+		Goto Spawn
+	}
+}
+
+Auto thing AshSpawner2 "Ash Spawner (128x128)"
+{
+	//$Category "VFX Spawners/Ashes"
+	//$Color 16
+	//$Sprite "ASHIA2"
+	
+	EdNum 29907
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Ash, 254)
+		TNT1 A 35
+		Loop
+	Ash:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Ash1",32)
+		TNT1 A 0 A_RandomJump("Ash2",32)
+		TNT1 A 0 A_RandomJump("Ash3",32)
+		TNT1 A 0 A_RandomJump("Ash4",32)
+		TNT1 A 0 A_RandomJump("Ash5",32)
+		TNT1 A 0 A_RandomJump("Ash6",32)
+		TNT1 A 0 A_RandomJump("Ash7",32)
+		TNT1 A 0 A_RandomJump("Ash8",32)
+		Goto Spawn
+	Ash1:
+		TNT1 A 0 A_Turn(90)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 8.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 56.0, -24.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -24.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 48.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -56.0, 8.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, 24.0, -32.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -32.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 40.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		Goto Spawn
+	Ash2:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -16.0, 32.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 24.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, 0.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 40.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 8.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -8.0, -8.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -8.0, 8.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -32.0, 56.0, 0.0, 0.0, 0.0,  -1.7)
+		Goto Spawn
+	Ash3:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -56.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -8.0, 32.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -40.0, 56.0, 0.0, 0.0, 0.0,  -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -32.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -24.0, 8.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 56.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -24.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -24.0, -8.0, 0.0, 0.0, 0.0,  -1.6)
+		Goto Spawn
+	Ash4:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -32.0, -40.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -24.0, 32.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -8.0, 16.0, 0.0, 0.0, 0.0,   -1.6)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -24.0, -24.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -48.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, 24.0, -8.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 24.0, 16.0, 0.0, 0.0, 0.0,   -1.6)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -48.0, -24.0, 0.0, 0.0, 0.0,  -1.2)
+		Goto Spawn
+	Ash5:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, 24.0, -24.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 0.0, -32.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 48.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 48.0, 64.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -16.0, 8.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, 48.0, -40.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -40.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -32.0, 48.0, 0.0, 0.0, 0.0,   -1.6)
+		Goto Spawn
+	Ash6:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 0.0, -40.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 24.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 40.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -40.0, 64.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -40.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 8.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, 64.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 0.0, -8.0, 0.0, 0.0, 0.0,  -1.6)
+		Goto Spawn
+	Ash7:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -24.0, 40.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 56.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -16.0, -32.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -40.0, 32.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, 32.0, 56.0, 0.0, 0.0, 0.0,  -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, -24.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 40.0, 32.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -8.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		Goto Spawn
+	Ash8:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, -32.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 8.0, 64.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, 56.0, -48.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 16.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX2, 0.0, 40.0, 64.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 8 A_SpawnObject(AshFallVFX3, 0.0, -16.0, -56.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 24.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 8 A_SpawnObject(AshFallVFX, 0.0, 48.0, 16.0, 0.0, 0.0, 0.0,   -1.6)
+		Goto Spawn
+	}
+}
+
+Auto thing AshSpawner3 "Ash Spawner (64x64)"
+{
+	//$Category "VFX Spawners/Ashes"
+	//$Color 16
+	//$Sprite "ASHIA3"
+	
+	EdNum 29908
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Ash, 254)
+		TNT1 A 35
+		Loop
+	Ash:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Ash1",26)
+		TNT1 A 0 A_RandomJump("Ash2",26)
+		TNT1 A 0 A_RandomJump("Ash3",26)
+		TNT1 A 0 A_RandomJump("Ash4",26)
+		TNT1 A 0 A_RandomJump("Ash5",26)
+		TNT1 A 0 A_RandomJump("Ash6",26)
+		TNT1 A 0 A_RandomJump("Ash7",26)
+		TNT1 A 0 A_RandomJump("Ash8",26)
+		Goto Spawn
+	Ash1:
+		TNT1 A 0 A_Turn(90)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 4.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 28.0, -24.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -24.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 24.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -28.0, 4.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, 24.0, -16.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -16.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 20.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		Goto Spawn
+	Ash2:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -16.0, 16.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 24.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 0.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 20.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 4.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -4.0, -4.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, -4.0, 4.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -16.0, 28.0, 0.0, 0.0, 0.0,  -1.7)
+		Goto Spawn
+	Ash3:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -28.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -4.0, 16.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -20.0, 28.0, 0.0, 0.0, 0.0,  -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, -16.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -24.0, 4.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 28.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -24.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -24.0, -4.0, 0.0, 0.0, 0.0,  -1.6)
+		Goto Spawn
+	Ash4:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -16.0, -20.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -24.0, 16.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -4.0, 16.0, 0.0, 0.0, 0.0,   -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -24.0, -24.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, -24.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 24.0, -4.0, 0.0, 0.0, 0.0,  -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 24.0, 16.0, 0.0, 0.0, 0.0,   -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, -24.0, -24.0, 0.0, 0.0, 0.0,  -1.2)
+		Goto Spawn
+	Ash5:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 24.0, -24.0, 0.0, 0.0, 0.0,  -1.2)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 0.0, -16.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 24.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 24.0, 32.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, -16.0, 4.0, 0.0, 0.0, 0.0,   -1.5)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 24.0, -20.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -20.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, -16.0, 44.0, 0.0, 0.0, 0.0,   -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 0.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		Goto Spawn
+	Ash6:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 0.0, -20.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 24.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 20.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, -20.0, 32.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -20.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 4.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 32.0, -16.0, 0.0, 0.0, 0.0,  -1.4)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 0.0, -4.0, 0.0, 0.0, 0.0,  -1.6)
+		Goto Spawn
+	Ash7:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -24.0, 20.0, 0.0, 0.0, 0.0,   -3.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 28.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -16.0, -16.0, 0.0, 0.0, 0.0,  -1.0)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, -20.0, 16.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 16.0, 28.0, 0.0, 0.0, 0.0,  -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, -24.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 20.0, 16.0, 0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -4.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		Goto Spawn
+	Ash8:
+		TNT1 A 0 A_Turn(90)	
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -16.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 4.0, 32.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX3, 0.0, 28.0, -24.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 16.0, 0.0,  0.0, 0.0, 0.0,   -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 20.0, 32.0, 0.0, 0.0, 0.0,  -1.8)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, -16.0, -28.0, 0.0, 0.0, 0.0, -1.6)
+		TNT1 A 16 A_SpawnObject(AshFallVFX, 0.0, 24.0, 24.0, 0.0, 0.0, 0.0,   -1.7)
+		TNT1 A 16 A_SpawnObject(AshFallVFX2, 0.0, 24.0, 16.0, 0.0, 0.0, 0.0,   -1.6)
+		Goto Spawn
+	}
+}
+
+Auto thing AshSpawner4 "Ash Spawner (Single)"
+{
+	//$Category "VFX Spawners/Ashes"
+	//$Color 16
+	//$Sprite "ASHIA4"
+	
+	EdNum 29909
+	
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Ash, 254)
+		TNT1 A 35
+		Loop
+	Ash:
+		TNT1 A 20
+		TNT1 A 0 A_RandomJump("Ash1",7)
+		TNT1 A 0 A_RandomJump("Ash2",7)
+		TNT1 A 0 A_RandomJump("Ash3",7)
+		TNT1 A 0 A_RandomJump("Ash4",7)
+		TNT1 A 0 A_RandomJump("Ash5",7)
+		TNT1 A 0 A_RandomJump("Ash6",7)
+		TNT1 A 0 A_RandomJump("Ash7",7)
+		TNT1 A 0 A_RandomJump("Ash8",7)
+		Goto Spawn
+	Ash1:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.6)
+		Goto Spawn
+		Ash2:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+		Ash3:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.0)
+		Goto Spawn
+		Ash4:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.2)
+		Goto Spawn
+		Ash5:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,   -1.4)
+		Goto Spawn
+		Ash6:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+		Ash7:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.5)
+		Goto Spawn
+		Ash8:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.6)
+		Goto Spawn
+	}
+}
+
+Auto thing AshSpawner5 "Ash Spawner (Single frequent)"
+{
+	//$Category "VFX Spawners/Ashes"
+	//$Color 16
+	//$Sprite "ASHIA5"
+	
+	EdNum 29910
+	
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 2 A_Turn(90)
+		TNT1 A 1 A_RandomJump(Ash, 254)
+		TNT1 A 35
+		Loop
+	Ash:
+		TNT1 A 15
+		TNT1 A 0 A_RandomJump("Ash1",15)
+		TNT1 A 0 A_RandomJump("Ash2",15)
+		TNT1 A 0 A_RandomJump("Ash3",15)
+		TNT1 A 0 A_RandomJump("Ash4",15)
+		TNT1 A 0 A_RandomJump("Ash5",15)
+		TNT1 A 0 A_RandomJump("Ash6",15)
+		TNT1 A 0 A_RandomJump("Ash7",15)
+		TNT1 A 0 A_RandomJump("Ash8",15)
+		Goto Spawn
+	Ash1:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.6)
+		Goto Spawn
+		Ash2:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+		Ash3:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.0)
+		Goto Spawn
+		Ash4:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.2)
+		Goto Spawn
+		Ash5:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,   -1.4)
+		Goto Spawn
+		Ash6:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -1.8)
+		Goto Spawn
+		Ash7:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX, 0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   -1.5)
+		Goto Spawn
+		Ash8:
+		TNT1 A 4 A_Turn(90)
+		TNT1 A 4 A_SpawnObject(AshFallVFX2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.6)
+		Goto Spawn
+		}
+}

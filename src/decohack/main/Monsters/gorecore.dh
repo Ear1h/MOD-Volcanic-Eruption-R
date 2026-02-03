@@ -1,0 +1,679 @@
+// BEGIN: copied from Smooth Doom 21
+// Chance values used by the randomizers.
+//
+// Formula: (256 / x) - 1
+// 'x' is the number of remaining outcomes.
+// The result is rounded to the nearest integer.
+//
+// Since the jump chance for "Spawn1" would be 255 with said formula,
+// therefore always succeeding, we just go straight to that state.
+//
+// Example:
+//
+//     TNT1 A 0 A_RandomJump("Spawn8", round((256 / 8) - 1))
+//     TNT1 A 0 A_RandomJump("Spawn15", round((256 / 15) - 1))
+//     ...
+//     TNT1 A 0 A_RandomJump("Spawn2",  round((256 /  2) - 1))
+//   Spawn1:
+//     ...
+//
+// Thanks to chulgonoxl!
+#define 1D16 15
+#define 1D15 16
+#define 1D14 17
+#define 1D13 19
+#define 1D12 20
+#define 1D11 22
+#define 1D10 25
+#define 1D9  27
+#define 1D8  31
+#define 1D7  35
+#define 1D6  42
+#define 1D5  50
+#define 1D4  63
+#define 1D3  84
+#define 1D2  127
+
+// #For all these spawners, note that you need the 1 actual frame at the start
+// otherwise none of the code pointers after it will run? IDK why this is. In
+// ZDoom the catch is that you can't call any code pointers on the first frame,
+// but I guess outside ZDoom you also can't start with a 0 duration frame or
+// the rest of the states break?
+// - tango
+#define RANDOMSPAWN16                    \
+  TNT1 A 1                               \
+  TNT1 A 0 A_RandomJump("Spawn16", 1D16) \
+  TNT1 A 0 A_RandomJump("Spawn15", 1D15) \
+  TNT1 A 0 A_RandomJump("Spawn14", 1D14) \
+  TNT1 A 0 A_RandomJump("Spawn13", 1D13) \
+  TNT1 A 0 A_RandomJump("Spawn12", 1D12) \
+  TNT1 A 0 A_RandomJump("Spawn11", 1D11) \
+  TNT1 A 0 A_RandomJump("Spawn10", 1D10) \
+  TNT1 A 0 A_RandomJump("Spawn9",  1D9)  \
+  TNT1 A 0 A_RandomJump("Spawn8",  1D8)  \
+  TNT1 A 0 A_RandomJump("Spawn7",  1D7)  \
+  TNT1 A 0 A_RandomJump("Spawn6",  1D6)  \
+  TNT1 A 0 A_RandomJump("Spawn5",  1D5)  \
+  TNT1 A 0 A_RandomJump("Spawn4",  1D4)  \
+  TNT1 A 0 A_RandomJump("Spawn3",  1D3)  \
+  TNT1 A 0 A_RandomJump("Spawn2",  1D2)
+  
+#define RANDOMSPAWN8                     \
+  TNT1 A 1                               \
+  TNT1 A 0 A_RandomJump("Spawn8",  1D8)  \
+  TNT1 A 0 A_RandomJump("Spawn7",  1D7)  \
+  TNT1 A 0 A_RandomJump("Spawn6",  1D6)  \
+  TNT1 A 0 A_RandomJump("Spawn5",  1D5)  \
+  TNT1 A 0 A_RandomJump("Spawn4",  1D4)  \
+  TNT1 A 0 A_RandomJump("Spawn3",  1D3)  \
+  TNT1 A 0 A_RandomJump("Spawn2",  1D2)
+  
+#define RANDOMSPAWN8NODELAY              \
+  TNT1 A 0 A_RandomJump("Spawn8",  1D8)  \
+  TNT1 A 0 A_RandomJump("Spawn7",  1D7)  \
+  TNT1 A 0 A_RandomJump("Spawn6",  1D6)  \
+  TNT1 A 0 A_RandomJump("Spawn5",  1D5)  \
+  TNT1 A 0 A_RandomJump("Spawn4",  1D4)  \
+  TNT1 A 0 A_RandomJump("Spawn3",  1D3)  \
+  TNT1 A 0 A_RandomJump("Spawn2",  1D2)
+
+#define DUMMY_FLAGS \
+  +NOSECTOR         \
+  +NOBLOCKMAP       \
+  +NOGRAVITY        \
+  +TELEPORT
+// END: copied from Smooth Doom 21
+
+auto thing SpawnedBlood {}
+auto thing SpawnedBloodFalling {}
+auto thing FlyingBloodSpawner {}
+auto thing FlyingBlood {}
+auto thing FlyingBloodTrail {}
+
+state unprotect 90 to 92
+state free 90 to 92
+thing Blood
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+NOCLIP
+	+TELEPORT
+
+	clear states
+
+	States
+	{
+	Spawn:
+		TNT1 AAA 0
+		// Chance to stay in this actor and show blood that
+		// is affected by gravity
+		TNT1 A 1 A_RandomJump(SkipFlyingBlood, 180)
+		TNT1 A 0 A_SpawnObject(FlyingBloodSpawner)
+		Goto SkipFlyingBlood
+	SkipFlyingBlood:
+		TNT1 A 1 A_SpawnObject(SpawnedBlood)
+		Stop
+	}
+}
+
+thing SpawnedBlood
+{
+	+DROPOFF
+	+TELEPORT
+	+NOBLOCKMAP
+	+NOGRAVITY
+
+	// IDK proper syntax for defining states once then
+	// including them in 2 places, so this is just a near copy
+	// of the states from Blood below
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		// Chance to jump to displaying the alt sprites
+		TNT1 A 0 A_RandomJump(Version2, 128)
+	Version1:
+		BLUD A 2
+		BLUD B 2
+		// Chance to skip ahead in the animation just for
+		// some RNG flair
+		TNT1 A 0 A_RandomJump(SkipFrames1, 128)
+		BLUD C 2
+		BLUD D 2
+		SkipFrames1:
+		BLUD E 2
+		BLUD F 1
+		TNT1 A 0 A_RandomJump(SkipFrames2, 128)
+		BLUD G 2
+		BLUD H 2
+		SkipFrames2:
+		BLUD I 2
+		Stop
+	Version2:
+		BLUD J 2
+		BLUD K 1
+		TNT1 A 0 A_RandomJump(SkipFrames3, 128)
+		BLUD L 2
+		SkipFrames3:
+		BLUD M 1
+		TNT1 A 0 A_RandomJump(SkipFrames4, 128)
+		BLUD N 2
+		BLUD O 2
+		SkipFrames4:
+		BLUD P 1
+		BLUD Q 2
+		Stop
+	}
+}
+
+// Taken from BloodFlyingBloodSpawner1 code from Smooth Doom 21
+thing FlyingBloodSpawner
+{
+	DUMMY_FLAGS
+
+	States
+	{
+	Spawn:
+		RANDOMSPAWN16
+	// Ranges:
+	//  x_vel = [-4.0, 4.0]
+	//  y_vel = [-4.0, 4.0]
+	//  z_vel = [ 4.0, 8.0]
+	Spawn1:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, -3.9, -3.4, 5.1)
+		stop
+	Spawn2:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 2.8, -1.3, 4.7)
+		stop
+	Spawn3:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 1.0, 3.3, 7.5)
+		stop
+	Spawn4:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 3.6, -2.4, 4.8)
+		stop
+	Spawn5:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 3.6, -2.6, 7.7)
+		stop
+	Spawn6:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, -1.7, 1.3, 6.4)
+		stop
+	Spawn7:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, -1.1, -3.1, 7.6)
+		stop
+	Spawn8:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, -1.9, -1.7, 4.5)
+		stop
+	Spawn9:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 0.7, 4.0, 4.6)
+		stop
+	Spawn10:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, -1.1, -1.5, 7.2)
+		stop
+	Spawn11:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, -0.1, 2.6, 7.5)
+		stop
+	Spawn12:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 3.2, -0.8, 5.9)
+		stop
+	Spawn13:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 2.2, -1.9, 5.6)
+		stop
+	Spawn14:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 0.6, 2.4, 6.8)
+		stop
+	Spawn15:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 0.2, 0.3, 6.3)
+		stop
+	Spawn16:
+		TNT1 A 1 A_SpawnObject(FlyingBlood, 0.0, 0.0, 0.0, 0.0, 3.4, -0.9, 4.5)
+		stop
+	}
+}
+
+thing FlyingBlood
+{
+	Radius 2
+	Height 4
+	Mass 1
+
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+
+	States
+	{
+	Spawn:
+		FBLD AAABBBCCCDDD 1 A_SpawnObject(FlyingBloodTrail)
+		Stop
+	}
+}
+
+thing FlyingBloodTrail
+{
+	Radius 2
+	Height 4
+
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump(DoNothing, 1D2)
+		FBLT ABCD 2
+		Stop
+	DoNothing:
+		TNT1 A 0
+		Stop
+	}
+}
+
+auto thing Gibs1 { +MISSILE }
+auto thing Gibs2 { +MISSILE }
+auto thing Gibs3 { +MISSILE }
+auto thing Gibs4 { +MISSILE }
+auto thing Brain1 { +MISSILE }
+auto thing RandomGibSeeSound {}
+auto thing RandomGibDeathSound {}
+// Ranges:
+//  x_vel = [-4.0, -8.0]
+//  y_vel = [-3.0, 3.0]
+//  z_vel = [2.0, 8.0]
+// Quick JavaScript functions to generate these:
+// ```
+// const getRandom = (min, max) => (Math.random() * (max - min) + min).toFixed(1)
+// let defineRandom = (count) => { let str = '\n'; for (let i = 0; i < count; i++) { str += `#define RANDOM_GIB_VEL_${i + 1} ${getRandom(-12, -4)}, ${getRandom(-5, 5)}, ${getRandom(8, 16)}\n` } return str }
+// defineRandom(8)
+// ```
+#define RANDOM_GIB_VEL_1 -8.2, -0.1, 11.6
+#define RANDOM_GIB_VEL_2 -4.9, 2.7, 8.9
+#define RANDOM_GIB_VEL_3 -10.1, 0.1, 14.6
+#define RANDOM_GIB_VEL_4 -11.8, -3.9, 15.5
+#define RANDOM_GIB_VEL_5 -8.6, 2.9, 12.4
+#define RANDOM_GIB_VEL_6 -5.1, -0.3, 8.2
+#define RANDOM_GIB_VEL_7 -11.0, -1.6, 14.7
+#define RANDOM_GIB_VEL_8 -4.8, 3.5, 9.8
+
+auto thing GibSpawnerM
+{
+	DUMMY_FLAGS
+	
+	+MISSILE
+
+	States
+	{
+	Death:
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_SpawnObject(RandomGibSeeSound)
+		RANDOMSPAWN8NODELAY
+	Spawn1:
+		TNT1 A 0 A_SpawnObject(Gibs1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_1)
+		TNT1 A 0 A_SpawnObject(Gibs2, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_2)
+		TNT1 A 0 A_SpawnObject(Gibs3, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_3)
+		TNT1 A 0 A_SpawnObject(Gibs4, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_4)
+		TNT1 A 1 A_SpawnObject(Brain1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_5)
+		Stop
+	Spawn2:
+		TNT1 A 0 A_SpawnObject(Gibs1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_6)
+		TNT1 A 0 A_SpawnObject(Gibs2, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_7)
+		TNT1 A 0 A_SpawnObject(Gibs3, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_8)
+		TNT1 A 0 A_SpawnObject(Gibs4, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_1)
+		TNT1 A 1 A_SpawnObject(Brain1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_2)
+		Stop
+	Spawn3:
+		TNT1 A 0 A_SpawnObject(Gibs1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_3)
+		TNT1 A 0 A_SpawnObject(Gibs2, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_4)
+		TNT1 A 0 A_SpawnObject(Gibs3, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_5)
+		TNT1 A 0 A_SpawnObject(Gibs4, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_6)
+		TNT1 A 1 A_SpawnObject(Brain1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_7)
+		Stop
+	Spawn4:
+		TNT1 A 0 A_SpawnObject(Gibs1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_8)
+		TNT1 A 0 A_SpawnObject(Gibs2, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_1)
+		TNT1 A 0 A_SpawnObject(Gibs3, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_2)
+		TNT1 A 0 A_SpawnObject(Gibs4, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_3)
+		TNT1 A 1 A_SpawnObject(Brain1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_4)
+		Stop
+	Spawn5:
+		TNT1 A 0 A_SpawnObject(Gibs1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_5)
+		TNT1 A 0 A_SpawnObject(Gibs2, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_6)
+		TNT1 A 0 A_SpawnObject(Gibs3, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_7)
+		TNT1 A 0 A_SpawnObject(Gibs4, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_8)
+		TNT1 A 1 A_SpawnObject(Brain1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_1)
+		Stop
+	Spawn6:
+		TNT1 A 0 A_SpawnObject(Gibs1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_2)
+		TNT1 A 0 A_SpawnObject(Gibs2, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_3)
+		TNT1 A 0 A_SpawnObject(Gibs3, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_4)
+		TNT1 A 0 A_SpawnObject(Gibs4, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_5)
+		TNT1 A 1 A_SpawnObject(Brain1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_6)
+		Stop
+	Spawn7:
+		TNT1 A 0 A_SpawnObject(Gibs1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_7)
+		TNT1 A 0 A_SpawnObject(Gibs2, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_8)
+		TNT1 A 0 A_SpawnObject(Gibs3, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_1)
+		TNT1 A 0 A_SpawnObject(Gibs4, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_2)
+		TNT1 A 1 A_SpawnObject(Brain1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_3)
+		Stop
+	Spawn8:
+		TNT1 A 0 A_SpawnObject(Gibs1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_4)
+		TNT1 A 0 A_SpawnObject(Gibs2, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_5)
+		TNT1 A 0 A_SpawnObject(Gibs3, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_6)
+		TNT1 A 0 A_SpawnObject(Gibs4, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_7)
+		TNT1 A 1 A_SpawnObject(Brain1, 0.0, 0.0, 0.0, 0.0, RANDOM_GIB_VEL_8)
+		Stop
+	}
+}
+
+thing Gibs1
+{
+	Radius 6
+	Height 12
+	Mass 100
+
+	+MISSILE
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	
+	States
+	{
+	Spawn:
+		XDT1 ABCDEFGH 2
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnObject(RandomGibDeathSound)
+		XDT1 I 500
+		Stop
+	}
+}
+
+thing Gibs2 : thing Gibs1
+{
+	clear states
+
+	States
+	{
+	Spawn:
+		XDT2 ABCD 4
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnObject(RandomGibDeathSound)
+		XDT2 E 500
+		Stop
+	}
+}
+
+thing Gibs3 : thing Gibs1
+{
+	clear states
+
+	States
+	{
+	Spawn:
+		XDT3 A 10
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnObject(RandomGibDeathSound)
+		XDT3 B 500
+		Stop
+	}
+}
+
+thing Gibs4 : thing Gibs1
+{
+	clear states
+
+	States
+	{
+	Spawn:
+		XDT4 A 10
+		Loop
+	Death:
+		TNT1 A 0 A_SpawnObject(RandomGibDeathSound)
+		XDT4 B 500
+		Stop
+	}
+}
+
+thing Brain1 : thing Gibs1
+{
+	clear states
+
+	States
+	{
+	Spawn:
+		BRN1 ABCD 4
+		Loop
+	Death:
+		TNT1 A 0 A_RandomJump(Death2, 1D2)
+		Goto Death1
+	Death1:
+		BRN1 E 500
+		Stop
+	Death2:
+		BRN1 F 500
+		Stop
+	}
+}
+
+thing RandomGibSeeSound
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump(Sound3, 1D3)
+		TNT1 A 0 A_RandomJump(Sound2, 1D2)
+		Goto Sound1
+	Sound1:
+		TNT1 A 0 A_PlaySound(MBLD00)
+		Goto SoundDone
+	Sound2:
+		TNT1 A 0 A_PlaySound(MBLD01)
+		Goto SoundDone
+	Sound3:
+		TNT1 A 0 A_PlaySound(MBLD02)
+		Goto SoundDone
+	SoundDone:
+		TNT1 A 70
+		Stop
+	DoNothing:
+		TNT1 A 0
+		Stop
+	}
+}
+
+thing RandomGibDeathSound
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump(Sound6, 1D6)
+		TNT1 A 0 A_RandomJump(Sound5, 1D5)
+		TNT1 A 0 A_RandomJump(Sound4, 1D4)
+		TNT1 A 0 A_RandomJump(Sound3, 1D3)
+		TNT1 A 0 A_RandomJump(Sound2, 1D2)
+		Goto Sound1
+	Sound1:
+		TNT1 A 0 A_PlaySound(MBLD03)
+		Goto SoundDone
+	Sound2:
+		TNT1 A 0 A_PlaySound(MBLD04)
+		Goto SoundDone
+	Sound3:
+		TNT1 A 0 A_PlaySound(MBLD05)
+		Goto SoundDone
+	Sound4:
+		TNT1 A 0 A_PlaySound(MBLD06)
+		Goto SoundDone
+	Sound5:
+		TNT1 A 0 A_PlaySound(MBLD07)
+		Goto SoundDone
+	Sound6:
+		TNT1 A 0 A_PlaySound(MBLD08)
+		Goto SoundDone
+	SoundDone:
+		TNT1 A 70
+		Stop
+	}
+}
+
+
+auto thing PuffSpark {}
+auto thing PuffSparkSpawner {}
+
+thing BulletPuff
+{
+	+DROPOFF
+	+TELEPORT
+
+	clear states
+	States
+	{
+	Spawn:
+		PUFF A 2 Bright
+		TNT1 A 0 A_SpawnObject(PuffSparkSpawner)
+		PUFF B 2
+		TNT1 A 0 A_RandomJump(Skip1, 1D2)
+		PUFF C 2
+		TNT1 A 0 A_RandomJump(Skip2, 1D4)
+		PUFF D 2
+		Skip1:
+		PUFF E 2
+		Skip2:
+		PUFF F 2
+		Stop
+	}
+}
+
+// --- Puff Spark ---------------------
+
+// Known as 'PuffParticles' in Smooth Doom
+thing PuffSpark
+{
+  Radius 3
+  Height 6
+  Mass 100
+  +NOBLOCKMAP
+  +DROPOFF
+  +TELEPORT
+  +BOUNCES
+  +TRANSLUCENT
+  +LOGRAV
+
+  states
+  {
+    Spawn:
+      TNT1 A 1
+      TNT1 A 0 A_RandomJump("SpawnC", 1D3)
+      TNT1 A 0 A_RandomJump("SpawnB", 1D2)
+
+    SpawnA:
+      TNT1 A 0 A_RandomJump("SpawnA1", 1D3)
+      TNT1 A 0 A_RandomJump("SpawnA2", 1D2)
+    SpawnA3:
+      S302 ABCD 3 Bright
+      stop
+    SpawnA2:
+      S302 ABCD 2 Bright
+      stop
+    SpawnA1:
+      S302 ABCD 1 Bright
+      stop
+
+    SpawnB:
+      TNT1 A 0 A_RandomJump("SpawnB1", 1D3)
+      TNT1 A 0 A_RandomJump("SpawnB2", 1D2)
+    SpawnB3:
+      S302 BCD 3 Bright
+      stop
+    SpawnB2:
+      S302 BCD 2 Bright
+      stop
+    SpawnB1:
+      S302 BCD 1 Bright
+      stop
+
+    SpawnC:
+      TNT1 A 0 A_RandomJump("SpawnC1", 1D3)
+      TNT1 A 0 A_RandomJump("SpawnC2", 1D2)
+    SpawnC3:
+      S302 CD 3 Bright
+      stop
+    SpawnC2:
+      S302 CD 2 Bright
+      stop
+    SpawnC1:
+      S302 CD 1 Bright
+      stop
+  }
+}
+
+thing PuffSparkSpawner
+{
+  DUMMY_FLAGS
+
+  states
+  {
+    Spawn:
+      RANDOMSPAWN16
+    // Ranges:
+    //  x_vel = [-3.0, 3.0]
+    //  y_vel = [-3.0, 3.0]
+    //  z_vel = [-4.0, 4.0]
+    Spawn1:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, 1.8, -0.3, 2.7)
+      stop
+    Spawn2:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, 2.5, 2.0, -3.1)
+      stop
+    Spawn3:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, -1.8, 2.0, 2.4)
+      stop
+    Spawn4:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, 0.9, -2.9, 1.3)
+      stop
+    Spawn5:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, 2.7, 0.2, -1.8)
+      stop
+    Spawn6:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, -1.9, -1.0, 3.6)
+      stop
+    Spawn7:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, -0.8, -2.2, 0.5)
+      stop
+    Spawn8:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, -2.9, 2.0, -0.8)
+      stop
+    Spawn9:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, 2.0, -0.9, -2.4)
+      stop
+    Spawn10:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, -0.9, 1.6, -3.0)
+      stop
+    Spawn11:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, -2.8, -0.7, 1.4)
+      stop
+    Spawn12:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, -1.0, 2.8, 2.1)
+      stop
+    Spawn13:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, 2.8, -1.2, -0.4)
+      stop
+    Spawn14:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, 0.6, -1.4, -0.1)
+      stop
+    Spawn15:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, 1.4, 0.2, -3.7)
+      stop
+    Spawn16:
+      TNT1 A 1 A_SpawnObject(PuffSpark, 0.0, 0.0, 0.0, 0.0, -1.2, -0.1, -1.4)
+      stop
+	}
+}

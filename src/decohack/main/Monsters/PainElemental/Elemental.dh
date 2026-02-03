@@ -1,0 +1,28 @@
+thing PainElemental "Pain Elemental"
+{
+	//$Category "Monsters/Elemental"
+	//$Color 13
+
+	Health 360
+	PainChance 64
+
+	States 
+	{ 
+	  
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Scream
+		PAIN H 3
+		PAIN I 3
+		PAIN JK 3
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		PAIN L 4
+		PAIN M 4 A_PainDie
+		TNT1 A 35 A_BossDeath
+		Stop 
+	} 
+}

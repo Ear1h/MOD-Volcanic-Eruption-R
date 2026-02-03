@@ -1,0 +1,48 @@
+auto thing Kamikaze "Zombie Kamikaze"
+{
+	//$Category "Monsters/Zombies"
+	//$Color 6
+	Ednum 10004
+	
+	Health 60
+	ReactionTime 8
+	Speed 10
+	Mass 150
+	Painchance 0
+	FastSpeed 15
+	
+	Radius 24
+	Height 56
+	
+	+COUNTKILL
+	+SHOOTABLE
+	+SOLID
+	
+	SeeSound "posit2"
+	
+	states
+	{
+		spawn:
+			KAMI A 10 A_Look
+			loop
+		see:
+			KAMI A 0 A_PlaySound("AAAAAA")
+			KAMI AABBCCDD 3 A_Chase
+			loop
+		melee:
+			KAMI A 1 Bright A_Die
+			KAMI A 0 A_Die
+		Death:
+		Xdeath:
+			TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+			TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 12.0)
+			KAMI E 0 A_RadiusDamage(96, 128)
+			KAMI E 5 Bright A_PlaySound("BAREXP")
+			KAMI F 5 Bright A_XScream
+			KAMI G 5 Bright A_Fall
+			KAMI H 5
+			KAMI IJK 5
+			KAMI L -1
+			stop
+	}
+}

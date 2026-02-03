@@ -1,0 +1,126 @@
+thing BaronBall { +MISSILE }
+
+thing HellKnight "Hell Knight"
+{
+	//$Category "Monsters/Nobles"
+	//$Color 2
+	clear states
+
+	States
+	{
+	Spawn:
+		BOS2 A 10 A_Look
+		Loop
+	See:
+		BOS2 AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+		BOS2 EF 8 A_FaceTarget
+		BOS2 G 8 A_MonsterMeleeAttack(40, 1, "CLAW")
+		Goto See
+	Missile:
+		BOS2 EF 8 A_FaceTarget
+		BOS2 G 8 A_MonsterProjectile(BaronBall)
+		Goto See
+	Pain:
+		BOS2 H 2
+		BOS2 H 2 A_Pain
+		Goto See
+	Raise:
+		HKD1 K 3
+		HKD1 JHFD 5
+		HKD1 BA 3
+		Goto See
+
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser("DeathRandom2", 64.0)
+		Goto DeathRandom1
+	
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto LegsDeath
+		
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump("FallBackDeath", 180)
+		Goto LegsDeath
+		
+	DeathRandom2:
+		TNT1 A 0 A_RandomJump("FallBackDeath", 100)
+		TNT1 A 0 A_RandomJump("LegsDeath", 80)
+		TNT1 A 0 A_RandomJump("HeadlessDeath", 40)
+		Goto RegularDeath
+		
+
+	
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		HKD1 A 3
+		HKD1 B 3 A_Scream
+		HKD1 DFHJ 5
+		HKD1 K 3
+		HKD1 L -1 A_BossDeath
+		Stop
+	
+	HeadlessDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		HKD2 AAAAAAAAAAA 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 24.0)
+		HKD2 BBBBB 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 12.0)
+		HKD2 CCCCC 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+		HKD2 D -1 A_BossDeath
+		Stop
+	
+	FallBackDeath:
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		TNT1 A 0 A_Scream
+		HKD5 A 6
+		HKD5 B 6
+		HKD5 C 6
+		HKD5 D -1 A_BossDeath
+		Stop
+
+	
+	LegsDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		HKD3 AAAAAABBBCCC 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		HKD3 D -1 A_BossDeath
+		Stop
+	}
+}
+
+thing BaronBall
+{
+	Radius 6
+	Height 16
+	Speed 15
+	FastSpeed 20
+	Damage 8
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	+TRANSLUCENT
+	
+	SeeSound "FIRSHT"
+	DeathSound "FIRXPL"
+
+	clear states
+	
+	States
+	{
+	Spawn:
+		TKBL AB 4 Bright
+		Loop
+	Death:
+		BOOG ABCDEFGI 2 bright
+		Stop
+	}
+}

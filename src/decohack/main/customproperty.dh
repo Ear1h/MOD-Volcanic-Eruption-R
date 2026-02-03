@@ -1,0 +1,11 @@
+// Woof!
+custom thing property Obituary "Obituary" string
+custom thing property MeleeObituary "Melee obituary" string
+custom thing property SelfObituary "Self obituary" string
+
+// ID24
+custom thing property PickupSound "Pickup Sound" string
+
+// Helion & Woof
+
+custom thing property GibHealth "Gib Health" int

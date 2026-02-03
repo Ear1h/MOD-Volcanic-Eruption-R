@@ -1,0 +1,43 @@
+thing Stimpack
+{
+	pickupsound "STIM"
+}
+
+thing Medikit
+{
+	pickupsound "MED"
+}
+
+thing ArmorBonus
+{
+	pickupsound "ITEMUP"
+}
+
+thing HealthBonus
+{
+	pickupsound "ITEMUP"
+}
+
+thing GreenArmor
+{
+	pickupsound "MEDIUM"
+	
+	states
+	{
+		Spawn:
+			ARM1 A -1
+			stop
+	}
+}
+
+thing BlueArmor
+{
+	pickupsound "BLUE"
+	
+	states
+	{
+		Spawn:
+			ARM2 A -1
+			stop
+	}
+}

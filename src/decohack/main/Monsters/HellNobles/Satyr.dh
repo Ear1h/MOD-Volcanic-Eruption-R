@@ -1,0 +1,80 @@
+auto thing Satyr "Melee Satyr"
+{
+	//$Category "Monsters/Nobles"
+	//$Color 2
+
+	Ednum 10009
+	Health 400
+	Radius 18
+    Height 48
+    Speed 8
+    PainChance 50
+    ReactionTime 4
+    Mass 350
+	
+	SeeSound "SATSIT"
+    AttackSound ""
+    PainSound "DMPAIN"
+    DeathSound "SATDTH"
+    ActiveSound "DMACT"
+    
+	clear flags
+	+SOLID
+	+COUNTKILL
+	+SHOOTABLE
+
+	States
+	{
+		Spawn:
+        	SATY A 10 A_Look
+        	Loop
+    	See:
+        	SATY AABBCCDD 3 A_Chase
+        	Loop
+   		 Melee:
+        	SATY EF 6 A_FaceTarget
+        	SATY G 6 A_MonsterMeleeAttack(40, 1, "Claw", 96.0)
+        	SATY PQ 5 A_FaceTarget
+        	SATY R 6 A_MonsterMeleeAttack(40, 1, "Claw", 96.0)
+        	Goto See
+    	Pain:
+       		SATY H 2
+        	SATY H 2 A_Pain
+        	Goto See
+    	Death:
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Fall
+			TNT1 A 0 A_JumpIfTargetCloser(HeadDeath, 80.0)
+			TNT1 A 0 A_RandomJump(HeadDeath, 1D3)
+			Goto RegularDeath
+
+		XDeath:
+			TNT1 A 0 A_Fall
+			TNT1 A 0 A_FaceTarget
+			Goto HeadDeath
+	
+		// ****************************
+		// DEATH ANIMATIONS
+		// ****************************
+		HeadDeath:
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+			TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+			SATD ABCD 5
+			SATD E 5 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+			SATD FGHI 4
+			SATD J -1 A_BossDeath
+			Stop
+
+		RegularDeath:
+			SATY J 5 A_Scream
+			SATY KK 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+			SATY L 4
+			SATY MN 4
+			SATY O -1 A_BossDeath
+			Stop
+    	Raise:
+        	STYR ONMLKJI 8
+        	Goto See
+    }
+}

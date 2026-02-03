@@ -1,0 +1,60 @@
+thing Berserk
+{
+	pickupsound "BERSEK"
+}
+
+thing Allmap
+{
+	pickupsound "AUTO"
+}
+
+thing Megasphere
+{
+	+TRANSLUCENT
+	pickupsound "MEGA"
+	clear states
+	states
+	{
+		Spawn:
+			MEGA ABCD 4
+			loop
+	}
+}
+
+thing Soulsphere
+{
+	pickupsound "SOUL"
+	states
+	{
+		Spawn:
+			SOUL ABCDEF 4
+			loop
+	}
+}
+
+thing InvulnerabilitySphere
+{
+	pickupsound "INVUL"
+}
+
+thing Infrared
+{
+	pickupsound "INFRED"
+	
+	states
+	{
+		Spawn:
+			PVIS ABCDE 5
+			loop
+	}
+}
+
+thing RadSuit
+{
+	pickupsound "SUIT"
+}
+
+thing BlurSphere
+{
+	pickupsound "INVIS"
+}

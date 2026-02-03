@@ -1,0 +1,47 @@
+weapon SuperShotgun
+{
+	clear states
+	
+	States
+	{
+	Select:
+		VH2G A 0 A_Raise
+		VH2G A 1
+		{
+			A_Raise
+			A_WeaponSound("SSGUP")
+		}
+		Goto Ready
+	Deselect:
+		VH2G A 0 A_Lower
+		VH2G A 1 A_Lower
+		Loop
+	Ready:
+		VH2G A 1 A_WeaponReady
+		Loop
+	Fire:
+		VH2G A 0 Offset(1, 32)
+		VH2G B 3
+		{
+			A_ConsumeAmmo
+			A_Light2
+			A_WeaponBulletAttack(7.1, 7.1, 21, 10, 1)
+			A_WeaponSound("SSGFRE")
+		}
+		VH2G C 2 A_CheckReload
+		TNT1 A 0 A_Light0
+		VH2G DE 2
+		VH2G F 2
+		VH2G G 2
+		VH2G H 2
+		VH2G IJ 3
+		VH2G K 3
+		VH2G L 3
+		VH2G M 3
+		VH2G NOPQ 3
+		VH2G R 3
+		VH2G S 3
+		VH2G T 1 A_WeaponReady
+		Goto Ready
+	}
+}

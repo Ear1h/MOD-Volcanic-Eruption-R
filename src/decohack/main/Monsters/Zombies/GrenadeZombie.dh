@@ -1,0 +1,165 @@
+auto thing Grenade {}
+auto thing GrenadierExplosion {}
+
+auto thing Grenadier: thing ChaingunGuy  "Zombie Grenadier"
+{
+	//$Category "Monsters/Zombies"
+	//$Color 6
+	
+	Ednum 10002
+	Health 180
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 7
+	PainChance 170
+	
+	dropitem MTF_AMMO_ROCKET
+	
+	States
+	{
+		Spawn:
+			GRDR A 10 A_Look
+			Loop
+		See:
+			GRDR AABBCCDD 3 A_Chase
+			Loop
+		Missile:
+			 TNT1 A 0 A_PlaySound("RCKRS")
+			 GRDR E 16 A_FaceTarget
+			 GRDR G 0 A_JumpIfTargetCloser(MissileHigh, 512.0)
+			 GRDR G 0 A_JumpIfTargetCloser(MissileFar, 768.0)
+			 GRDR G 0 A_PlaySound("GRDFI")
+			 GRDR G 5 Bright A_MonsterProjectile(Grenade, 0.0, -30.0)
+			goto Stay
+	
+		MissileHigh:
+			GRDR G 0 A_PlaySound("GRDFI")
+			GRDR G 5 Bright A_MonsterProjectile(Grenade, 0.0, -10.0)
+			Goto Stay
+		
+		MissileFar:
+			GRDR G 0 A_PlaySound("GRDFI")
+			GRDR G 5 Bright A_MonsterProjectile(Grenade, 0.0, -30.0)
+			Goto Stay
+	
+		Stay:
+			TNT1 A 0 A_FaceTarget
+			GRDR F 4 Bright
+			GRDR E 8
+			Goto See
+		Pain:
+			GRDR G 3
+			GRDR G 3 A_Pain
+			Goto See
+		Raise:
+			GRDR N 5
+			GRDR MLKJIH 5
+			Goto See
+			
+		// ****************************
+		// DAMAGE TYPE DEATH SWITCHES
+		// ****************************
+		Death:
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Fall
+			TNT1 A 0 A_JumpIfTargetCloser(RandomAllDeath, 96.0)
+			Goto RandomDeath
+	
+		RandomDeath:
+			TNT1 A 0 A_RandomJump(BackDeath, 1D2)
+			Goto BackDeath
+	
+		RandomAllDeath:
+			TNT1 A 0 A_RandomJump(ExplodeDeath, 1D3)
+			TNT1 A 0 A_RandomJump(BackDeath, 1D2)
+			Goto ExplodeDeath
+		
+		XDeath:
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Fall
+			Goto ExplodeDeath
+
+		// ****************************
+		// DEATH ANIMATIONS
+		// ****************************
+		BackDeath:
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(GibSpawnerM)
+			GRD1 A 3
+			GRD1 BCDEF 3
+			TNT1 A 0 A_Stop
+			TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+			GRD1 E 3
+			GRD1 F 3
+			GRD1 G -1
+			Stop
+		
+		ExplodeDeath:
+			TNT1 A 0 A_Stop
+			TNT1 A 0 A_Fall
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_PlaySound("GRENXP")
+			TNT1 A 0 A_RadiusDamage(64, 128)
+			TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+			TNT1 A 0 A_SpawnObject(GrenadierExplosion)
+			GRD2 A 3 Bright
+			GRD2 B 3 Bright A_XScream
+			GRD2 CDEFGHIJ 3 Bright
+			GRD2 K -1
+			Stop
+  }
+}
+
+thing GrenadierExplosion
+{
+	Height 16
+	Radius 8
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_PlaySound("GRENXP")
+		GPLM ABCDEFG 2 Bright A_RadiusDamage(28, 40)
+		GPLM HIJ 2 Bright
+		Stop
+	}
+}
+
+thing Grenade
+{
+	 health 1000
+	  speed 15
+	  radius 11
+	  height 8
+	  damage 10
+	  reactiontime 8
+	  mass 120
+	  
+	  +DROPOFF
+	  +NOBLOCKMAP
+	  +BOUNCES
+	  +MISSILE
+	  
+	  SeeSound "GRENB"
+
+	States
+	{
+		Spawn:
+		  GREN ABCDEFG 2 Bright
+		  GREN ABCDEFG 2 Bright
+		  GREN ABCDEFG 2 Bright
+		  GREN ABCDEFG 2 Bright
+		  GREN ABCDEFG 2 Bright
+		  GREN ABCDEFG 2 Bright
+		  TNT1 A 0 A_Die
+		Death:
+		  GREX A 0 A_RadiusDamage(60, 128)
+		  GREX A 0 A_PlaySound("GRENXP")
+		  GREX A 0 A_AddFlags(NOCLIP + NOGRAVITY)
+		  GREX A 0 A_RemoveFlags(MISSILE + BOUNCES + NOBLOCKMAP)
+		  GREX ABCDEF 4 Bright
+		  TNT1 A -1
+		stop
+	}
+}

@@ -1,0 +1,118 @@
+/*****************************************************************************
+ * DECOHack Patch File
+ * Main
+ ****************************************************************************/
+
+#include <id24>
+#include <friendly>
+
+// Your DECOHack code here ...
+
+// GZDoom doesn't support ID24 format, A_PlaySound doesn't work.
+
+#include "classpath:decohack/id24.dh"
+#include "classpath:decohack/constants/friendly_things.dh"
+
+// Header
+#include "main/customproperty.dh"
+#include "main/strings.dh"
+
+// Player
+
+#include "main/Player/Rocket.dh"
+
+// Monsters
+
+#include "main/Monsters/gorecore.dh"
+#include "main/Monsters/MonsterRocket.dh"
+#include "main/Monsters/Zombies/Zombieman.dh"
+#include "main/Monsters/Zombies/PlasmaZombie.dh"
+#include "main/Monsters/Zombies/Shotgunner.dh"
+#include "main/Monsters/Zombies/Chaingunner.dh"
+#include "main/Monsters/Zombies/DoubleChaingunner.dh"
+#include "main/Monsters/Zombies/GrenadeZombie.dh"
+#include "main/Monsters/Zombies/RocketZombie.dh"
+#include "main/Monsters/Zombies/Kamikaze.dh"
+#include "main/Monsters/Zombies/Zombie.dh"
+#include "main/Monsters/Zombies/ZombieMarine.dh"
+
+#include "main/Monsters/Imps/AncientImp.dh"
+#include "main/Monsters/Imps/DarkImp.dh"
+
+#include "main/Monsters/Demon/BloodDemon.dh"
+#include "main/Monsters/Demon/MechDemon.dh"
+
+#include "main/Monsters/HellNobles/Satyr.dh"
+#include "main/Monsters/HellNobles/HellKnight.dh"
+#include "main/Monsters/HellNobles/BaronOfHell.dh"
+#include "main/Monsters/HellNobles/PyroHell.dh"
+
+#include "main/Monsters/Wolfenstein/Nazi.dh"
+#include "main/Monsters/Wolfenstein/Dog.dh"
+#include "main/Monsters/Wolfenstein/SuperSoldier.dh"
+
+#include "main/Monsters/Cacodemon/Cacodemon.dh"
+#include "main/Monsters/Cacodemon/Gandon4ik.dh"
+
+#include "main/Monsters/LostSoul/DronKamikaze.dh"
+#include "main/Monsters/LostSoul/LostSoul.dh"
+
+#include "main/Monsters/Arachnotron/Arachnotron.dh"
+#include "main/Monsters/Arachnotron/ArachnoChain.dh"
+
+#include "main/Monsters/Mancubus/Mancubus.dh"
+#include "main/Monsters/Mancubus/FlyingFatso.dh"
+
+#include "main/Monsters/Revenant/Draugr.dh"
+
+#include "main/Monsters/PainElemental/Elemental.dh"
+#include "main/Monsters/PainElemental/TortureElemental.dh"
+
+#include "main/Monsters/Archviles/Archvile.dh"
+#include "main/Monsters/Archviles/Diabolist.dh"
+#include "main/Monsters/Archviles/Resurrector.dh"
+
+#include "main/Monsters/Cybies/Cyberdemon.dh"
+#include "main/Monsters/Cybies/CyberdemonJr.dh"
+#include "main/Monsters/Cybies/DarkCardinal.dh"
+
+#include "main/Monsters/SpiderDemon/SpiderMastermind.dh"
+#include "main/Monsters/SpiderDemon/Demolisher.dh"
+
+#include "main/Monsters/CommanderKeen/Pustule.dh"
+
+#include "main/Monsters/GimmickObject/Minen.dh"
+#include "main/Monsters/GimmickObject/DiabolEye.dh"
+#include "main/Monsters/GimmickObject/Tesla.dh"
+
+// Weapons
+#include "main/weapons/Fist.dh"
+#include "main/weapons/Pistol.dh"
+#include "main/weapons/Shotgun.dh"
+#include "main/weapons/SuperShotgun.dh"
+#include "main/weapons/Chaingun.dh"
+#include "main/weapons/RocketLauncher.dh"
+#include "main/weapons/PlasmaRifle.dh"
+#include "main/weapons/bfg.dh"
+#include "main/weapons/Chainsaw.dh"
+
+
+// Ammo
+#include "main/Pickup/ve_ammo.dh"
+
+// Armor & Health
+#include "main/Pickup/ve_health_armor.dh"
+
+// Powerup Pickup
+#include "main/Pickup/ve_powerup.dh"
+
+// Key Pickup
+#include "main/Pickup/ve_keys.dh"
+
+#include "main/Sounds/MusicChanger.dh"
+
+#include "main/VFX/SnowSpawner.dh"
+#include "main/VFX/AshSpawner.dh"
+#include "main/VFX/RainSpawner.dh"
+#include "main/VFX/LeafSpawner.dh"
+

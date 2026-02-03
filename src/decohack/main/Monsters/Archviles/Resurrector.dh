@@ -1,0 +1,87 @@
+auto thing Resurrector : thing Archvile "Resurrector"
+{	
+	//$Category "Monsters/Archies"
+	//$Color 15
+	ednum 10031
+    SplashGroup 275
+	SeeSound "MDISIT" 
+	PainSound "MDIPAI"
+	DeathSound "MDIDTH"
+	ActiveSound "MDIACT"
+	
+	Clear States
+	States
+	{
+	Spawn:
+		RESS A 10 A_Look
+		Loop
+	See:
+		RESS AABBCCDDEEFF 2 A_HealChase(Heal, "slop")
+		Loop
+	Heal:
+		RESS GHI 10 Bright
+		Goto See
+	Pain:
+		RESS Q 5   
+		RESS Q 5 A_Pain
+		Goto See
+		
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser(DeathRandom1, 80.0)
+		Goto RegularDeath
+	
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto DeathRandom2
+		
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump(ExplodeDeath, 1D3)
+		TNT1 A 0 A_RandomJump(ExplodeDeath2, 1D2)
+		Goto RegularDeath
+		
+	DeathRandom2:
+		TNT1 A 0 A_RandomJump(ExplodeDeath, 1D2)
+		Goto ExplodeDeath2
+		
+	RegularDeath:
+		TNT1 A 0 A_Scream
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 16.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		RESS R 5
+		RESS S 5
+		RESS TUV 5
+		RESS W 4
+		RESS XY 4
+		RESS Z -1 A_BossDeath
+		Stop
+		
+	ExplodeDeath:
+		TNT1 A 0 A_Scream
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 16.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		RESG A 4
+		RESG B 3
+		RESG C 3
+		RESG D 3
+		RESG E 3
+		RESG FG 3
+		RESG H -1 A_BossDeath
+		Stop
+	
+	ExplodeDeath2:
+		TNT1 A 0 A_Scream	
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		REG2 A 3
+		REG2 BBBCCCDDD 1 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		REG2 EEEFFFGGGHHH 1 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		REG2 I -1 A_BossDeath
+		Stop
+	}
+}

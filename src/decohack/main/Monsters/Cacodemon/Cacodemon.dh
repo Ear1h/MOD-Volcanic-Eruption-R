@@ -1,0 +1,112 @@
+thing CacodemonBall { +MISSILE }
+
+thing Cacodemon "Cacodemon"
+{
+	//$Category "Monsters/Cacos"
+	//$Color 7
+	Health 380
+	Radius 31
+	Height 56
+	Mass 900
+	Speed 8
+	SeeSound CACSIT
+	PainSound MCAPAI
+	DeathSound CACDTH
+	ActiveSound DMACT
+
+	clear states
+	States
+	{
+	Spawn:
+		CACO A 10 A_Look
+		Loop
+	See:
+		CACO A 3 A_Chase
+		Loop
+	Missile:
+		CACO BC 5 A_FaceTarget
+		TNT1 A 0 A_JumpIfTargetCloser(DoMelee, 64.0)
+	DoMissile:
+		CACO D 5 A_MonsterProjectile(CacodemonBall)
+		Goto See
+	Melee:
+		CACO BC 5 A_FaceTarget
+		TNT1 A 0 A_JumpIfTargetCloser(DoMelee, 64.0)
+		Goto DoMissile
+	DoMelee:
+		CACO D 5 A_MonsterMeleeAttack(24, 1, "MCABIT")
+	Pain:
+		CACO E 3
+		CACO E 3 A_Pain
+		CACO F 6
+		Goto See
+	Raise:
+		CACO L 6
+		CACO KJIHG 6
+		Goto See
+
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser(DeathRandom2, 128.0)
+		Goto DeathRandom1
+
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump(RegularDeath, 1D2)
+		Goto ExplodeDeath
+		
+	DeathRandom2:
+		TNT1 A 0 A_RandomJump(RegularDeath, 1D4)
+		Goto ExplodeDeath
+		
+	
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		CACO G 5
+		CACO H 5
+		CACO IJ 5
+		CACO K 5
+		CACO L -1 A_BossDeath
+		Stop
+
+	ExplodeDeath:
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		CCD2 A 2
+		CCD2 BCDEFGHIJKLM 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		CCD2 N -1 A_BossDeath
+		Stop
+	}
+}
+
+thing CacodemonBall
+{
+	Radius 4
+	Height 8
+	Speed 8
+	Damage 5
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	+TRANSLUCENT
+	
+	SeeSound "MCAPS"
+	DeathSound "MCAPD"
+
+	States
+	{
+	Spawn:
+		CVOR ABCD 3 Bright
+		Loop
+	Death:
+		CVOR EFGHIJ 2 Bright
+		TNT1 A 35
+		Stop
+	}
+}

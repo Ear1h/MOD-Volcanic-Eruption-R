@@ -1,0 +1,42 @@
+Weapon 2 "Shotgun"
+{
+	ammotype AM_SHELL
+	clear states
+	
+	States
+	{
+		ready:
+			VHTG A 1 A_WeaponReady
+			wait
+		select:
+			VHTG A 0 A_Raise
+			VHTG A 1
+			{
+				A_Raise
+				A_WeaponSound("SHTPIK")
+			}
+			goto Ready
+		deselect:
+			VHTG A 0 A_Lower
+			VHTG A 1 A_Lower
+			loop
+		fire:
+			VHTG A 1 
+			VHTG B 3
+			{
+				A_ConsumeAmmo
+				A_WeaponBulletAttack(2.0, 2.0, 9, 10, 1)
+				A_WeaponSound("SHTFIR")
+				A_Light1
+			}
+			VHTG C 1 A_Light2
+			TNT1 A 0 A_Light0
+			VHTG DE 1
+			VHTG FG 2
+			VHTG HIJIH 3
+			VHTG GF 2
+			VHTG ED 1
+			VHTG A 1 A_ReFire
+			goto ready
+	}
+}

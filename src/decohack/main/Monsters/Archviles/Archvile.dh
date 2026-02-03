@@ -1,0 +1,102 @@
+thing Archvile
+{
+	//$Category "Monsters/Archies"
+	//$Color 15
+	Health 800
+	Mass 700
+	SplashGroup 275
+	
+	clear states
+	States
+	{
+	Spawn:
+		VILE A 10 A_Look
+		Loop
+	See:
+		VILE AABBCCDDEEFF 2 A_VileChase
+		Loop
+	Missile:	
+		VILE G 0 Bright A_VileStart
+		VILE G 10 Bright A_FaceTarget
+		VILE H 8 Bright A_VileTarget
+		VILE IJKLMN 8 Bright A_FaceTarget
+		VILE O 8 Bright A_VileAttack
+		VILE P 20 Bright
+		Goto See
+	Heal:
+		VILE [\] 10
+		Goto See
+	Pain:
+		VILE Q 10 A_Pain
+		Goto See
+
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser(DeathRandom1, 80.0)
+		Goto RegularDeath
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto ExplodeDeath
+		
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump(ExplodeDeath, 1D2)
+		Goto RegularDeath
+		
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_Scream
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 16.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 4.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		VILE Q 5
+		VILE R 5
+		VILE S 5
+		VILE TUV 5
+		VILE W 4
+		VILE XY 4
+		VILE Z -1 A_BossDeath
+		Stop
+		
+	ExplodeDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_Fall
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 16.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 4.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		VILX A 4
+		VILX B 3
+		VILX C 3
+		VILX D 3
+		VILX E 3
+		VILX FG 3
+		VILX H -1 A_BossDeath
+		Stop
+	}
+}
+
+thing ArchvileFire
+{
+	clear states
+	States
+	{
+	Spawn:
+		// For some reason if this first frame is length 0, then the fire is
+		// invisible /shrug
+		VFIR A 1 Bright
+		VFIR A 1 Bright A_StartFire
+		VFIR BAB 2 Bright A_Fire
+		VFIR C 2 Bright A_FireCrackle
+		VFIR BCBCDCDCDEDED 2 Bright A_Fire
+		VFIR E 2 Bright A_FireCrackle
+		VFIR FEFEFGHGHGH 2 Bright A_Fire
+		Stop
+	}
+}

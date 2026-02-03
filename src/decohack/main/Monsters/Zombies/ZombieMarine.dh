@@ -1,0 +1,155 @@
+auto thing ZManHead { +MISSILE }
+
+auto thing AssaultZombie: thing ShotgunGuy "Zombie Assault"
+{
+	//$Category "Monsters/Zombies"
+	//$Color 6
+	
+	Ednum 10006
+	Health 50
+	Radius 20
+	Height 56
+	Mass 100
+	Speed 10
+	
+	dropitem MTF_AMMO_BULLETS
+	clear states
+	States
+	{
+	Spawn:
+		ZSP2 A 10 A_Look
+		Loop
+	See:
+		ZSP2 AABBCCDD 2 A_Chase
+		Loop
+	Missile:
+		ZSP2 E 10 A_FaceTarget
+		ZSP2 F 3 Bright
+		{
+					A_PlaySound("PISFIR")
+					A_MonsterBulletAttack(15.0, 0.0, 1, 10, 1)
+		}
+		ZSP2 E 6 A_FaceTarget
+		ZSP2 F 3 Bright
+		{
+					A_PlaySound("PISFIR")
+					A_MonsterBulletAttack(15.0, 0.0, 1, 10, 1)
+		}
+		ZSP2 F 1 A_CPosRefire	
+		Goto Missile
+	Pain:
+		ZSP2 H 3
+		ZSP2 H 3 A_Pain
+		Goto See
+	Raise:
+		ZSP2 L 5
+		ZSP2 KJIH 5
+		Goto See
+		
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser(DeathRandom2, 128.0)
+		Goto DeathRandom1
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto ExplosiveDeath
+		
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump(CrackHeadsDeath, 1D5)
+		TNT1 A 0 A_RandomJump(HeadDeath, 1D4)
+		TNT1 A 0 A_RandomJump(FlyDeath, 1D3)
+		TNT1 A 0 A_RandomJump(ExplosiveDeath, 1D2)
+		Goto RegularDeath
+		
+	DeathRandom2:
+		TNT1 A 0 A_RandomJump(CrackHeadsDeath, 1D4)
+		TNT1 A 0 A_RandomJump(HeadDeath, 1D3)
+		TNT1 A 0 A_RandomJump(ExplosiveDeath, 1D2)
+		Goto FlyDeath
+	
+	
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 24.0)
+		TNT1 A 0 A_Scream
+		ZSP2 H 5
+		ZSP2 I 5
+		ZSP2 J 5
+		ZSP2 KL 5 A_Stop
+		ZSP2 L -1 A_BossDeath
+		Stop
+		
+	
+	FlyDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		TNT1 A 0 A_SpawnObject(RocketManHead, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 12.0)
+		ZSP5 LM 4
+		ZSP5 N 4
+		ZSP5 O 2
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -12.0)
+		ZSP5 P -1 A_BossDeath
+		Stop
+		
+	ExplosiveDeath:
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		ZSP5 G 0 
+		ZSP5 H 5
+		ZSP5 I 5 A_XScream
+		ZSP5 J 5 A_Fall
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -12.0)
+		ZSP5 K 5
+		ZSP5 K -1 A_BossDeath
+		Stop 
+		
+	HeadDeath:
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		ZHE9 A 4
+		ZHE9 B 4 A_SpawnObject(ZManHead, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+		ZHE9 C 4
+		ZHE9 D 4
+		ZHE9 E 4
+		ZHE9 E -1 A_BossDeath
+		Stop
+		
+	CrackHeadsDeath:
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		ZSP5 A 5
+		ZSP5 B 5
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -12.0)
+		ZSP5 C 5
+		ZSP5 D 5
+		ZSP5 EF 5
+		ZSP5 F -1 A_BossDeath
+		Stop
+	}
+}
+
+thing ZManHead
+{
+    Radius 8
+	Height 16
+	Mass 100
+	
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+	
+    States
+    {
+    Spawn:
+		ZHE2 ABCDE 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -4.0)
+		Loop
+    Death:
+		ZHE2 A 500
+        Stop
+    }
+}

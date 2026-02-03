@@ -1,0 +1,46 @@
+auto thing McMonsterRocket { +MISSILE }
+auto thing MonsterDarkRocket { +MISSILE }
+
+thing McMonsterRocket
+{	
+	Damage 20
+	Speed 20
+	Radius 9
+	Height 8
+	SplashGroup 16
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	
+	SeeSound RLAUNC
+	DeathSound BAREXP
+	
+	States
+	{
+	Spawn:
+		RFLY A 1 Bright
+		Loop
+	Death:
+		RFLX A 2 Bright A_RadiusDamage(128, 96)
+		RFLX BCDEFG 2 Bright
+		TNT1 A 35 // Extra frames to allow explosion sound to finish
+		Stop
+	}
+}
+
+thing MonsterDarkRocket: thing McMonsterRocket
+{		
+	States
+	{
+	Spawn:
+		DARO A 1 Bright
+		Loop
+	Death:
+		DARO A 2 Bright A_RadiusDamage(128, 96)
+		DARO BCDE 2 Bright
+		TNT1 A 35 // Extra frames to allow explosion sound to finish
+		Stop
+	}
+}

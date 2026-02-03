@@ -1,0 +1,148 @@
+auto thing DarkImpBall { +MISSILE }
+auto thing DarkImpBallTrail {}
+
+auto thing DarkImp: thing DoomImp "Dark Imp"
+{
+	//$Category "Monsters/Imps"
+	//$Color 4
+	Ednum 10007
+	Health 75
+	
+	clear states
+	
+	States
+	{
+	Spawn:
+		DTRO A 10 A_Look
+		Loop
+	See:
+		DTRO AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		DTRO EF 8 A_FaceTarget
+		TNT1 A 0 A_JumpIfTargetCloser(Scratch, 32.0)
+		DTRO G 6 A_MonsterProjectile(DarkImpBall)
+		Goto See
+	Scratch:
+		DTRO G 6 A_MonsterMeleeAttack(15, 1, "CLAW")
+		Goto See
+	Pain:
+		DTRO H 2
+		DTRO H 2 A_Pain
+		Goto See
+	Raise:
+		DTRO MLKJI 8
+		Goto See
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser(RandomAllDeath, 160.0)
+		Goto RegularDeath
+		
+	RandomDeath:
+		TNT1 A 0 A_RandomJump(ExplodeDeath, 1D3)
+		Goto RegularDeath
+	
+	RandomAllDeath:
+		TNT1 A 0 A_RandomJump(Death1, 1D3)
+		TNT1 A 0 A_RandomJump(Death2, 1D2)
+		Goto ExplodeDeath
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto ExplodeDeath
+	
+	RegularDeath:
+		TNT1 A 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 A 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 16.0)
+		DTRO I 6
+		DTRO J 6 A_Scream
+		DTRO K 4
+		DTRO L 4 A_Stop
+		DTRO M -1 A_BossDeath
+		Stop
+		
+	ExplodeDeath:
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		DTRO NOPQRST 4
+		DTRO U -1 A_BossDeath
+		Stop
+		
+		// ****************************
+		// DEATH ANIMATIONS
+		// ****************************
+		Death1:
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(GibSpawnerM)
+			DTR2 A 4
+			DTR2 B 4
+			TNT1 A 0 A_Stop
+			TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+			DTR2 C 4
+			DTR2 DE 4
+			DTR2 E -1
+			Stop
+		Death2:
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(GibSpawnerM)
+			DTR3 A 4
+			DTR3 B 4
+			TNT1 A 0 A_Stop
+			TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 8.0)
+			DTR3 C 4
+			DTR3 DE 4
+			DTR3 E -1
+			Stop
+	}
+}
+
+thing DarkImpBall
+{
+	Radius 6
+	Height 8
+	Speed 13
+	Damage 3
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	
+	SeeSound FIRSHT
+	DeathSound FIRXPL
+	
+	States
+	{
+	Spawn:
+		DBAL AB 4 Bright
+		{
+			A_SpawnObject(DarkImpBallTrail)
+			A_SeekTracer(5.0, 10.0)
+		}
+		Loop
+	Death:
+		DBAL CDE 2 Bright
+		Stop
+	}
+}
+
+thing DarkImpBallTrail
+{
+	+SHADOW
+	+NOGRAVITY
+	+NOBLOCKMAP
+	
+	Radius 20
+	Height 16
+	Speed 0
+	
+	States
+	{
+		Spawn:
+			PUFF BCBCD 2 
+			stop
+	}
+}

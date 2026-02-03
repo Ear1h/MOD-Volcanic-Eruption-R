@@ -1,0 +1,49 @@
+auto thing McPlayerRocketTrail {}
+auto thing McPlayerRocket { +MISSILE }
+
+thing McPlayerRocket
+{	
+	Damage 20
+	Speed 30
+	Radius 11
+	Height 8
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	
+	SeeSound RLAUNC
+	DeathSound BAREXP
+	
+	States
+	{
+	Spawn:
+		DROK A 2 Bright A_SpawnObject(McPlayerRocketTrail)
+		Loop
+	Death:
+		EXPL A 3 Bright A_Explode
+		EXPL BCDEF 2 Bright
+		TNT1 A 35 // Extra frames to allow explosion sound to finish
+		Stop
+	}
+}
+
+thing McPlayerRocketTrail
+{
+	Radius 2
+	Height 4
+
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+TRANSLUCENT
+	
+	States
+	{
+	Spawn:
+		TNT1 A 2
+		TRLT AABBCDE 1 Bright // A_SpawnItemEx("TangoWeaponRocketSparkTrail")
+		Stop
+	}
+}

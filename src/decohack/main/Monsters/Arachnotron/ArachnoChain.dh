@@ -1,0 +1,119 @@
+auto thing ChaingunArachno: thing Arachnotron "Chaingun Arachnotron"
+{
+	//$Category "Monsters/Spiders"
+	//$Color 11
+	
+	Ednum 10016
+	Health 500
+	PainChance 80
+	Speed 12
+	Radius 48
+	PainSound MACPAI
+	deathsound CSPIDI
+	seesound CSPISE
+	
+	+HIGHERMPROB
+	
+	clear states
+
+	States
+	{
+	Spawn:
+		GAND A 10 A_Look
+		Loop
+	See:
+		GAND A 3 A_BabyMetal
+	SeeLoop:
+		GAND ABBCC 2 A_Chase
+		GAND D 2 A_BabyMetal
+		GAND DEEFF 2 A_Chase
+		Loop
+	Missile:
+		GAND A 12 A_FaceTarget
+	MissileLoop:
+		GAND G 2
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 2 A_FaceTarget
+		GAND H 2 Bright A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+		TNT1 A 0 A_PlaySound("CSPIFI")
+		GAND G 8 A_SpidRefire
+		Goto MissileLoop
+	Pain:
+		GAND I 12 A_Pain
+		Goto See
+	Raise:
+		GAND ONMLKJ 6
+		Goto SeeLoop
+
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser("DeathRandom1", 200.0)
+		Goto RegularDeath
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto HeadExplodeDeath
+		
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump("HeadExplodeDeath", 1D2)
+		Goto RegularDeath
+		
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 16.0)
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 32.0)
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		GAND J 6
+		GAND L 6
+		GAND MN 6
+		GAND O 6
+		GAND P -1 A_BossDeath
+		Stop
+		
+		
+	HeadExplodeDeath:
+		TNT1 A 0 A_Scream
+		GAND A 24
+		GAND B 4
+		GAND CD 5
+		GAND E -1 A_BossDeath
+		Stop
+    }
+}

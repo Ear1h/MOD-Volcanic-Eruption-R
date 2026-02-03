@@ -1,0 +1,325 @@
+auto thing MusicChanger "Music Changer 00"
+{
+	//$Category "Sounds/Music Changer"
+	//$Color 18
+	//$Sprite "spkra0"
+	//$NotAngled
+	Ednum 14100
+}
+
+auto thing MusicChanger1: thing MusicChanger "Music Changer 01"
+{
+	Ednum 14101
+}
+
+auto thing MusicChanger2: thing MusicChanger "Music Changer 02"
+{
+	Ednum 14102
+}
+
+auto thing MusicChanger3: thing MusicChanger "Music Changer 03"
+{
+	Ednum 14103
+}
+
+auto thing MusicChanger4: thing MusicChanger "Music Changer 04"
+{
+	Ednum 14104
+}
+
+auto thing MusicChanger5: thing MusicChanger "Music Changer 05"
+{
+	Ednum 14105
+}
+
+auto thing MusicChanger6: thing MusicChanger "Music Changer 06"
+{
+	Ednum 14106
+}
+
+auto thing MusicChanger7: thing MusicChanger "Music Changer 07"
+{
+	Ednum 14107
+}
+
+auto thing MusicChanger8: thing MusicChanger "Music Changer 08"
+{
+	Ednum 14108
+}
+
+auto thing MusicChanger9: thing MusicChanger "Music Changer 09"
+{
+	Ednum 14109
+}
+
+auto thing MusicChanger10: thing MusicChanger "Music Changer 10"
+{
+	Ednum 14110
+}
+
+auto thing MusicChanger11: thing MusicChanger "Music Changer 11"
+{
+	Ednum 14111
+}
+
+auto thing MusicChanger12: thing MusicChanger "Music Changer 12"
+{
+	Ednum 14112
+}
+
+auto thing MusicChanger13: thing MusicChanger "Music Changer 13"
+{
+	Ednum 14113
+}
+
+auto thing MusicChanger14: thing MusicChanger "Music Changer 14"
+{
+	Ednum 14114
+}
+
+auto thing MusicChanger15: thing MusicChanger "Music Changer 15"
+{
+	Ednum 14115
+}
+
+auto thing MusicChanger16: thing MusicChanger "Music Changer 16"
+{
+	Ednum 14116
+}
+
+auto thing MusicChanger17: thing MusicChanger "Music Changer 17"
+{
+	Ednum 14117
+}
+
+auto thing MusicChanger18: thing MusicChanger "Music Changer 18"
+{
+	Ednum 14118
+}
+
+auto thing MusicChanger19: thing MusicChanger "Music Changer 19"
+{
+	Ednum 14119
+}
+
+auto thing MusicChanger20: thing MusicChanger "Music Changer 20"
+{
+	Ednum 14120
+}
+
+auto thing MusicChanger21: thing MusicChanger "Music Changer 21"
+{
+	Ednum 14121
+}
+
+auto thing MusicChanger22: thing MusicChanger "Music Changer 22"
+{
+	Ednum 14122
+}
+
+auto thing MusicChanger23: thing MusicChanger "Music Changer 23"
+{
+	Ednum 14123
+}
+
+auto thing MusicChanger24: thing MusicChanger "Music Changer 24"
+{
+	Ednum 14124
+}
+
+auto thing MusicChanger25: thing MusicChanger "Music Changer 25"
+{
+	Ednum 14125
+}
+
+auto thing MusicChanger26: thing MusicChanger "Music Changer 26"
+{
+	Ednum 14126
+}
+
+auto thing MusicChanger27: thing MusicChanger "Music Changer 27"
+{
+	Ednum 14127
+}
+
+auto thing MusicChanger28: thing MusicChanger "Music Changer 28"
+{
+	Ednum 14128
+}
+
+auto thing MusicChanger29: thing MusicChanger "Music Changer 29"
+{
+	Ednum 14129
+}
+auto thing MusicChanger30: thing MusicChanger "Music Changer 30"
+{
+	Ednum 14130
+}
+
+auto thing MusicChanger31: thing MusicChanger "Music Changer 31"
+{
+	Ednum 14131
+}
+
+auto thing MusicChanger32: thing MusicChanger "Music Changer 32"
+{
+	Ednum 14132
+}
+
+auto thing MusicChanger33: thing MusicChanger "Music Changer 33"
+{
+	Ednum 14133
+}
+
+auto thing MusicChanger34: thing MusicChanger "Music Changer 34"
+{
+	Ednum 14134
+}
+
+auto thing MusicChanger35: thing MusicChanger "Music Changer 35"
+{
+	Ednum 14135
+}
+
+auto thing MusicChanger36: thing MusicChanger "Music Changer 36"
+{
+	Ednum 14136
+}
+
+auto thing MusicChanger37: thing MusicChanger "Music Changer 37"
+{
+	Ednum 14137
+}
+
+auto thing MusicChanger38: thing MusicChanger "Music Changer 38"
+{
+	Ednum 14138
+}
+
+auto thing MusicChanger39: thing MusicChanger "Music Changer 39"
+{
+	Ednum 14139
+}
+
+auto thing MusicChanger40: thing MusicChanger "Music Changer 40"
+{
+	Ednum 14140
+}
+
+auto thing MusicChanger41: thing MusicChanger "Music Changer 41"
+{
+	Ednum 14141
+}
+
+auto thing MusicChanger42: thing MusicChanger "Music Changer 42"
+{
+	Ednum 14142
+}
+
+auto thing MusicChanger43: thing MusicChanger "Music Changer 43"
+{
+	Ednum 14143
+}
+
+auto thing MusicChanger44: thing MusicChanger "Music Changer 44"
+{
+	Ednum 14144
+}
+
+auto thing MusicChanger45: thing MusicChanger "Music Changer 45"
+{
+	Ednum 14145
+}
+
+auto thing MusicChanger46: thing MusicChanger "Music Changer 46"
+{
+	Ednum 14146
+}
+
+auto thing MusicChanger47: thing MusicChanger "Music Changer 47"
+{
+	Ednum 14147
+}
+
+auto thing MusicChanger48: thing MusicChanger "Music Changer 48"
+{
+	Ednum 14148
+}
+
+auto thing MusicChanger49: thing MusicChanger "Music Changer 49"
+{
+	Ednum 14149
+}
+
+auto thing MusicChanger50: thing MusicChanger "Music Changer 50"
+{
+	Ednum 14150
+}
+
+auto thing MusicChanger51: thing MusicChanger "Music Changer 51"
+{
+	Ednum 14151
+}
+
+auto thing MusicChanger52: thing MusicChanger "Music Changer 52"
+{
+	Ednum 14152
+}
+
+auto thing MusicChanger53: thing MusicChanger "Music Changer 53"
+{
+	Ednum 14153
+}
+
+auto thing MusicChanger54: thing MusicChanger "Music Changer 54"
+{
+	Ednum 14154
+}
+
+auto thing MusicChanger55: thing MusicChanger "Music Changer 55"
+{
+	Ednum 14155
+}
+
+auto thing MusicChanger56: thing MusicChanger "Music Changer 56"
+{
+	Ednum 14156
+}
+
+auto thing MusicChanger57: thing MusicChanger "Music Changer 57"
+{
+	Ednum 14157
+}
+
+auto thing MusicChanger58: thing MusicChanger "Music Changer 58"
+{
+	Ednum 14158
+}
+
+auto thing MusicChanger59: thing MusicChanger "Music Changer 59"
+{
+	Ednum 14159
+}
+
+auto thing MusicChanger60: thing MusicChanger "Music Changer 60"
+{
+	Ednum 14160
+}
+
+auto thing MusicChanger61: thing MusicChanger "Music Changer 61"
+{
+	Ednum 14161
+}
+
+auto thing MusicChanger62: thing MusicChanger "Music Changer 62"
+{
+	Ednum 14162
+}
+
+auto thing MusicChanger63: thing MusicChanger "Music Changer 63"
+{
+	Ednum 14163
+}
+
+
+

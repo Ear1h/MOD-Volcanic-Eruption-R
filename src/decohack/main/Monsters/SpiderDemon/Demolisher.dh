@@ -1,0 +1,73 @@
+auto thing Demolisher: thing SpiderMastermind "Demolisher"
+{
+	//$Category "Monsters/Spiders"
+	//$Color 11
+	 
+	Ednum 10042
+	ReactionTime 4
+	Speed 12
+
+    states
+    {
+		Spawn: 
+   			DMLS A 10 A_Look 
+    		Loop 
+  		See: 
+    		DMLS A 2 A_Metal 
+    		DMLS ABB 2 A_Chase 
+    		DMLS C 2 A_Metal 
+    		DMLS CDD 2 A_Chase 
+    		DMLS E 2 A_Metal 
+    		DMLS EFF 2 A_Chase 
+    		Loop 
+  		Missile:
+    		DMLS A 0  A_RandomJump("Missile2", 144)
+    		DMLS A 20 A_FaceTarget
+    		DMLS T 1  A_Playsound("BFG")
+    		DMLS T 4  A_FaceTarget
+    		DMLS T 4  A_FaceTarget
+    		DMLS T 5  A_FaceTarget
+    		DMLS T 5  A_FaceTarget
+    		DMLS T 5  A_FaceTarget
+    		DMLS T 5  A_FaceTarget
+   			DMLS U 10  BRIGHT A_MonsterProjectile(BFGBall)
+   			DMLS A 0  A_RandomJump("Missile3", 96)
+		    Goto See
+		Missile2:
+			DMLS A 20 A_FaceTarget
+		ReFire:
+		    TNT1 A 0 A_PlaySound("CGFIRE")
+			TNT1 A 0 A_MonsterBulletAttack(22.5, 0.0, 1, 15, 1)
+			DMLS G 2 BRIGHT A_MonsterBulletAttack(22.5, 0.0, 1, 15, 1)
+			TNT1 A 0 A_PlaySound("CGFIRE")
+			TNT1 A 0 A_MonsterBulletAttack(22.5, 0.0, 1, 15, 1)
+			DMLS H 2 BRIGHT A_MonsterBulletAttack(22.5, 0.0, 1, 15, 1)
+		    DMLS H 1 BRIGHT A_SpidRefire 
+		    Goto ReFire
+		Missile3:
+			DMLS A 20 A_FaceTarget
+    		DMLS T 1  A_Playsound("BFG")
+    		DMLS T 4  A_FaceTarget
+    		DMLS T 4  A_FaceTarget
+    		DMLS T 5  A_FaceTarget
+    		DMLS T 5  A_FaceTarget
+    		DMLS T 5  A_FaceTarget
+    		DMLS T 5  A_FaceTarget
+   			DMLS U 10 BRIGHT A_MonsterProjectile(BFGBall)
+   			Goto See
+		Pain: 
+		    DMLS I 3 
+		    DMLS I 3 A_Pain 
+		    Goto See 
+		Death: 
+			DMLS J 0 
+		    DMLS J 20 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		    DMLS K 10  A_FALL
+		    DMLS L 10 A_Scream
+			DMLS MNOP 10 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+			DMLS QR 10 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		    DMLS S 30 
+		    DMLS S -1  A_BossDeath
+		    Stop 
+    }
+}

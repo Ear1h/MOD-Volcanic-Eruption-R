@@ -1,0 +1,18 @@
+thing LostSoul
+{
+	//$Category "Monsters/Lost Souls"
+	//$Color 9
+	health 60
+	
+	States
+	{
+		Death:
+			SKUL F 6 Bright
+			SKUL G 6 Bright A_Scream
+			SKUL H 6 Bright
+			SKUL I 6 Bright A_Fall
+			SKUL J 6
+			SKUL K 6 A_BossDeath
+			Stop
+	}
+}

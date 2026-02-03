@@ -1,0 +1,522 @@
+auto thing LeafsFallVFX "Leaf VFX"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	
+	States
+	{
+		Spawn:
+			LEF1 ABCDEFGHI 4
+			loop
+		Death:
+			LEF3 D 175
+			stop
+	}
+}
+
+auto thing LeafsFallVFX2 "Leaf VFX 2"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	
+	States
+	{
+		Spawn:
+			LEF2 ABCDEFGHI 4
+			loop
+		Death:
+			LEF3 C 175
+			stop
+	}
+}
+
+Auto thing LeafsSpawner "Leafs Spawner (256x256)"
+{
+	//$Category "VFX Spawners/Leafes"
+	//$Color 4
+	//$Sprite "RAINA1"
+	
+	EdNum 29916
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 1 A_RandomJump(Leafs, 254)
+		TNT1 A 15
+		Loop
+	Leafs:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Leafs1",32)
+		TNT1 A 0 A_RandomJump("Leafs2",32)
+		TNT1 A 0 A_RandomJump("Leafs3",32)
+		TNT1 A 0 A_RandomJump("Leafs4",32)
+		TNT1 A 0 A_RandomJump("Leafs5",32)
+		TNT1 A 0 A_RandomJump("Leafs6",32)
+		TNT1 A 0 A_RandomJump("Leafs7",32)
+		TNT1 A 0 A_RandomJump("Leafs8",32)
+		Goto Spawn
+	Leafs1:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -3.4, -32.0, 64.0, 0.0, 2.6, 0.9, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  5.1,  48.0, 80.0, 0.0, 1.3, 1.4, -2.1)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -0.7,   0.0, 48.0, 0.0, 0.4, 0.3, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.3,  80.0,-32.0, 0.0, 2.9, 1.1, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -4.9,  16.0, 48.0, 0.0, 0.8, 1.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  1.8, -16.0,-16.0, 0.0, 0.2, 0.6, -2.0)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -6.2, -16.0, 16.0, 0.0, 1.7, 1.5, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  0.9, -64.0,112.0, 0.0, 2.1, 0.4, -2.2)
+		Goto Spawn
+	Leafs2:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  2.3, -32.0, 64.0, 0.0, 1.8, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -5.6,  48.0, 80.0, 0.0, 2.5, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  0.4,   0.0, 48.0, 0.0, 0.6, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.1,  80.0,-32.0, 0.0, 2.9, 0.0, -2.1)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.8,  16.0, 48.0, 0.0, 1.2, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  4.7, -16.0,-16.0, 0.0, 0.3, 0.0, -2.0)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -6.4, -16.0, 16.0, 0.0, 2.0, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  1.5, -64.0,112.0, 0.0, 2.3, 0.0, -2.2)
+		Goto Spawn
+
+	Leafs3:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -4.1, -112.0, 48.0, 0.0, 1.1, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  3.6,  -16.0, 64.0, 0.0, 2.4, 0.0, -2.1)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -6.7,  -80.0,112.0, 0.0, 0.5, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  5.4,  -64.0,-112.0,0.0, 2.9, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -1.2,  -48.0, 16.0, 0.0, 1.6, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  0.8,  112.0, 48.0, 0.0, 2.2, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.5,  -48.0,-32.0, 0.0, 0.9, 0.0, -2.0)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.0,  -48.0,-16.0, 0.0, 2.7, 0.0, -2.4)
+		Goto Spawn
+
+	Leafs4:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -5.2, -64.0, -80.0, 0.0, 1.3, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  4.4, -48.0,  64.0, 0.0, 2.6, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -0.9, -16.0,  32.0, 0.0, 0.7, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.3, -48.0, -48.0, 0.0, 2.9, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -3.1, -96.0,-112.0, 0.0, 1.8, 0.0, -2.1)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  1.6,  48.0, -16.0, 0.0, 0.4, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -6.8,  48.0,  32.0, 0.0, 2.1, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  0.5, -96.0, -48.0, 0.0, 1.0, 0.0, -2.4)
+		Goto Spawn
+
+	Leafs5:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  3.9,  48.0, -48.0, 0.0, 2.4, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -4.6,   0.0, -64.0, 0.0, 0.8, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.7,  96.0, -96.0, 0.0, 2.9, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -1.4,  96.0, 128.0, 0.0, 1.5, 0.0, -2.1)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  0.2, -32.0,  16.0, 0.0, 0.3, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -6.0,  96.0, -80.0, 0.0, 2.6, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  4.8, -80.0,  48.0, 0.0, 1.9, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -2.7, -64.0,  96.0, 0.0, 1.1, 0.0, -2.3)
+		Goto Spawn
+
+	Leafs6:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  5.5,   0.0, -80.0, 0.0, 2.7, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.2,  48.0, -32.0, 0.0, 1.0, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  0.7,  80.0,  48.0, 0.0, 0.5, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -6.9, -80.0, 128.0, 0.0, 2.8, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  2.1, -80.0,  80.0, 0.0, 1.4, 0.0, -2.1)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -4.4,  16.0, -96.0, 0.0, 2.0, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.0, 128.0, -32.0, 0.0, 2.9, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -1.0,   0.0, -16.0, 0.0, 0.6, 0.0, -2.5)
+		Goto Spawn
+
+	Leafs7:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -5.7, -48.0,  80.0, 0.0, 2.3, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  3.4, 112.0,   0.0, 0.0, 1.6, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -0.6, -32.0, -64.0, 0.0, 0.4, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.9, -80.0,  64.0, 0.0, 2.9, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -2.8,  64.0, 112.0, 0.0, 1.1, 0.0, -2.1)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  0.9, -48.0,-112.0, 0.0, 0.7, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -6.3,  80.0,  64.0, 0.0, 2.5, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  4.2, -16.0,   0.0, 0.0, 1.9, 0.0, -2.5)
+		Goto Spawn
+
+	Leafs8:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  2.6, -64.0,  48.0, 0.0, 1.7, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -4.9,  16.0, 128.0, 0.0, 2.2, 0.0, -2.2)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.5, 112.0, -96.0, 0.0, 2.9, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -1.7,  32.0,   0.0, 0.0, 0.8, 0.0, -2.5)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  0.3,  80.0, 128.0, 0.0, 0.6, 0.0, -2.1)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -6.1, -32.0,-112.0, 0.0, 2.6, 0.0, -2.3)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  4.7,  48.0,  48.0, 0.0, 1.9, 0.0, -2.4)
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.0,  96.0,  32.0, 0.0, 1.2, 0.0, -2.2)
+		Goto Spawn
+	}
+}
+
+Auto thing LeafsSpawner2 "Leafs Spawner (128x128)"
+{
+	//$Category "VFX Spawners/Leafes"
+	//$Color 4
+	//$Sprite "RAINA2"
+	
+	EdNum 29917
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 1 A_RandomJump(Leafs, 254)
+		TNT1 A 15
+		Loop
+	Leafs:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Leafs1",32)
+		TNT1 A 0 A_RandomJump("Leafs2",32)
+		TNT1 A 0 A_RandomJump("Leafs3",32)
+		TNT1 A 0 A_RandomJump("Leafs4",32)
+		TNT1 A 0 A_RandomJump("Leafs5",32)
+		TNT1 A 0 A_RandomJump("Leafs6",32)
+		TNT1 A 0 A_RandomJump("Leafs7",32)
+		TNT1 A 0 A_RandomJump("Leafs8",32)
+		Goto Spawn
+	Leafs1:
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -64.0, 128.0, 0.0, 2.2, 1.0, -2.4)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 96.0, 160.0, 0.0, 1.2, 1.1, -2.1)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 0.0, 96.0, 0.0, 1.0, 1.0, -1.6)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 160.0, -64.0, 0.0, 1.0, 1.1, -1.9)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 32.0, 96.0, 0.0, 0.4, 0.9, -2.4)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, -32.0, 0.0, 0.7, 0.4, -2.7)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, 32.0, 0.0, 0.8, 1.3, -2.1)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -256.0, 224.0, 0.0, 1.2, 1.2, -1.9)
+		Goto Spawn
+	Leafs2:
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -64.0, 128.0, 0.0, 2.3, 0.0, -2.6)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 96.0, 160.0, 0.0, 2.1, 0.0, -2.4)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 0.0, 96.0, 0.0, 0.0, 0.0, -3.1)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 160.0, -64.0, 0.0, 0.0, 0.0, -2.1)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 32.0, 96.0, 0.0, 0.0, 0.0, -2.0)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, -32.0, 0.0, 0.0, 0.0, -1.9)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, 32.0, 0.0, 0.0, 0.0, -2.7)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -256.0, 224.0, 0.0, 0.0, 0.0, -2.4)
+		Goto Spawn
+
+	Leafs3:
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -224.0, 96.0, 0.0, 0.0, 0.0, -2.4)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, 128.0, 0.0, 0.0, 0.0, -2.3)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -160.0, 224.0, 0.0, 0.0, 0.0, -2.4)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -128.0, -224.0, 0.0, 0.0, 0.0, -2.6)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -96.0, 32.0, 0.0, 0.0, 0.0, -2.7)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 224.0, 96.0, 0.0, 0.0, 0.0, -2.4)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -96.0, -64.0, 0.0, 0.0, 0.0, -2.4)
+		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -96.0, -32.0, 0.0, 0.0, 0.0, -2.6)
+		Goto Spawn
+
+	Leafs4:
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -2.5, 0.0, -32.0, -40.0,  2.0,  0.6, -2.5)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  3.2, 0.0, -24.0,  32.0,  1.5,  1.0, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  0.0, 0.0,  -8.0,  16.0,  2.7,  0.8, -2.3)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  1.1, 0.0, -24.0, -24.0,  2.2,  0.7, -2.4)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -1.0, 0.0, -48.0, -56.0,  1.2,  0.6, -2.1)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  2.3, 0.0,  24.0,  -8.0,  2.5,  0.5, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  0.5, 0.0,  24.0,  16.0,  0.9,  1.0, -2.3)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -3.0, 0.0, -48.0, -24.0,  1.8,  0.4, -2.1)
+		Goto Spawn
+
+	Leafs5:
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  2.5, 0.0, -40.0,  32.0,  2.0,  1.0, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -1.5, 0.0, -24.0, -16.0,  1.2,  0.8, -2.3)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  0.7, 0.0,  24.0,   8.0,  1.5,  0.6, -2.1)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -2.2, 0.0, -32.0, -24.0,  2.3,  1.2, -2.4)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  1.1, 0.0,  16.0,  32.0,  0.9,  0.7, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -3.0, 0.0, -48.0,  24.0,  2.7,  1.1, -2.5)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  0.5, 0.0, -24.0, -16.0,  1.8,  0.9, -2.3)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  2.3, 0.0,  40.0,  -8.0,  1.2,  0.5, -2.1)
+		Goto Spawn
+	Leafs6:
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -1.0, 0.0, -56.0,  16.0,  2.0,  1.3, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  1.5, 0.0, -32.0, -24.0,  2.3,  1.0, -2.1)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -2.3, 0.0,  24.0,  32.0,  0.7,  0.6, -2.3)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  3.0, 0.0,  16.0,  -8.0,  2.5,  1.2, -2.4)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  0.0, 0.0, -8.0,  24.0,  1.8,  0.5, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -24.0, -32.0,  2.2,  1.0, -2.3)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  2.7, 0.0,  40.0,  16.0,  1.5,  0.7, -2.1)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -0.8, 0.0, -32.0, -24.0,  0.9,  0.6, -2.2)
+		Goto Spawn
+	Leafs7:
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  1.2,  56.0, -16.0,  0.0, 2.0,  1.1, -2.3)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -2.7, 24.0,  32.0,  1.5,  0.8, -2.1)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  0.5, 0.0, -40.0,  16.0,  2.3,  1.0, -2.4)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -1.1, 0.0, -24.0, -32.0,  0.7,  0.5, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  3.0, 0.0,  16.0,  24.0,  2.5,  1.3, -2.5)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -0.5, 0.0, -8.0,  -8.0,  1.2,  0.7, -2.1)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  2.3, 0.0,  32.0,  -24.0,  1.8,  1.0, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -48.0,  8.0,  2.2,  0.9, -2.3)
+		Goto Spawn
+	Leafs8:
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  0.0, 0.0,  24.0,  16.0,  1.5,  1.2, -2.4)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -2.0, 0.0, -16.0, -32.0,  2.0,  0.7, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  1.0, 0.0,  32.0,  8.0,  2.5,  1.0, -2.3)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -1.2, 0.0, -24.0, -16.0,  1.8,  0.5, -2.1)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  2.3, 0.0,  40.0,  24.0,  1.2,  0.6, -2.4)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -0.5, 0.0, -32.0, -24.0,  2.3,  1.3, -2.2)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  1.5, 0.0,  16.0,  -8.0,  0.9,  0.7, -2.1)
+		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -3.0, 0.0, -48.0,  32.0,  1.5,  1.1, -2.3)
+		Goto Spawn
+	}
+}
+
+Auto thing LeafsSpawner3 "Leafs Spawner (64x64)"
+{
+	//$Category "VFX Spawners/Leafes"
+	//$Color 4
+	//$Sprite "RAINA3"
+	
+	EdNum 29918
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 10 
+		TNT1 A 1 A_RandomJump(Leafs, 254)
+		TNT1 A 15
+		Loop
+	Leafs:
+		TNT1 A 1
+		TNT1 A 0 A_RandomJump("Leafs1",32)
+		TNT1 A 0 A_RandomJump("Leafs2",32)
+		TNT1 A 0 A_RandomJump("Leafs3",32)
+		TNT1 A 0 A_RandomJump("Leafs4",32)
+		TNT1 A 0 A_RandomJump("Leafs5",32)
+		TNT1 A 0 A_RandomJump("Leafs6",32)
+		TNT1 A 0 A_RandomJump("Leafs7",32)
+		TNT1 A 0 A_RandomJump("Leafs8",32)
+		Goto Spawn
+	Leafs1:
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.5, 0.0,  4.0,  0.0,  2.0,  1.0, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, 28.0, -12.0,  1.2,  0.8, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.7, 0.0, -24.0,  0.0,  1.5,  0.6, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -2.2, 0.0, 24.0,  0.0,  2.3,  1.2, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.1, 0.0, -28.0,  4.0,  0.9,  0.7, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -3.0, 0.0, 24.0, -16.0,  2.7,  1.1, -2.5)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.5, 0.0, 20.0,  -8.0,  1.8,  0.9, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  2.3, 0.0, -16.0, -28.0,  1.2,  0.5, -2.1)
+		Goto Spawn
+	Leafs2:
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.0, 0.0, -16.0, 16.0,  2.0,  1.3, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.5, 0.0, 24.0, 20.0,  2.3,  1.0, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.3, 0.0, 0.0, 24.0,  0.7,  0.6, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  3.0, 0.0, 20.0, -16.0,  2.5,  1.2, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.0, 0.0, 4.0, 24.0,  1.8,  0.5, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -4.0, -4.0,  2.2,  1.0, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.7, 0.0, -4.0, 4.0,  1.5,  0.7, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -0.8, 0.0, -16.0, 28.0,  0.9,  0.6, -2.2)
+		Goto Spawn
+	Leafs3:
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.2, 0.0, -28.0, 24.0,  2.0,  1.1, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.7, 0.0, -4.0, 16.0,  1.5,  0.8, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  0.5, 0.0, -20.0, 28.0,  2.3,  1.0, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.1, 0.0, -16.0, -28.0,  0.7,  0.5, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  3.0, 0.0, -24.0, 4.0,  2.5,  1.3, -2.5)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -0.5, 0.0, 16.0, -4.0,  1.2,  0.7, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.3, 0.0, 28.0, -16.0,  1.8,  1.0, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -24.0, -4.0,  2.2,  0.9, -2.3)
+		Goto Spawn
+	Leafs4:
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  0.0, 0.0, -16.0, -20.0,  1.5,  1.2, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.0, 0.0, -24.0, 16.0,  2.0,  0.8, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.0, 0.0, -4.0, 16.0,  2.5,  0.6, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.2, 0.0, -24.0, -24.0,  1.8,  1.0, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.3, 0.0, -24.0, -28.0,  1.2,  0.5, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -0.5, 0.0, 24.0, -4.0,  2.3,  1.3, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.5, 0.0, 24.0, 16.0,  0.9,  0.7, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -3.0, 0.0, -24.0, -24.0,  1.5,  1.1, -2.3)
+		Goto Spawn
+	Leafs5:
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.5, 0.0, -20.0,  16.0,  2.0,  1.0, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -12.0,  -8.0,  1.2,  0.8, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  0.7, 0.0,  12.0,   4.0,  1.5,  0.6, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -2.2, 0.0, -16.0, -12.0,  2.3,  1.2, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.1, 0.0,   8.0,  16.0,  0.9,  0.7, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -3.0, 0.0, -24.0,  12.0,  2.7,  1.1, -2.5)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.5, 0.0, -12.0,  -8.0,  1.8,  0.9, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.3, 0.0,  20.0,  -4.0,  1.2,  0.5, -2.1)
+		Goto Spawn
+	Leafs6:	
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.0, 0.0, -28.0,   8.0,  2.0,  1.3, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.5, 0.0, -16.0, -12.0,  2.3,  1.0, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.3, 0.0,  12.0,  16.0,  0.7,  0.6, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  3.0, 0.0,   8.0,  -4.0,  2.5,  1.2, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  0.0, 0.0,  -4.0,  12.0,  1.8,  0.5, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.5, 0.0, -12.0, -16.0,  2.2,  1.0, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  2.7, 0.0,  20.0,   8.0,  1.5,  0.7, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -0.8, 0.0, -16.0, -12.0,  0.9,  0.6, -2.2)
+		Goto Spawn
+	Leafs7:
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.2, 0.0,  28.0,  -8.0,  2.0,  1.1, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.7, 0.0,  12.0,  16.0,  1.5,  0.8, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.5, 0.0, -20.0,   8.0,  2.3,  1.0, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.1, 0.0, -12.0, -16.0,  0.7,  0.5, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  3.0, 0.0,   8.0,  12.0,  2.5,  1.3, -2.5)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -0.5, 0.0,  -4.0,  -4.0,  1.2,  0.7, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  2.3, 0.0,  16.0,  -12.0,  1.8,  1.0, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.5, 0.0, -24.0,  -4.0,  2.2,  0.9, -2.3)
+		Goto Spawn
+	Leafs8:
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.0, 0.0,  12.0,   8.0,  1.5,  1.2, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.0, 0.0,  -8.0, -16.0,  2.0,  0.7, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.0, 0.0,  16.0,   4.0,  2.5,  1.0, -2.3)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.2, 0.0, -12.0,  -8.0,  1.8,  0.5, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.3, 0.0,  20.0,  12.0,  1.2,  0.6, -2.4)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -0.5, 0.0, -16.0, -12.0,  2.3,  1.3, -2.2)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.5, 0.0,   8.0,  -4.0,  0.9,  0.7, -2.1)
+		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -3.0, 0.0, -24.0,  16.0,  1.5,  1.1, -2.3)
+		Goto Spawn
+	}
+}
+
+Auto thing LeafSpawner4 "Leaf Spawner (Single)"
+{
+	//$Category "VFX Spawners/Leafes"
+	//$Color 4
+	//$Sprite "RAINA5"
+	
+	EdNum 29919
+	
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 20 
+		TNT1 A 1 A_RandomJump(Leafs, 254)
+		Loop
+	Leafs:
+		TNT1 A 15
+		TNT1 A 0 A_RandomJump("Leafs1",7)
+		TNT1 A 0 A_RandomJump("Leafs2",7)
+		TNT1 A 0 A_RandomJump("Leafs3",7)
+		TNT1 A 0 A_RandomJump("Leafs4",7)
+		TNT1 A 0 A_RandomJump("Leafs5",7)
+		TNT1 A 0 A_RandomJump("Leafs6",7)
+		TNT1 A 0 A_RandomJump("Leafs7",7)
+		TNT1 A 0 A_RandomJump("Leafs8",7)
+		Goto Spawn
+	Leafs1:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -3.2, 1.2, 0.0,  0.0, 2.2, 1.02,   -2.6)
+		Goto Spawn
+		Leafs2:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, 4.4, 2.2, 0.0, 0.0, 3.1, 1.4,  -2.8)
+		Goto Spawn
+		Leafs3:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, 7.1, -0.1, 0.0,  0.0, 1.4, 0.3,   -2.0)
+		Goto Spawn
+		Leafs4:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -2.3, 1.1, 0.0,  0.0, 1.7, 0.2,   -2.2)
+		Goto Spawn
+		Leafs5:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, 0.9, 1.5, 0.0, 0.0, 1.3, 0.1,   -2.4)
+		Goto Spawn
+		Leafs6:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.3, 1.2, 0.0, 0.0, 1.1, 1.0,  -2.8)
+		Goto Spawn
+		Leafs7:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -0.4, -0.9, 0.0,  0.0, 1.6, 1.2,   -2.5)
+		Goto Spawn
+		Leafs8:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, 7.5, 0.0, 0.0, 0.0, 1.1, 1.0, -2.6)
+		Goto Spawn
+		}
+}
+
+Auto thing LeafSpawner5 "Leaf Spawner (Single frequent)"
+{
+	//$Category "VFX Spawners/Leafes"
+	//$Color 4
+	//$Sprite "RAINA5"
+	
+	EdNum 29920
+	
+	Radius 16
+	Height 16
+	Mass 100
+	
+	+SPAWNCEILING
+	+NOBLOCKMAP
+	+NOGRAVITY
+	
+	States
+	{
+	Spawn:
+		TNT1 A 20 
+		TNT1 A 1 A_RandomJump(Leafs, 254)
+		Loop
+	Leafs:
+		TNT1 A 15
+		TNT1 A 0 A_RandomJump("Leafs1",15)
+		TNT1 A 0 A_RandomJump("Leafs2",15)
+		TNT1 A 0 A_RandomJump("Leafs3",15)
+		TNT1 A 0 A_RandomJump("Leafs4",15)
+		TNT1 A 0 A_RandomJump("Leafs5",15)
+		TNT1 A 0 A_RandomJump("Leafs6",15)
+		TNT1 A 0 A_RandomJump("Leafs7",15)
+		TNT1 A 0 A_RandomJump("Leafs8",15)
+		Goto Spawn
+	Leafs1:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -3.2, 1.2, 0.0,  0.0, 2.2, 1.02,   -2.6)
+		Goto Spawn
+		Leafs2:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, 4.4, 2.2, 0.0, 0.0, 3.1, 1.4,  -2.8)
+		Goto Spawn
+		Leafs3:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, 7.1, -0.1, 0.0,  0.0, 1.4, 0.3,   -2.0)
+		Goto Spawn
+		Leafs4:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -2.3, 1.1, 0.0,  0.0, 1.7, 0.2,   -2.2)
+		Goto Spawn
+		Leafs5:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, 0.9, 1.5, 0.0, 0.0, 1.3, 0.1,   -2.4)
+		Goto Spawn
+		Leafs6:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.3, 1.2, 0.0, 0.0, 1.1, 1.0,  -2.8)
+		Goto Spawn
+		Leafs7:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -0.4, -0.9, 0.0,  0.0, 1.6, 1.2,   -2.5)
+		Goto Spawn
+		Leafs8:
+		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, 7.5, 0.0, 0.0, 0.0, 1.1, 1.0, -2.6)
+		Goto Spawn
+		}
+}

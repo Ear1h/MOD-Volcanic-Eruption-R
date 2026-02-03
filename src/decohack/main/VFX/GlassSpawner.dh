@@ -1,0 +1,68 @@
+auto thing GlassShard1 "Glass Falling"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	
+	States
+	{
+	Spawn:
+		SHAD ABCD 3
+		Loop
+	Death:
+		SHAD C 15
+		Stop
+	}
+}
+
+auto thing GlassShard2 "Glass Falling 2"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	
+	States
+	{
+	Spawn:
+		SHA2 ABCD 3
+		Loop
+	Death:
+		SHA2 B 15
+		Stop
+	}
+}
+
+auto thing GlassShard3 "Glass Falling 3"
+{
+	EdNum -1
+	
+	Radius 0
+	Height 0
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+MISSILE
+	-SOLID
+	
+	States
+	{
+	Spawn:
+		SHA3 ABCD 3
+		Loop
+	Death:
+		SHA3 C 15
+		Stop
+	}
+}

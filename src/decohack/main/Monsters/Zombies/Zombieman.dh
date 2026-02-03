@@ -1,0 +1,171 @@
+auto thing ZombieManHead { +MISSILE }
+
+thing ZombieMan "Zombie Marine"
+{
+	//$Category "Monsters/Zombies"
+	//$Color 6
+	Health 40
+	Radius 20
+	Height 56
+	Speed 8
+	PainChance 200
+	
+	clear states
+	States
+	{
+		Spawn:
+			POSS A 10 A_Look
+			Loop
+		See:
+			POSS AABBCCDD 4 A_Chase
+			Loop
+		Missile:
+			POSS E 10 A_FaceTarget
+			POSS F 8 Bright
+			{	
+				A_MonsterBulletAttack(22.5, 0.0, 1, 9, 1)
+				A_PlaySound("PISFIR")
+			}
+			POSS E 8
+			Goto See
+		Pain:
+			POSS H 3
+			POSS H 3 A_Pain
+			Goto See
+		Death:
+			TNT1 A 0 A_Fall
+			POSS H 5
+			POSS I 5 A_Scream
+			POSS J 5 
+			POSS K 5
+			POSS L -1 A_BossDeath
+			Stop
+		XDeath:
+			TNT1 A 0 A_Fall
+			POSS M 5
+			POSS N 5 A_XScream
+			POSS O 5 
+			POSS PQRST 5
+			POSS U -1
+			Stop
+		Raise:
+			POSS K 5
+			POSS JIH 5
+			Goto See
+			
+		Death:
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Fall
+			TNT1 A 0 A_JumpIfTargetCloser(DeathRandom1, 128.0)
+			Goto DeathRandom2
+			
+		XDeath:
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Fall
+			Goto HeadDeath
+			
+		DeathRandom1:
+			TNT1 A 0 A_RandomJump(HeadDeath, 1D5)
+			TNT1 A 0 A_RandomJump(FlyDeath, 1D4)
+			TNT1 A 0 A_RandomJump(LegsDeath, 1D3)
+			TNT1 A 0 A_RandomJump(GutsDeath, 1D2)
+			Goto RegularDeath
+			
+		DeathRandom2:
+			TNT1 A 0 A_RandomJump(GutsDeath, 1D5)
+			TNT1 A 0 A_RandomJump(HeadDeath, 1D4)
+			TNT1 A 0 A_RandomJump(HeadCrackDeath, 1D3)
+			TNT1 A 0 A_RandomJump(FlyDeath, 1D2)
+			Goto RegularDeath
+		
+		
+		// ****************************
+		// DEATH ANIMATIONS
+		// ****************************
+		
+		RegularDeath:
+			TNT1 AAAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 48.0)
+			POSS H 5
+			POSS I 5 A_Scream
+			POSS J 5 
+			POSS K 5
+			POSS L -1 A_BossDeath
+			Stop
+			
+		HeadDeath:
+			TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 48.0)
+			TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 48.0)
+			ZBD1 A 5 A_SpawnObject(ZombieManHead, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+			TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 32.0)
+			ZBD1 B 5
+			ZBD1 C 6
+			ZBD1 D 5
+			ZBD1 E -1 A_BossDeath
+			Stop
+
+		FlyDeath:
+			TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 48.0)
+			TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+			TNT1 A 0 A_Scream
+			TNT1 A 0 A_SpawnObject(ZombieManHead, -180.0, 0.0, 0.0, 48.0, 1.0, 0.0, 6.0)
+			ZBD2 A 7
+			ZBD2 B 7
+			ZBD2 C 2
+			TNT1 AAAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 10.0)
+			POSS L -1 A_BossDeath
+			Stop
+	  
+		LegsDeath:
+			TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 10.0)
+			TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+			TNT1 A 0 A_XScream
+			ZBD3 A 1
+			ZBD3 A 2
+			TNT1 AAAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 10.0)
+			ZBD3 BC 5
+			ZBD3 D -1 A_BossDeath
+			Stop
+		GutsDeath:
+			TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 10.0)
+			TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+			TNT1 A 0 A_XScream
+			ZBD4 A 1
+			ZBD4 A 2
+			TNT1 AAAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 10.0)
+			ZBD4 BCD 5
+			ZBD4 E -1 A_BossDeath
+			Stop
+		HeadCrackDeath:
+			TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 10.0)
+			TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+			TNT1 A 0 A_XScream
+			ZBD5 A 1
+			ZBD5 A 2
+			TNT1 AAAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 10.0)
+			ZBD5 BCDE 5
+			ZBD5 F -1 A_BossDeath
+			Stop
+	}
+}
+
+thing ZombieManHead
+{
+    Radius 8
+	Height 16
+	Mass 100
+	
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+	
+    States
+    {
+    Spawn:
+		MHEA ABCDEABCDE 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -4.0)
+		Loop
+    Death:
+		MHEA A 500
+        Stop
+    }
+}

@@ -1,0 +1,149 @@
+#define ARACH_FIRE_HEIGHT -10.0
+
+thing ArachnotronPlasma { +MISSILE }
+auto thing McArachnotronPlasmaTrail {}
+
+thing Arachnotron
+{
+	//$Category "Monsters/Spiders"
+	//$Color 11
+	Health 500
+	PainChance 100
+	Speed 12
+	Radius 48
+	PainSound MACPAI
+	
+	+HIGHERMPROB
+	
+	clear states
+
+	States
+	{
+	Spawn:
+		FSPI A 10 A_Look
+		Loop
+	See:
+		FSPI A 3 A_BabyMetal
+	SeeLoop:
+		FSPI ABBCC 2 A_Chase
+		FSPI D 2 A_BabyMetal
+		FSPI DEEFF 2 A_Chase
+		Loop
+	Missile:
+		FSPI A 12 A_FaceTarget
+	MissileLoop:
+		FSPI G 4
+		FSPI H 3 A_MonsterProjectile(ArachnotronPlasma, 0.0, 0.0, 0.0, ARACH_FIRE_HEIGHT)
+		FSPI G 3 A_FaceTarget
+		FSPI H 3 A_MonsterProjectile(ArachnotronPlasma, 0.0, 0.0, 0.0, ARACH_FIRE_HEIGHT)
+		FSPI G 3 A_FaceTarget
+		FSPI H 3 A_MonsterProjectile(ArachnotronPlasma, 0.0, 0.0, 0.0, ARACH_FIRE_HEIGHT)
+		FSPI G 3 A_FaceTarget
+		FSPI H 3 A_MonsterProjectile(ArachnotronPlasma, 0.0, 0.0, 0.0, ARACH_FIRE_HEIGHT)
+		FSPI G 8 A_SpidRefire
+		Goto MissileLoop
+	Pain:
+		FSPI I 12 A_Pain
+		Goto See
+	Raise:
+		FSPI ONMLKJ 6
+		Goto SeeLoop
+
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser("DeathRandom1", 200.0)
+		Goto RegularDeath
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto HeadExplodeDeath
+		
+	DeathRandom1:
+		TNT1 A 0 A_RandomJump("HeadExplodeDeath", 1D2)
+		Goto RegularDeath
+		
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 16.0)
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 32.0)
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM)
+		FSPI J 6
+		FSPI L 6
+		FSPI MN 6
+		FSPI O 6
+		FSPI P -1 A_BossDeath
+		Stop
+		
+	HeadExplodeDeath:
+		TNT1 A 0 A_Scream
+		FUD4 A 24
+		FUD4 B 4
+		FUD4 CD 5
+		FUD4 E -1 A_BossDeath
+		Stop
+    }
+}
+
+thing ArachnotronPlasma
+{
+	Radius 13
+	Height 8
+	Speed 22
+	FastSpeed 26
+	Damage 2
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	
+	SeeSound MACPS
+
+	States
+	{
+	Spawn:
+		SPLS A 2 Bright A_SpawnObject(McArachnotronPlasmaTrail)
+		Loop
+	Death:
+		TNT1 A 0 A_RandomJump(DeathSound3, 1D3)
+		TNT1 A 0 A_RandomJump(DeathSound2, 1D2)
+		Goto DeathSound1
+	DeathSound1:
+		TNT1 A 0 A_PlaySound("MACPE1")
+		Goto FinishDeath
+	DeathSound2:
+		TNT1 A 0 A_PlaySound("MACPE2")
+		Goto FinishDeath
+	DeathSound3:
+		TNT1 A 0 A_PlaySound("MACPE3")
+		Goto FinishDeath
+	FinishDeath:
+		SPLS BCD 3 Bright
+		Stop
+	}
+}
+
+thing McArachnotronPlasmaTrail
+{
+	Radius 2
+	Height 4
+
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+TRANSLUCENT
+	
+	States
+	{
+	Spawn:
+		TNT1 A 2
+		SPLS DEF 2
+		Stop
+	}
+}

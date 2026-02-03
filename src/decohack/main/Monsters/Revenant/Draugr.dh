@@ -1,0 +1,200 @@
+auto thing McRevenantTracer { +MISSILE }
+auto thing RevenantHead { +MISSILE }
+auto thing RevenantTorso { +MISSILE }
+auto thing RevenantFullTorso { +MISSILE }
+auto thing RevenantLeg { +MISSILE }
+
+thing Revenant
+{
+	//$Category "Monsters/Revenant"
+	//$Color 14
+	Health 300	
+	Radius 20
+	Height 56
+	Mass 500
+	Speed 10
+	PainChance 100
+
+	PainSound MRVPAI
+
+	clear states
+	States
+	{
+	Spawn:
+		DRGR A 10 A_Look
+		Loop
+	See:
+		DRGR AABBCCDDEEFF 2 A_Chase
+		Loop
+	Melee:
+		DRGR J 0 A_FaceTarget
+		DRGR J 6 A_SkelWhoosh
+		DRGR K 6 A_FaceTarget
+		DRGR L 6 A_MonsterMeleeAttack(28, 1, "SKEPCH")
+		Goto See
+	Missile:
+		DRGR G 5 A_FaceTarget
+		DRGR G 5 A_FaceTarget
+		DRGR H 4 Bright A_MonsterProjectile(McRevenantTracer, 0.0, 0.0, 0.0, 16.0)
+		DRGR I 10 A_FaceTarget
+		Goto See
+	Pain:
+		DRGR M 5
+		DRGR M 5 A_Pain
+		Goto See
+	Raise:
+		DRGR S 5
+		DRGR RQPON 5
+		Goto See
+
+	// ****************************
+	// DAMAGE TYPE DEATH SWITCHES
+	// ****************************
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		TNT1 A 0 A_JumpIfTargetCloser(DeathRandom1, 144.0)
+		Goto DeathRandom2
+		
+	XDeath:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto DeathRandom1
+	
+	DeathRandom1:
+		TNT1 A 0 // A_RandomJump("OneLegDeath", 1D2)
+		TNT1 A 0 A_RandomJump("LegsDeath", 200)
+		Goto RegularDeath
+		
+	DeathRandom2:
+		TNT1 A 0 // A_RandomJump("OneLegDeath", 1D2)
+		TNT1 A 0 A_RandomJump("LegsDeath", 1D2)
+		Goto RegularDeath
+	
+		
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		DRGR NO 5
+		DRGR P 6 A_Scream
+		DRGR Q 6
+		DRGR R 6
+		DRGR S -1 A_BossDeath
+		Stop
+	
+	
+	LegsDeath:
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnObject(RevenantHead, -180.0, 0.0, 0.0, 64.0, 12.0, 0.0, 9.0)
+		TNT1 A 0 A_SpawnObject(RevenantTorso, -180.0, 0.0, 0.0, 40.0, 6.0, 0.0, 7.0)
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		DDH2 AAAAAA 4 A_SpawnObject(FlyingBloodSpawner)
+		DDH2 BB 4 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+		DDH2 CC 4 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -8.0)
+		DDH2 D -1 A_BossDeath
+		Stop
+		
+		
+	OneLegDeath:
+		TNT1 A 0 A_Scream
+// 		TNT1 A 0 A_CustomMissile("DraugrFullTorso", 0, 0, random (-20, 20), 2, random(10, 20))
+// 		TNT1 A 0 A_CustomMissile("DraugrLeg", 0, -16, random (180, 210), 2, random(15, 30))
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		DDH3 AAA 4 A_SpawnObject(FlyingBloodSpawner)
+		DDH3 B 4 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		DDH3 C 4 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 0.0)
+		DDH3 D -1 A_BossDeath
+		Stop
+	}
+}
+
+thing McRevenantTracer
+{
+	Radius 11
+	Height 8
+	Speed 10
+	Damage 10
+	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+MISSILE
+	
+	SeeSound SKEATK
+	DeathSound BAREXP
+	
+	States
+	{
+	Spawn:
+		FATB AB 2 Bright A_Tracer
+		Loop
+	Death:
+		RBXP ABCDEF 2 Bright
+		// Extra time to let death sound play
+		TNT1 A 35
+		Stop
+	}
+}
+
+thing RevenantHead
+{
+    Radius 8
+	Height 16
+	Mass 200
+
+	+BOUNCES
+	+DROPOFF
+	+TELEPORT
+	
+	SeeSound MBLD00
+	DeathSound MRVBOU
+	
+    States
+    {
+    Spawn:
+		DHED ABCDEFGH 3
+		Loop
+    Death:
+		DHED A 0 A_RandomJump("DeathB", 1D4)
+		DHED A 0 A_RandomJump("DeathC", 1D3)
+		DHED A 0 A_RandomJump("DeathD", 1D2)
+	DeathA:
+		DHED C 500
+        Stop
+	DeathB:
+		DHED B 500
+        Stop
+	DeathC:
+		DHED F 500
+        Stop
+	DeathD:
+        DHED H 500
+        Stop
+    }
+}
+
+thing RevenantTorso
+{
+    Radius 16
+	Height 32
+	Mass 8
+	
+	+NOBLOCKMAP
+	+DROPOFF
+	+TELEPORT
+	+MISSILE
+	
+	SeeSound MBLD00
+	DeathSound MBLD01
+	
+    States
+    {
+    Spawn:
+		DTOR ABCDEFGH 3 A_SpawnObject(FlyingBloodSpawner)
+		Loop
+    Death:
+		DTOR I 500 A_SpawnObject(FlyingBloodSpawner)
+		Stop
+    }
+}

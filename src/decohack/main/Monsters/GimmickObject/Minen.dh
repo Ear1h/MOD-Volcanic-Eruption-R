@@ -1,0 +1,32 @@
+auto thing Mine "Mine"
+{
+	//$Category "Monsters/Objects"
+	//$Color 18
+	
+	EdNum 10052
+
+	Radius 16
+	Height 54
+	PainChance 0
+	Mass 700
+	ReactionTime 8
+
+	States
+	{
+	Spawn:
+		LMIN AB 8 Bright A_Look
+		Loop
+	See:
+		LMIN AB 8 Bright A_JumpIfTargetCloser(Melee, 128)
+		Loop
+	Melee:
+		LMIN B 0 A_PlaySound("MINEDE")
+		LMIN B 10 A_Die
+	Death:
+		TNT1 A 0 A_PlaySound("BAREXP")
+		EXPL A 3 Bright A_RadiusDamage(40, 128)
+		EXPL BCDEF 2 Bright
+		TNT1 A 35 // Extra frames to allow explosion sound to finish
+		Stop
+	}
+}

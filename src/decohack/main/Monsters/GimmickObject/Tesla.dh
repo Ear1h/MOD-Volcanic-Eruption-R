@@ -1,0 +1,41 @@
+auto thing Tesla "Tesla (Radius 256x256)"
+{
+	//$Category "Monsters/Objects"
+	//$Color 18
+	
+	EdNum 10051
+
+	Radius 16
+	Height 54
+	PainChance 0
+	Mass 700
+	ReactionTime 8
+
+	+SOLID
+
+	States
+	{
+	Spawn:
+		TESL AB 8 Bright A_Look
+		TNT1 A 0 A_PlaySound("ZAP1")
+		TESL CD 8 Bright A_Look
+		TNT1 A 0 A_PlaySound("ZAP2")
+		TESL CB 8 Bright A_Look
+		TNT1 A 0 A_PlaySound("ZAP3")
+		Loop
+	See:
+		TESL AB 8 Bright A_JumpIfTargetCloser(Zap, 192.0)
+		TNT1 A 0 A_PlaySound("ZAP1")
+		TESL CD 8 Bright A_JumpIfTargetCloser(Zap, 192.0)
+		TNT1 A 0 A_PlaySound("ZAP2")
+		TESL CB 8 Bright A_JumpIfTargetCloser(Zap, 192.0)
+		TNT1 A 0 A_PlaySound("ZAP3")
+		Loop
+	Zap:
+		TESL E 6 Bright A_RadiusDamage(10, 192)
+	ZapLoop:
+		TNT1 A 0 A_Playsound("ZPFUCK")
+		TESL FG 6 Bright A_RadiusDamage(10, 192)
+		goto See
+	}
+}

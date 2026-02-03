@@ -1,0 +1,114 @@
+auto thing SuperSoldat "Nazi Uber Soldat"
+{
+	//$Category "Monsters/Wolfenstein"
+	//$Color 1
+	Ednum 10012
+	
+	SeeSound "UBERST"
+	DeathSound "UBERDT"
+	Speed 10
+	Health 2000
+	ReactionTime 8
+	Mass 5000
+	Radius 24
+	Height 64
+	
+	splashgroup 180
+	infightinggroup 180
+	projectilegroup  180
+	
+	+SOLID
+	+COUNTKILL
+	+SHOOTABLE
+	+BOSS
+	+NORADIUSDMG
+	
+	clear states
+
+	States
+	{
+	Spawn:
+		UBER A 10 A_Look
+		Loop
+	See:
+		  UBER A 3 A_Chase
+		  UBER A 3
+		  {
+			A_Chase
+			A_PlaySound("UBSTE1")
+		  }
+		  UBER	BB 3 A_Chase
+		  UBER C 3 A_Chase
+		  UBER C 3
+		  {
+			A_Chase
+			A_PlaySound("UBSTE2")
+		  }
+		  UBER DD 3  A_Chase
+		Loop
+	Melee:
+	Missile:
+		TNT1 A 0 A_RandomJump("RocketAttack", 128)
+		UBER Q 20 A_FaceTarget
+		UBER RS 3 A_FaceTarget
+	ChainLoop:
+		UBER I 3 Bright
+		{
+					A_FaceTarget
+					A_PlaySound("VENOM")
+					A_MonsterBulletAttack(22.5, 3.0, 1, 15, 1)
+		}
+		UBER J 3 Bright
+		{
+					A_FaceTarget
+					A_PlaySound("VENOM")
+					A_MonsterBulletAttack(22.5, 3.0, 1, 15, 1)
+		}
+		TNT1 A 0 A_CPosRefire	
+		Goto ChainLoop
+	RocketAttack:
+		UBER E 10 A_FaceTarget
+		TNT1 A 0 A_RandomJump("Rocket5", 64)
+		TNT1 A 0 A_RandomJump("RocketABS5", 64)
+		TNT1 A 0 A_PlaySound("RLFIR")
+		UBER F 8 Bright A_MonsterProjectile(McMonsterRocket)
+		UBER E 6 A_FaceTarget
+		Goto See
+	Rocket5:
+		TNT1 A 0 A_PlaySound("RLFIR")
+		UBER F 8 Bright A_MonsterProjectile(McMonsterRocket, 5)
+		UBER E 6 A_FaceTarget
+		Goto See
+	RocketABS5:
+		TNT1 A 0 A_PlaySound("RLFIR")
+		UBER F 8 Bright A_MonsterProjectile(McMonsterRocket, -5)
+		UBER E 6 A_FaceTarget
+		Goto See
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		Goto RegularDeath
+	
+	// ****************************
+	// DEATH ANIMATIONS
+	// ****************************
+	RegularDeath:
+		TNT1 A 0 A_Scream
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 32.0)
+		UBER L 35
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 24.0)
+		UBER L 15
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 25.0)
+		UBER L 35
+		TNT1 AAAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 24.0)
+		UBER L 35
+		TNT1 AAA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 19.0)
+		UBER L 15
+		TNT1 AA 0 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, 40.0)
+		UBER M 6 
+		UBER NO 6
+		UBER P 6
+		UBER P -1 A_BossDeath
+		Stop
+	}
+}

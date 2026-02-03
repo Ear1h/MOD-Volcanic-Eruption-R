@@ -1,0 +1,69 @@
+#define DARK_CARDINAL_FIRE_HEIGHT 0.0
+
+auto thing DarkCardinal "Dark Cardinal"
+{
+	//$Category "Monsters/Cybies"
+	//$Color 17
+	
+	EdNum 10040
+
+	Health 2200
+	Speed 16
+	Radius 40
+	Height 80 
+	PainChance 5
+	Mass 3000
+	ReactionTime 8
+	
+	SplashGroup 16
+	ProjectileGroup 16
+
+	+SHOOTABLE
+	+COUNTKILL
+	+SOLID
+	+NOGRAVITY
+	+FLOAT
+	
+	SeeSound "MDCSIT" 
+	PainSound "MDCPAI"
+	DeathSound "MDCDTH"
+	ActiveSound "MDCACT"
+
+	States 
+	{ 
+	Spawn:
+		DCAR A 10 A_Look
+		Loop
+	See:
+		DCAR AB 6 A_Chase
+		Loop
+	Missile:
+		DCAR C 4
+		DCAR C 12 A_FaceTarget
+		TNT1 A 0 A_PlaySound("RLFIR")
+		DCAR D 4 Bright  A_MonsterProjectile(MonsterDarkRocket, 0.0, 0.0, 0.0, CYBERDEMON_ROCKET_FIRE_Z)
+		DCAR C 4
+		DCAR C 12 A_FaceTarget
+		TNT1 A 0 A_PlaySound("RLFIR")
+		DCAR D 4 Bright  A_MonsterProjectile(MonsterDarkRocket, 0.0, 0.0, 0.0, CYBERDEMON_ROCKET_FIRE_Z)
+		DCAR C 4
+		DCAR C 12 A_FaceTarget
+		TNT1 A 0 A_PlaySound("RLFIR")
+		DCAR D 4 Bright  A_MonsterProjectile(MonsterDarkRocket, 0.0, 0.0, 0.0, CYBERDEMON_ROCKET_FIRE_Z)
+		DCAR C 12
+		Goto See
+	Pain:
+		DCAR E 6 A_Pain
+		Goto See
+	Death:
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Fall
+		DCAR E 5
+		DCAR F 5 A_Scream
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		TNT1 A 0 A_SpawnObject(GibSpawnerM, 0.0, 0.0, 0.0, 32.0)
+		DCAR GHIJKL 5 Bright
+		TNT1 A 70 A_BossDeath // Extra time for death sound to finish playing
+		Stop
+	} 
+}
