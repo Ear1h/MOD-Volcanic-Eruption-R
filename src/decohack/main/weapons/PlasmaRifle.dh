@@ -20,6 +20,7 @@ weapon PlasmaRifle
 		PLSG A 1 A_WeaponReady
 		Loop
 	Fire:
+		PLSG A 0 Offset(1, 32)
 		PLSG A 3 A_FirePlasma
 		PLSG B 2 A_ReFire
 		PLSG CDEFGFEDCB 2

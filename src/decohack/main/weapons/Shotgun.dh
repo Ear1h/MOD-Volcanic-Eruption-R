@@ -7,7 +7,7 @@ Weapon 2 "Shotgun"
 	{
 		ready:
 			VHTG A 1 A_WeaponReady
-			wait
+			Loop
 		select:
 			VHTG A 0 A_Raise
 			VHTG A 1
@@ -21,6 +21,7 @@ Weapon 2 "Shotgun"
 			VHTG A 1 A_Lower
 			loop
 		fire:
+			VHTG A 0 Offset(1, 32)
 			VHTG A 1 
 			VHTG B 3
 			{

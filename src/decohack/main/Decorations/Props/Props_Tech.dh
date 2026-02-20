@@ -1,0 +1,53 @@
+auto thing Chair "Office chair"
+{
+	//$Category Decoration/Tech/Props
+	EdNum 13102
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		CHR1 A -1
+		stop
+	}
+}
+
+auto thing TechColumn "Tech Column"
+{
+	//$Category Decoration/Tech/Props
+	EdNum 13103
+
+	Radius 24
+	Height 56
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		CLMT A -1
+		stop
+	}
+}
+
+auto thing Vase "Vase"
+{
+	//$Category Decoration/Tech/Props
+	EdNum 13109
+
+	Radius 24
+	Height 56
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		VASE A -1
+		stop
+	}
+}

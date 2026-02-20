@@ -1,0 +1,280 @@
+auto thing Stalagmite1 "Stalagmite 1"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13119
+	Radius 16
+ 	Height 64
+	+Solid
+	States
+	{
+	Spawn:
+		STGR A -1
+		stop
+	}
+}
+
+auto thing Stalagmite2 "Stalagmite 2"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13120
+	Radius 12
+ 	Height 56
+	+Solid
+	States
+	{
+	Spawn:
+		STGR B -1
+		stop
+	}
+}
+
+auto thing Stalagmite3 "Stalagmite 3"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13121
+	Radius 12
+ 	Height 48
+	+Solid
+	States
+	{
+	Spawn:
+		STGR C -1
+		stop
+	}
+}
+
+auto thing Stalagtite1 "Stalagtite 1"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13122
+	Radius 16
+ 	Height 64
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		STGR D -1
+		stop
+	}
+}
+
+auto thing Stalagtite2 "Stalagtite 2"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13123
+	Radius 16
+ 	Height 48
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		STGR E -1
+		stop
+	}
+}
+
+auto thing Stalagtite3 "Stalagtite 3"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13124
+	Radius 16
+ 	Height 40
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	States
+	{
+	Spawn:
+		STGR F -1
+		stop
+	}
+}
+
+auto thing Stalagtite4 "Stalagtite 4"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13125
+	Radius 16
+ 	Height 128
+	+Solid
+
+	States
+	{
+	Spawn:
+		STGR G -1
+		stop
+	}
+}
+
+auto thing CaveRockColumn "Cave rock column"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13126
+
+	Radius 24
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		STMI A -1
+		stop
+	}
+}
+
+auto thing CaveStalagmiteLarge "Cave stalagmite, large"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13127
+
+	Radius 16
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		STG1 A -1
+		stop
+	}
+}
+
+auto thing CaveStalagmiteMedium "Cave stalagmite, medium"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13128
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		STG2 A -1
+		stop
+	}
+}
+
+auto thing CaveStalagmiteSmall "Cave stalagmite, small"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13129
+
+	Radius 8
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		STG3 A -1
+		stop
+	}
+}
+
+auto thing CaveStalactiteLarge "Cave stalactite, large"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13130
+
+	Radius 16
+	Height 112
+
+	+SPAWNCEILING
+	+NOGRAVITY
+
+	states
+	{
+	spawn:
+		STC1 A -1
+		stop
+	}
+}
+
+auto thing CaveStalactiteLargeSolid : thing CaveStalactiteLarge "Cave stalactite, large (blocking)"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13131
+
+	+SOLID
+}
+
+auto thing CaveStalactiteMedium "Cave stalactite, medium"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13132
+
+	Radius 12
+	Height 64
+
+	+SPAWNCEILING
+	+NOGRAVITY
+
+	states
+	{
+	spawn:
+		STC2 A -1
+		stop
+	}
+}
+
+auto thing CaveStalactiteMediumSolid : thing CaveStalactiteMedium "Cave stalactite, medium (blocking)"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13133
+
+	+SOLID
+}
+
+auto thing CaveStalactiteSmall "Cave stalactite, small"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13134
+
+	Radius 8
+	Height 32
+
+	+SPAWNCEILING
+	+NOGRAVITY
+
+	states
+	{
+	spawn:
+		STC3 A -1
+		stop
+	}
+}
+
+auto thing CaveStalactiteSmallSolid : thing CaveStalactiteSmall "Cave stalactite, small (blocking)"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13135
+
+	+SOLID
+}

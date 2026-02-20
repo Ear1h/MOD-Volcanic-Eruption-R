@@ -3,14 +3,14 @@
  * Main
  ****************************************************************************/
 
-#include <id24>
+#include <dsdhacked>
 #include <friendly>
 
 // Your DECOHack code here ...
 
 // GZDoom doesn't support ID24 format, A_PlaySound doesn't work.
 
-#include "classpath:decohack/id24.dh"
+#include "classpath:decohack/dsdhacked.dh"
 #include "classpath:decohack/constants/friendly_things.dh"
 
 // Header
@@ -108,11 +108,26 @@
 
 // Key Pickup
 #include "main/Pickup/ve_keys.dh"
+// Decorations
 
+#include "main/Decorations/Guro/ZombieGuro.dh"
+#include "main/Decorations/Guro/MonstersGuro.dh"
+#include "main/Decorations/Guro/Guro.dh"
+
+#include "main/Decorations/Lights/Floor.dh"
+#include "main/Decorations/Lights/Ceiling.dh"
+
+#include "main/Decorations/Props/Props_Tech.dh"
+#include "main/Decorations/Props/Props_Hell.dh"
+
+#include "main/Decorations/Rocks/Rocks.dh"
+
+#include "main/Decorations/Plants/Trees.dh"
+
+// SFX
 #include "main/Sounds/MusicChanger.dh"
 
 #include "main/VFX/SnowSpawner.dh"
 #include "main/VFX/AshSpawner.dh"
 #include "main/VFX/RainSpawner.dh"
-#include "main/VFX/LeafSpawner.dh"
-
+//#include "main/VFX/LeafSpawner.dh"

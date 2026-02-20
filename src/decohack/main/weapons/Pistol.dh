@@ -5,7 +5,7 @@ Weapon WP_PISTOL
 		{
 			ready:
 				PISG A 1 A_WeaponReady
-				wait
+				Loop
 			select:
 				PISG A 0 A_Raise
 				PISG A 1
@@ -19,6 +19,7 @@ Weapon WP_PISTOL
 				PISG A 1 A_Lower
 				loop
 			fire:
+				PISG A 0 Offset(1, 32)
 				PISG A 1
 				PISG B 1
 				{

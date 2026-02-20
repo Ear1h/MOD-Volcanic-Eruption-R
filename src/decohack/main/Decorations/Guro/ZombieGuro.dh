@@ -1,0 +1,424 @@
+auto thing ZombieGuro "Dead Zombie"
+{
+	//$Category "Decoration/Dead/Zombies/Zombie"
+	//$Color 1
+	
+	Ednum 12000
+	states
+	{
+		spawn:
+			ZOMB N -1
+			stop
+	}
+}
+
+auto thing ZombieGuroGib: thing ZombieGuro "Dead Zombie Gib"
+{
+	Ednum 12001
+	states
+	{
+		spawn:
+			ZOMB T -1
+			stop
+	}
+}
+
+auto thing ZombieGuroAlt: thing ZombieGuro "Dead Zombie Alt"
+{
+	Ednum 12002
+	states
+	{
+		spawn:
+			ZALT D -1
+			stop
+	}
+}
+
+auto thing ZombieGuroTorsLess: thing ZombieGuro "Dead Zombie Torsless"
+{
+	Ednum 12003
+	states
+	{
+		spawn:
+			ZLEG D -1
+			stop
+	}
+}
+
+auto thing ZombieGuroTorso: thing ZombieGuro "Dead Zombie Torso"
+{
+	Ednum 12004
+	states
+	{
+		spawn:
+			ZHAD D -1
+			stop
+	}
+}
+
+auto thing ZombieGuroHeadLess: thing ZombieGuro "Dead Zombie Headless"
+{
+	Ednum 12005
+	states
+	{
+		spawn:
+			ZHED C -1
+			stop
+	}
+}
+
+auto thing ZombieGuroHead: thing ZombieGuro "Dead Zombie Head"
+{
+	Ednum 12006
+	states
+	{
+		spawn:
+			ZCHE F -1
+			stop
+	}
+}
+
+thing DeadZombieMan "Dead Zombie Marine"
+{
+	//$Category "Decoration/Dead/Zombies/Marine"
+	//$Color 2
+
+	states
+	{
+		spawn:
+			POSS L -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroHeadless: thing DeadZombieMan "Dead Zombie Marine Headless"
+{
+	Ednum 12008
+	states
+	{
+		spawn:
+			ZBD1 E -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroTopless: thing DeadZombieMan "Dead Zombie Marine Topless"
+{
+	Ednum 12010
+	states
+	{
+		spawn:
+			ZBD3 D -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroGuts: thing DeadZombieMan "Dead Zombie Marine Guts"
+{
+	Ednum 12010
+	states
+	{
+		spawn:
+			ZBD4 E -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroAlt: thing DeadZombieMan "Dead Zombie Marine Alt"
+{
+	Ednum 12011
+	states
+	{
+		spawn:
+			ZBD5 F -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroHead: thing DeadZombieMan "Dead Zombie Marine Head"
+{
+	Ednum 12012
+	states
+	{
+		spawn:
+			MHEA E -1
+			stop
+	}
+}
+
+thing DeadShotgunGuy "Dead Zombie Shotgunner"
+{
+	//$Category "Decoration/Dead/Zombies/Shotgunner"
+	//$Color 3
+	
+	states
+	{
+		spawn:
+			GSGY L -1
+			stop
+	}
+}
+
+auto thing DeadShotgunGuyHead: thing DeadShotgunGuy "Dead Zombie Shotgunner Head"
+{
+	Ednum 12013
+	states
+	{
+		spawn:
+			GSGH I -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuy "Dead Zombie Chaingunner"
+{
+	//$Category "Decoration/Dead/Zombies/Chaingunner"
+	//$Color 4
+	Ednum 12014
+	states
+	{
+		spawn:
+			CGGY N -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuyGib: thing DeadChaingunGuy "Dead Zombie Chaingunner Gib"
+{	
+	Ednum 12015
+	states
+	{
+		spawn:
+			CGGY T -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuyHeadLess: thing DeadChaingunGuy "Dead Zombie Chaingunner Headless"
+{	
+	Ednum 12016
+	states
+	{
+		spawn:
+			CGDT E -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuyTopLess: thing DeadChaingunGuy "Dead Zombie Chaingunner Topless"
+{	
+	Ednum 12017
+	states
+	{
+		spawn:
+			CGD3 D -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuyGuts: thing DeadChaingunGuy "Dead Zombie Chaingunner Guts"
+{	
+	Ednum 12018
+	states
+	{
+		spawn:
+			CGD2 F -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunGuy "Dead Double Chaingunner"
+{
+	//$Category "Decoration/Dead/Zombies/Double Chaingunner"
+	//$Color 5
+	Ednum 12019
+	states
+	{
+		spawn:
+			DPOS N -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunGib: thing DeadDoubleChaingunGuy "Dead Double Chaingunner Gib"
+{	
+	Ednum 12020
+	states
+	{
+		spawn:
+			DPOS T -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunHeadLess: thing DeadDoubleChaingunGuy "Dead Double Chaingunner Headless"
+{	
+	Ednum 12021
+	states
+	{
+		spawn:
+			DP06 J -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunTopLess: thing DeadDoubleChaingunGuy "Dead Double Chaingunner Topless"
+{	
+	Ednum 12022
+	states
+	{
+		spawn:
+			MPSD D -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunHead: thing DeadDoubleChaingunGuy "Dead Double Chaingunner Head"
+{	
+	Ednum 12023
+	states
+	{
+		spawn:
+			DPHE A -1
+			stop
+	}
+}
+
+auto thing DeadGrenadier "Dead Zombie Grenadier"
+{
+	//$Category "Decoration/Dead/Zombies/Grenadier"
+	//$Color 6
+	Ednum 12024
+	states
+	{
+		spawn:
+			GRD1 G -1
+			stop
+	}
+}
+
+auto thing DeadGrenadierGib: thing DeadGrenadier "Dead Zombie Grenadier Gib"
+{
+	Ednum 12025
+	states
+	{
+		spawn:
+			GRD2 K -1
+			stop
+	}
+}
+
+auto thing DeadRocket "Dead Zombie Rocket"
+{
+	//$Category "Decoration/Dead/Zombies/Rocket"
+	//$Color 7
+	Ednum 12026
+	states
+	{
+		spawn:
+			SDE2 X -1
+			stop
+	}
+}
+
+auto thing DeadRocketGuts: thing DeadRocket "Dead Zombie Rocket Guts"
+{
+	Ednum 12027
+	states
+	{
+		spawn:
+			SDET E -1
+			stop
+	}
+}
+
+auto thing DeadRocketHeadCrack: thing DeadRocket "Dead Zombie Rocket Head Crack"
+{
+	Ednum 12028
+	states
+	{
+		spawn:
+			SHED E -1
+			stop
+	}
+}
+
+
+auto thing DeadRocketHeadCrack2: thing DeadRocket "Dead Zombie Rocket Head Crack 2"
+{
+	Ednum 12029
+	states
+	{
+		spawn:
+			SHED M -1
+			stop
+	}
+}
+
+auto thing DeadZSec "Dead Zombie Assault"
+{
+	//$Category "Decoration/Dead/Zombies/Assault"
+	//$Color 8
+	Ednum 12030
+	states
+	{
+		spawn:
+			ZSP2 L -1
+			stop
+	}
+}
+
+auto thing DeadZSecBlood: thing DeadZSec "Dead Zombie Assault Blood"
+{
+	Ednum 12031
+	states
+	{
+		spawn:
+			ZSP5 F -1
+			stop
+	}
+}
+
+auto thing DeadZSecTopless: thing DeadZSec "Dead Zombie Assault Topless"
+{
+	Ednum 12032
+	states
+	{
+		spawn:
+			ZSP5 K -1
+			stop
+	}
+}
+
+auto thing DeadZSecAlt: thing DeadZSec "Dead Zombie Assault Alt"
+{
+	Ednum 12033
+	states
+	{
+		spawn:
+			ZSP5 P -1
+			stop
+	}
+}
+
+auto thing DeadZSecHead: thing DeadZSec "Dead Zombie Assault Head"
+{
+	Ednum 12034
+	states
+	{
+		spawn:
+			ZHE2 E -1
+			stop
+	}
+}
+
+auto thing DeadZSecHeadless: thing DeadZSec "Dead Zombie Assault Headless"
+{
+	Ednum 12035
+	states
+	{
+		spawn:
+			ZHE9 E -1
+			stop
+	}
+}

@@ -31,20 +31,20 @@ auto thing SuperSoldat "Nazi Uber Soldat"
 		UBER A 10 A_Look
 		Loop
 	See:
-		  UBER A 3 A_Chase
-		  UBER A 3
+		  UBER A 2 A_Chase
+		  UBER A 2
 		  {
 			A_Chase
 			A_PlaySound("UBSTE1")
 		  }
-		  UBER	BB 3 A_Chase
-		  UBER C 3 A_Chase
-		  UBER C 3
+		  UBER	BB 2 A_Chase
+		  UBER C 2 A_Chase
+		  UBER C 2
 		  {
 			A_Chase
 			A_PlaySound("UBSTE2")
 		  }
-		  UBER DD 3  A_Chase
+		  UBER DD 2  A_Chase
 		Loop
 	Melee:
 	Missile:

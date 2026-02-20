@@ -1,11 +1,11 @@
 {
 	"agentIsRunning": true, 
 	"dirHashes": {
-		"src/assets": "26eb8670984a14e98b545a89c69fa70286d9fd00", 
+		"src/assets": "9712c1d7fd3ad79d0e64d0d05b6b26d01cdb727c", 
 		"src/convert/colormaps": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
 		"src/convert/graphics": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
 		"src/convert/sounds": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
 		"src/convert/sprites": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
-		"src/decohack": "6c279619069d5643861f33f4a46363713eb6aacc"
+		"src/decohack": "e8fe5f596802c9b1ee401f782cbe5b9ef5560cff"
 	}
 }

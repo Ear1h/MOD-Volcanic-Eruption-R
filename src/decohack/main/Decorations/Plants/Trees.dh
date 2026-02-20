@@ -1,0 +1,774 @@
+auto thing Tree1 "Tree 1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13135
+	Radius 48
+ 	Height 192
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV A -1
+			stop
+	}
+}
+
+
+auto thing Tree2 "Tree 2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13136
+	Radius 48
+ 	Height 192
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV B -1
+			stop
+	}
+}
+
+auto thing Tree3 "Tree 3"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13137
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV C -1
+			stop
+	}
+}
+
+auto thing Tree4 "Tree 4"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13138
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV D -1
+			stop
+	}
+}
+
+auto thing Tree5 "Tree 5"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13139
+	Radius 48
+ 	Height 128
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV E -1
+			stop
+	}
+}
+
+auto thing Tree6 "Tree 6"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13140
+	Radius 64
+ 	Height 192
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV F -1
+			stop
+	}
+}
+
+auto thing Tree7 "Tree 7"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13141
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV G -1
+			stop
+	}
+}
+
+auto thing Tree8 "Tree 8"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13142
+	Radius 32
+ 	Height 192
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV H -1
+			stop
+	}
+}
+
+auto thing Tree9 "Tree 9"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13143
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV I -1
+			stop
+	}
+}
+
+auto thing Tree10 "Tree 10"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13144
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV J -1
+			stop
+	}
+}
+
+auto thing Tree11 "Tree 11"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13145
+	Radius 32
+ 	Height 120
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV K -1
+			stop
+	}
+}
+
+auto thing GreenTree1 "GreenTree1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28800
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR1 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree2 "GreenTree2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28801
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR2 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree3 "GreenTree3"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28834
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR3 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree4 "GreenTree4"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28835
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR4 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree5 "GreenTree5"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28836
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR5 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree6 "GreenTree6"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28837
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR6 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree7 "GreenTree7"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28840
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR7 A -1
+		Stop
+	}
+}
+
+auto thing SnowTree1 "SnowTree1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28802
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		STR1 A -1
+		Stop
+	}
+}
+
+auto thing SnowTree2 "SnowTree2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28803
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		STR2 A -1
+		Stop
+	}
+}
+
+auto thing TreeA "TreeA"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28810
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREE A -1
+		Stop
+	}
+}
+
+auto thing TreeB "TreeB"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28811
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREE B -1
+		Stop
+	}
+}
+
+auto thing TreeC "TreeC"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28812
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREE C -1
+		Stop
+	}
+}
+
+auto thing TreeD "TreeD"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28813
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREE D -1
+		Stop
+	}
+}
+
+auto thing PalmTree "Palm Tree"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28814
+
+	Radius 8
+	Height 128
+	Mass 100
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		PALM A -1
+		Stop
+	}
+}
+
+auto thing PlantA "PlantA"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28815
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT A -1
+		Stop
+	}
+}
+
+auto thing PlantB "PlantB"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28816
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT B -1
+		Stop
+	}
+}
+
+auto thing PlantC "PlantC"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28817
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT C -1
+		Stop
+	}
+}
+
+auto thing PlantD "PlantD"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28818
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT D -1
+		Stop
+	}
+}
+
+auto thing TreeRedA "TreeRedA"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28819
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TRER A -1
+		Stop
+	}
+}
+
+auto thing TreeRedB "TreeRedB"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28820
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TRER B -1
+		Stop
+	}
+}
+
+auto thing TreeRedC "TreeRedC"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28821
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TRER C -1
+		Stop
+	}
+}
+
+auto thing TreeRedD "TreeRedD"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28822
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TRER D -1
+		Stop
+	}
+}
+
+auto thing TreeYellowA "TreeYellowA"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28830
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREY A -1
+		Stop
+	}
+}
+
+auto thing TreeYellowB "TreeYellowB"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28831
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREY B -1
+		Stop
+	}
+}
+
+auto thing TreeYellowC "TreeYellowC"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28832
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREY C -1
+		Stop
+	}
+}
+
+auto thing TreeYellowD "TreeYellowD"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28833
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREY D -1
+		Stop
+	}
+}
+
+auto thing FallTree1 "FallTree1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28841
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		FTR1 A -1
+		Stop
+	}
+}
+
+auto thing PlantE "PlantE"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28900
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT E -1
+		Stop
+	}
+}
+
+auto thing PlantF "PlantF"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28901
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT F -1
+		Stop
+	}
+}
+
+auto thing PlantG "PlantG"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28902
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT G -1
+		Stop
+	}
+}
+
+auto thing PlantH "PlantH"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28903
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT H -1
+		Stop
+	}
+}
+
+auto thing PlantI "PlantI"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28904
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT I -1
+		Stop
+	}
+}

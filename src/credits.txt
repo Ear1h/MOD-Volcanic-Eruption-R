@@ -552,3 +552,33 @@ BFG FIRE SOUND
 
 BLOOD + GIBS
 	Sergeant Mark IV (Ketchup)
+
+----===== DECORATIONS SPRITES =====----
+
+COLUMN FIRE:
+	Sprites: id Software
+	Sprite Edit: Xaser, Jimmy, Minigunner, Gothic
+
+TORCH:
+	Sprites: Raven Software
+
+CHALENDER:
+	Sprites: Raven Software
+	Sprite Edit: TODM
+
+WHITE TORCH:
+	Sprites: ID Software
+	Sprite Edit: ChronoSeth
+
+FIRE:
+	Sprites: id Software
+	
+PALM TREE + PLANT A - D
+	Sergeant Mark IV (Knee Deep in the Jungle)	
+	
+TREES
+	Raven, Ettingrinder, the Hexen 64 devs: hexen tree variant sprites
+	Enjay: tree sprites (GreenTree 3 - 6)
+	Jaska: fall tree 1 sprite
+	Sergeant Mark IV: TREEA - TREED and their recolors
+	MattFright: plant E - I sprites taken from fe1_v3.4.wad resources

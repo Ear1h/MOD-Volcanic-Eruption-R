@@ -1,0 +1,539 @@
+// GURO DECORATION
+
+auto thing HexenGuro1 "Human Kebob"
+{
+	//$Category "Decoration/Hexen/Guro"
+	//$Color 15
+	
+	Ednum 13069
+	Radius 10
+	Height 80
+	+SOLID
+	
+	states
+	{
+		Spawn:
+			CPS1 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro2: thing HexenGuro1 "Corpse Sleeping"
+{
+	Ednum 13070
+	Radius 20
+	Height 16
+	-SOLID
+	
+	states
+	{
+		Spawn:
+			CPS2 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro3: thing HexenGuro1 "Corpse Hanging"
+{
+	Ednum 13071
+	Radius 14
+	Height 88
+	+SPAWNCEILING
+	+NOGRAVITY
+	-SOLID
+	
+	states
+	{
+		Spawn:
+			CPS4 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro4: thing HexenGuro3 "Corpse Hanging 2"
+{	
+	Ednum 13072
+	states
+	{
+		Spawn:
+			CPS5 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro5: thing HexenGuro2 "Corpse Sitting"
+{
+	Ednum 13073
+	Radius 20
+	Height 16
+	
+	states
+	{
+		Spawn:
+			CPS6 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro6: thing HexenGuro3 "Corpse Hanging 3"
+{	
+	Ednum 13084
+	Height 96
+	states
+	{
+		Spawn:
+			HCOR A -1
+			Stop
+	}
+}
+
+auto thing DeadHumanTwitching "Dead Human (Twitching)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13074
+	Radius 16
+ 	Height 80
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+
+	States
+	{
+		Spawn:
+			MAR2 A -1
+			stop
+	}
+}
+
+auto thing AliveHumanTwitching "Alive Human (Twitching)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13075
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MARD ABCDEFG 8
+			loop
+	}
+}
+
+auto thing DeadHumanTwitching2 "Dead Human (Twitching2)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13076
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MARD H -1
+			stop
+	}
+}
+
+auto thing DeadHuman1 "Dead Human 1"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13077
+	Radius 8
+ 	Height 16
+	-Solid
+		
+	States
+	{
+		Spawn:
+			MRE1 A -1
+			stop
+	}
+}
+
+auto thing DeadHuman2 "Dead Human 2"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13078
+	Radius 8
+ 	Height 16
+	-Solid
+		
+	States
+	{
+		Spawn:
+			MRE2 A -1
+			stop
+	}
+}
+
+auto thing DeadHuman3 "Dead Human 3"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13079
+	Radius 8
+ 	Height 16
+	-Solid
+		
+	States
+	{
+		Spawn:
+			MRE3 A -1
+			stop
+	}
+}
+
+auto thing DeadHumanGutless "Dead Human (Gutless)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13080
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MRE4 A -1
+			stop
+	}
+}
+
+auto thing AliveHumanTwitching2 "Alive Human (Twitching2)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13081
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MRE6 AB 12
+			loop
+	}
+}
+
+auto thing DeadHumanBandage "Dead Human (Bandage)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13082
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MRE7 A -1
+			stop
+	}
+}
+
+auto thing DeadHumanChain "Dead Human (Chain)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13083
+	Radius 16
+ 	Height 48
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MRE8 A -1
+			stop
+	}
+}
+
+auto thing LargeCorpsePile "Large corpse pile"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13085
+
+	Radius 40
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		POL7 A -1
+		stop
+	}
+}
+
+auto thing HumanBBQ "Human BBQ 1"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13086
+
+	Radius 16
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		HBBQ ABC 5 Bright
+		loop
+	}
+}
+
+auto thing HumanBBQ2 "Human BBQ 2"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13087
+
+	Radius 16
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		HBB2 ABC 5 Bright
+		loop
+	}
+}
+
+auto thing HangingBodyBothLegs "Hanging victim, both legs"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13088
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 80
+
+	states
+	{
+	spawn:
+		GOR6 A -1
+		stop
+	}
+}
+
+auto thing HangingBodyBothLegsSolid : thing HangingBodyBothLegs "Hanging victim, both legs (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13089
+
+	+SOLID
+}
+
+auto thing HangingBodyCrucified "Hanging victim, crucified"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13090
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 64
+
+	states
+	{
+	spawn:
+		GOR7 A -1
+		stop
+	}
+}
+
+auto thing HangingBodyCrucifiedSolid : thing HangingBodyCrucified "Hanging victim, crucified (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13091
+
+	+SOLID
+}
+
+auto thing HangingBodyArmsBound "Hanging victim, arms bound"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13092
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 72
+
+	states
+	{
+	spawn:
+		GOR8 A -1
+		stop
+	}
+}
+
+auto thing HangingBodyArmsBoundSolid : thing HangingBodyArmsBound "Hanging victim, arms bound (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13093
+
+	+SOLID
+}
+
+auto thing HangingBaronOfHell "Hanging baron of hell"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13094
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 80
+
+	states
+	{
+	spawn:
+		GORA A -1
+		stop
+	}
+}
+
+auto thing HangingBaronOfHellSolid : thing HangingBaronOfHell "Hanging baron of hell (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13095
+
+	+SOLID
+}
+
+auto thing HangingChainedBody "Hanging victim, chained"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13096
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 84
+
+	states
+	{
+	spawn:
+		HDB7 A -1
+		stop
+	}
+}
+
+auto thing HangingChainedBodySolid : thing HangingChainedBody "Hanging victim, chained (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13097
+
+	+SOLID
+}
+
+auto thing HangingChainedTorso "Hanging torso, chained"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13098
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 52
+
+	states
+	{
+	spawn:
+		HDB8 A -1
+		stop
+	}
+}
+
+auto thing HangingChainedTorsoSolid : thing HangingChainedTorso "Hanging torso, chained (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13099
+
+	+SOLID
+}
+
+auto thing SkullPoleTrio "Skull pole trio"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13100
+
+	Radius 16
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		POLA A -1
+		stop
+	}
+}
+
+auto thing SkullGibs "Skull gibs"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13101
+
+	Radius 16
+	Height 16
+
+	states
+	{
+	spawn:
+		POB6 A -1
+		stop
+	}
+}

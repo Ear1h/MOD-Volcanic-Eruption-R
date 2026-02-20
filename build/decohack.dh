@@ -3,14 +3,14 @@
  * Main
  ****************************************************************************/
 
-#include <id24>
+#include <dsdhacked>
 #include <friendly>
 
 // Your DECOHack code here ...
 
 // GZDoom doesn't support ID24 format, A_PlaySound doesn't work.
 
-#include "classpath:decohack/id24.dh"
+#include "classpath:decohack/dsdhacked.dh"
 #include "classpath:decohack/constants/friendly_things.dh"
 
 // Header
@@ -2596,7 +2596,7 @@ thing Demon "Blood Demon"
 		Loop
 	Melee:
 		SARG EF 5 A_FaceTarget
-		SARG G 5 A_MonsterMeleeAttack(30, 1, "MDMBIT")
+		SARG G 5 A_MonsterMeleeAttack(30, 1, "SGTATK")
 		Goto See
 	Pain:
 		SARG H 2
@@ -3370,7 +3370,7 @@ thing WolfensteinSS "Nazi MP40"
 	//$Category "Monsters/Wolfenstein"
 	//$Color 1
 	
-	Health 60
+	Health 30
 	Radius 20
 	Height 56
 	Mass 100
@@ -3395,7 +3395,7 @@ thing WolfensteinSS "Nazi MP40"
 		NAZI AABBCC 2 A_Chase
 		Loop
 	Missile:
-		TNT1 A 0 A_PlaySound("NAFIRE")
+		NAZI E 6 A_PlaySound("NAFIRE")
 	Missile2:
 		NAZI E 2 A_FaceTarget
 		NAZI F 2 Bright
@@ -3475,7 +3475,7 @@ thing NaziHead
     States
     {
     Spawn:
-		BR8B ABCDEIJKL 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -4.0)
+		BR8B ABCDIJKL 2 A_SpawnObject(FlyingBloodSpawner, 0.0, 0.0, 0.0, -4.0)
 		Loop
     Death:
 		BR8B A 500
@@ -3503,6 +3503,15 @@ thing NaziHelmet
 		GERH A 500
         Stop
     }
+}
+
+auto thing NoNaziKillCounter: thing WolfensteinSS "No CountKill Nazi MP40"
+{
+	//$Category "Monsters/Wolfenstein/Eternity"
+	//$Color 19
+	
+	Ednum 31001
+	-COUNTKILL
 }
 
 auto thing Dog "Nazi Dog"
@@ -3628,20 +3637,20 @@ auto thing SuperSoldat "Nazi Uber Soldat"
 		UBER A 10 A_Look
 		Loop
 	See:
-		  UBER A 3 A_Chase
-		  UBER A 3
+		  UBER A 2 A_Chase
+		  UBER A 2
 		  {
 			A_Chase
 			A_PlaySound("UBSTE1")
 		  }
-		  UBER	BB 3 A_Chase
-		  UBER C 3 A_Chase
-		  UBER C 3
+		  UBER	BB 2 A_Chase
+		  UBER C 2 A_Chase
+		  UBER C 2
 		  {
 			A_Chase
 			A_PlaySound("UBSTE2")
 		  }
-		  UBER DD 3  A_Chase
+		  UBER DD 2  A_Chase
 		Loop
 	Melee:
 	Missile:
@@ -4891,12 +4900,11 @@ thing PainElemental "Pain Elemental"
 		TNT1 A 0 A_FaceTarget
 		TNT1 A 0 A_Fall
 		TNT1 A 0 A_Scream
-		PAIN H 3
-		PAIN I 3
-		PAIN JK 3
-		TNT1 A 0 A_SpawnObject(GibSpawnerM)
-		PAIN L 4
-		PAIN M 4 A_PainDie
+		PAIN H 5
+		PAIN I 5
+		PAIN JK 5
+		PAIN L 5
+		PAIN M 5 A_PainDie
 		TNT1 A 35 A_BossDeath
 		Stop 
 	} 
@@ -6405,7 +6413,7 @@ Weapon 0 "Fist"
 	{
 		Ready:
 			PUNG A 1 A_WeaponReady
-			wait
+			Loop
 		Deselect:
 			PUNG A 0 A_Lower
 			PUNG A 1 A_Lower
@@ -6419,6 +6427,7 @@ Weapon 0 "Fist"
 			}
 			goto Ready
 		Fire:
+			PUNG A 0 Offset(1, 32)
 			TNT1 A 0 A_WeaponJump("AnotherKickAss", 96)
 			TNT1 A 0 A_WeaponJump("KickAss", 128)
 			TNT1 A 0 A_WeaponJump("FistKick", 256)
@@ -6456,7 +6465,7 @@ Weapon WP_PISTOL
 		{
 			ready:
 				PISG A 1 A_WeaponReady
-				wait
+				Loop
 			select:
 				PISG A 0 A_Raise
 				PISG A 1
@@ -6470,6 +6479,7 @@ Weapon WP_PISTOL
 				PISG A 1 A_Lower
 				loop
 			fire:
+				PISG A 0 Offset(1, 32)
 				PISG A 1
 				PISG B 1
 				{
@@ -6499,7 +6509,7 @@ Weapon 2 "Shotgun"
 	{
 		ready:
 			VHTG A 1 A_WeaponReady
-			wait
+			Loop
 		select:
 			VHTG A 0 A_Raise
 			VHTG A 1
@@ -6513,6 +6523,7 @@ Weapon 2 "Shotgun"
 			VHTG A 1 A_Lower
 			loop
 		fire:
+			VHTG A 0 Offset(1, 32)
 			VHTG A 1 
 			VHTG B 3
 			{
@@ -6563,8 +6574,8 @@ weapon SuperShotgun
 			A_WeaponBulletAttack(7.1, 7.1, 21, 10, 1)
 			A_WeaponSound("SSGFRE")
 		}
-		VH2G C 2 A_CheckReload
 		TNT1 A 0 A_Light0
+		VH2G C 2 A_CheckReload
 		VH2G DE 2
 		VH2G F 2
 		VH2G G 2
@@ -6713,6 +6724,7 @@ weapon PlasmaRifle
 		PLSG A 1 A_WeaponReady
 		Loop
 	Fire:
+		PLSG A 0 Offset(1, 32)
 		PLSG A 3 A_FirePlasma
 		PLSG B 2 A_ReFire
 		PLSG CDEFGFEDCB 2
@@ -7141,7 +7153,3240 @@ thing BlueSkull
 	}
 }
 
+// Decorations
 
+auto thing ZombieGuro "Dead Zombie"
+{
+	//$Category "Decoration/Dead/Zombies/Zombie"
+	//$Color 1
+	
+	Ednum 12000
+	states
+	{
+		spawn:
+			ZOMB N -1
+			stop
+	}
+}
+
+auto thing ZombieGuroGib: thing ZombieGuro "Dead Zombie Gib"
+{
+	Ednum 12001
+	states
+	{
+		spawn:
+			ZOMB T -1
+			stop
+	}
+}
+
+auto thing ZombieGuroAlt: thing ZombieGuro "Dead Zombie Alt"
+{
+	Ednum 12002
+	states
+	{
+		spawn:
+			ZALT D -1
+			stop
+	}
+}
+
+auto thing ZombieGuroTorsLess: thing ZombieGuro "Dead Zombie Torsless"
+{
+	Ednum 12003
+	states
+	{
+		spawn:
+			ZLEG D -1
+			stop
+	}
+}
+
+auto thing ZombieGuroTorso: thing ZombieGuro "Dead Zombie Torso"
+{
+	Ednum 12004
+	states
+	{
+		spawn:
+			ZHAD D -1
+			stop
+	}
+}
+
+auto thing ZombieGuroHeadLess: thing ZombieGuro "Dead Zombie Headless"
+{
+	Ednum 12005
+	states
+	{
+		spawn:
+			ZHED C -1
+			stop
+	}
+}
+
+auto thing ZombieGuroHead: thing ZombieGuro "Dead Zombie Head"
+{
+	Ednum 12006
+	states
+	{
+		spawn:
+			ZCHE F -1
+			stop
+	}
+}
+
+thing DeadZombieMan "Dead Zombie Marine"
+{
+	//$Category "Decoration/Dead/Zombies/Marine"
+	//$Color 2
+
+	states
+	{
+		spawn:
+			POSS L -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroHeadless: thing DeadZombieMan "Dead Zombie Marine Headless"
+{
+	Ednum 12008
+	states
+	{
+		spawn:
+			ZBD1 E -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroTopless: thing DeadZombieMan "Dead Zombie Marine Topless"
+{
+	Ednum 12010
+	states
+	{
+		spawn:
+			ZBD3 D -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroGuts: thing DeadZombieMan "Dead Zombie Marine Guts"
+{
+	Ednum 12010
+	states
+	{
+		spawn:
+			ZBD4 E -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroAlt: thing DeadZombieMan "Dead Zombie Marine Alt"
+{
+	Ednum 12011
+	states
+	{
+		spawn:
+			ZBD5 F -1
+			stop
+	}
+}
+
+auto thing ZombieManGuroHead: thing DeadZombieMan "Dead Zombie Marine Head"
+{
+	Ednum 12012
+	states
+	{
+		spawn:
+			MHEA E -1
+			stop
+	}
+}
+
+thing DeadShotgunGuy "Dead Zombie Shotgunner"
+{
+	//$Category "Decoration/Dead/Zombies/Shotgunner"
+	//$Color 3
+	
+	states
+	{
+		spawn:
+			GSGY L -1
+			stop
+	}
+}
+
+auto thing DeadShotgunGuyHead: thing DeadShotgunGuy "Dead Zombie Shotgunner Head"
+{
+	Ednum 12013
+	states
+	{
+		spawn:
+			GSGH I -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuy "Dead Zombie Chaingunner"
+{
+	//$Category "Decoration/Dead/Zombies/Chaingunner"
+	//$Color 4
+	Ednum 12014
+	states
+	{
+		spawn:
+			CGGY N -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuyGib: thing DeadChaingunGuy "Dead Zombie Chaingunner Gib"
+{	
+	Ednum 12015
+	states
+	{
+		spawn:
+			CGGY T -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuyHeadLess: thing DeadChaingunGuy "Dead Zombie Chaingunner Headless"
+{	
+	Ednum 12016
+	states
+	{
+		spawn:
+			CGDT E -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuyTopLess: thing DeadChaingunGuy "Dead Zombie Chaingunner Topless"
+{	
+	Ednum 12017
+	states
+	{
+		spawn:
+			CGD3 D -1
+			stop
+	}
+}
+
+auto thing DeadChaingunGuyGuts: thing DeadChaingunGuy "Dead Zombie Chaingunner Guts"
+{	
+	Ednum 12018
+	states
+	{
+		spawn:
+			CGD2 F -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunGuy "Dead Double Chaingunner"
+{
+	//$Category "Decoration/Dead/Zombies/Double Chaingunner"
+	//$Color 5
+	Ednum 12019
+	states
+	{
+		spawn:
+			DPOS N -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunGib: thing DeadDoubleChaingunGuy "Dead Double Chaingunner Gib"
+{	
+	Ednum 12020
+	states
+	{
+		spawn:
+			DPOS T -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunHeadLess: thing DeadDoubleChaingunGuy "Dead Double Chaingunner Headless"
+{	
+	Ednum 12021
+	states
+	{
+		spawn:
+			DP06 J -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunTopLess: thing DeadDoubleChaingunGuy "Dead Double Chaingunner Topless"
+{	
+	Ednum 12022
+	states
+	{
+		spawn:
+			MPSD D -1
+			stop
+	}
+}
+
+auto thing DeadDoubleChaingunHead: thing DeadDoubleChaingunGuy "Dead Double Chaingunner Head"
+{	
+	Ednum 12023
+	states
+	{
+		spawn:
+			DPHE A -1
+			stop
+	}
+}
+
+auto thing DeadGrenadier "Dead Zombie Grenadier"
+{
+	//$Category "Decoration/Dead/Zombies/Grenadier"
+	//$Color 6
+	Ednum 12024
+	states
+	{
+		spawn:
+			GRD1 G -1
+			stop
+	}
+}
+
+auto thing DeadGrenadierGib: thing DeadGrenadier "Dead Zombie Grenadier Gib"
+{
+	Ednum 12025
+	states
+	{
+		spawn:
+			GRD2 K -1
+			stop
+	}
+}
+
+auto thing DeadRocket "Dead Zombie Rocket"
+{
+	//$Category "Decoration/Dead/Zombies/Rocket"
+	//$Color 7
+	Ednum 12026
+	states
+	{
+		spawn:
+			SDE2 X -1
+			stop
+	}
+}
+
+auto thing DeadRocketGuts: thing DeadRocket "Dead Zombie Rocket Guts"
+{
+	Ednum 12027
+	states
+	{
+		spawn:
+			SDET E -1
+			stop
+	}
+}
+
+auto thing DeadRocketHeadCrack: thing DeadRocket "Dead Zombie Rocket Head Crack"
+{
+	Ednum 12028
+	states
+	{
+		spawn:
+			SHED E -1
+			stop
+	}
+}
+
+
+auto thing DeadRocketHeadCrack2: thing DeadRocket "Dead Zombie Rocket Head Crack 2"
+{
+	Ednum 12029
+	states
+	{
+		spawn:
+			SHED M -1
+			stop
+	}
+}
+
+auto thing DeadZSec "Dead Zombie Assault"
+{
+	//$Category "Decoration/Dead/Zombies/Assault"
+	//$Color 8
+	Ednum 12030
+	states
+	{
+		spawn:
+			ZSP2 L -1
+			stop
+	}
+}
+
+auto thing DeadZSecBlood: thing DeadZSec "Dead Zombie Assault Blood"
+{
+	Ednum 12031
+	states
+	{
+		spawn:
+			ZSP5 F -1
+			stop
+	}
+}
+
+auto thing DeadZSecTopless: thing DeadZSec "Dead Zombie Assault Topless"
+{
+	Ednum 12032
+	states
+	{
+		spawn:
+			ZSP5 K -1
+			stop
+	}
+}
+
+auto thing DeadZSecAlt: thing DeadZSec "Dead Zombie Assault Alt"
+{
+	Ednum 12033
+	states
+	{
+		spawn:
+			ZSP5 P -1
+			stop
+	}
+}
+
+auto thing DeadZSecHead: thing DeadZSec "Dead Zombie Assault Head"
+{
+	Ednum 12034
+	states
+	{
+		spawn:
+			ZHE2 E -1
+			stop
+	}
+}
+
+auto thing DeadZSecHeadless: thing DeadZSec "Dead Zombie Assault Headless"
+{
+	Ednum 12035
+	states
+	{
+		spawn:
+			ZHE9 E -1
+			stop
+	}
+}
+
+thing DeadDoomImp "Dead Ancient Imp"
+{
+	//$Category "Decoration/Dead/Imp/Ancient"
+	//$Color 1
+
+	states
+	{
+		spawn:
+			TROO M -1
+			stop
+	}
+}
+
+auto thing DeadImp: thing DeadDoomImp "Dead Ancient Imp Gib"
+{
+	Ednum 13001
+	states
+	{
+		spawn:
+			TROO U -1
+			stop
+	}
+}
+
+auto thing DeadImpTopless: thing DeadDoomImp "Dead Ancient Imp Topless"
+{
+	Ednum 13002
+	states
+	{
+		spawn:
+			TROG E -1
+			stop
+	}
+}
+
+auto thing DeadImpGuts: thing DeadDoomImp "Dead Ancient Imp Guts"
+{
+	Ednum 13003
+	states
+	{
+		spawn:
+			TRO3 L -1
+			stop
+	}
+}
+
+auto thing DeadImpHand: thing DeadDoomImp "Dead Ancient Imp Hand"
+{
+	Ednum 13004
+	states
+	{
+		spawn:
+			TRO4 D -1
+			stop
+	}
+}
+
+auto thing DeadImpHead: thing DeadDoomImp "Dead Ancient Imp Head"
+{
+	Ednum 13005
+	states
+	{
+		spawn:
+			TRO5 E -1
+			stop
+	}
+}
+
+auto thing DeadDarkDoomImp "Dead Dark Imp"
+{
+	//$Category "Decoration/Dead/Imp/Dark"
+	//$Color 2
+	Ednum 13000
+
+	states
+	{
+		spawn:
+			DTRO M -1
+			stop
+	}
+}
+
+auto thing DeadDarkImp: thing DeadDarkDoomImp "Dead Dark Imp Gib"
+{
+	Ednum 13006
+	states
+	{
+		spawn:
+			DTRO U -1
+			stop
+	}
+}
+
+auto thing DeadDarkImpTopless: thing DeadDarkDoomImp "Dead Dark Imp Topless"
+{
+	Ednum 13007
+	states
+	{
+		spawn:
+			DTR2 E -1
+			stop
+	}
+}
+
+auto thing DeadDarkImpGuts: thing DeadDarkDoomImp "Dead Dark Imp Guts"
+{
+	Ednum 13008
+	states
+	{
+		spawn:
+			DTR3 E -1
+			stop
+	}
+}
+
+thing DeadDemon "Dead Blood Demon"
+{
+	//$Category "Decoration/Dead/Pinkies"
+	//$Color 3
+	states
+	{
+		spawn:
+			SARG N -1
+			stop
+	}
+}
+
+auto thing DeadDemonGib: thing DeadDemon "Dead Blood Demon Gib"
+{
+	Ednum 13009
+	states
+	{
+		spawn:
+			SARD H -1
+			stop
+	}
+}
+
+auto thing DeadMechDemon: thing DeadDemon "Dead Mech Demon"
+{
+	Ednum 13010
+	states
+	{
+		spawn:
+			MDEM N -1
+			stop
+	}
+}
+
+auto thing DeadMechDemonGib: thing DeadDemon "Dead Mech Demon Gib"
+{
+	Ednum 13011
+	states
+	{
+		spawn:
+			MDD2 D -1
+			stop
+	}
+}
+
+auto thing DeadSpectre: thing DeadDemon "Dead Spectre Demon"
+{
+	+SHADOW
+	Ednum 13012
+	states
+	{
+		spawn:
+			SARG N -1
+			stop
+	}
+}
+
+auto thing DeadSpectreGib: thing DeadDemon "Dead Spectre Demon Gib"
+{
+	+SHADOW
+	Ednum 13013
+	states
+	{
+		spawn:
+			SARG N -1
+			stop
+	}
+}
+
+thing DeadCacodemon "Dead Cacodemon"
+{
+	//$Category "Decoration/Dead/Cacos"
+	//$Color 4
+	states
+	{
+		spawn:
+			CACO M -1
+			stop
+	}
+}
+
+auto thing DeadCacoDemonGib: thing DeadCacodemon "Dead Cacodemon Gib"
+{
+	Ednum 13014
+	states
+	{
+		spawn:
+			CCD2 N -1
+			stop
+	}
+}
+
+auto thing DeadGandon4ik: thing DeadCacodemon "Dead Gandonchik"
+{
+	Ednum 13015
+	states
+	{
+		spawn:
+			HISY L -1
+			stop
+	}
+}
+
+auto thing DeadRevenant "Dead Revenant"
+{
+	//$Category "Decoration/Dead/Revenant"
+	//$Color 5
+	
+	Ednum 13016
+	states
+	{
+		spawn:
+			DRGR S -1
+			stop
+	}
+}
+
+auto thing DeadRevenantHead: thing DeadRevenant "Dead Revenant Head"
+{	
+	Ednum 13017
+	states
+	{
+		spawn:
+			DHED A -1
+			stop
+	}
+}
+
+auto thing DeadRevenantLeg: thing DeadRevenant "Dead Revenant Leg"
+{	
+	Ednum 13018
+	states
+	{
+		spawn:
+			DLEG I -1
+			stop
+	}
+}
+
+auto thing DeadRevenantTorso: thing DeadRevenant "Dead Revenant Torso"
+{	
+	Ednum 13019
+	states
+	{
+		spawn:
+			DTOR I -1
+			stop
+	}
+}
+
+auto thing DeadRevenantLegOnly: thing DeadRevenant "Dead Revenant Leg Only"
+{	
+	Ednum 13020
+	states
+	{
+		spawn:
+			DDH2 D -1
+			stop
+	}
+}
+
+auto thing DeadRevenantUnders: thing DeadRevenant "Dead Revenant Unders"
+{	
+	Ednum 13021
+	states
+	{
+		spawn:
+			DDH3 D -1
+			stop
+	}
+}
+
+auto thing DeadMancubus "Dead Mancubus"
+{
+	//$Category "Decoration/Dead/Mancubus"
+	//$Color 6
+
+	Ednum 13022
+	states
+	{
+		spawn:
+			BED2 E -1 // Headless Mancubus
+			stop
+	}
+}
+
+auto thing DeadMancubus_Donut: thing DeadMancubus "Dead Mancubus (Donut)"
+{
+	Ednum 13023
+	states
+	{
+		spawn:
+			BED4 E -1
+			stop
+	}
+}
+
+auto thing DeadMancubus_Hand: thing DeadMancubus "Mancubus Hand"
+{
+	Ednum 13024
+	states
+	{
+		spawn:
+			BEHA I -1
+			stop
+	}
+}
+
+auto thing DeadMancubus_Common: thing DeadMancubus "Dead Mancubus (Common Death)"
+{
+	Ednum 13025
+	states
+	{
+		spawn:
+			BEHE T -1
+			stop
+	}
+}
+
+auto thing DeadMancubus_Floating: thing DeadMancubus "Dead Floating Mancubus"
+{
+	Ednum 13026
+	states
+	{
+		spawn:
+			HAED L -1
+			stop
+	}
+}
+
+auto thing DeadSatyr "Dead Satyr"
+{
+	//$Category "Decoration/Dead/Nobles"
+	//$Color 7
+
+	Ednum 13027
+	states
+	{
+		spawn:
+			SATY O -1
+			stop
+	}
+}
+
+auto thing DeadSatyr_Gib: thing DeadSatyr "Dead Satyr (Gib)"
+{
+	Ednum 13028
+	states
+	{
+		spawn:
+			SATD J -1
+			stop
+	}
+}
+
+auto thing DeadKnight "Dead Knight"
+{
+	//$Category "Decoration/Dead/Knight"
+	//$Color 7
+
+	Ednum 13029
+	states
+	{
+		spawn:
+			HKD1 L -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Headless: thing DeadKnight "Dead Knight (Headless)"
+{
+	Ednum 13030
+	states
+	{
+		spawn:
+			HKD2 D -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Legs: thing DeadKnight "Dead Knight Legs"
+{
+	Ednum 13031
+	states
+	{
+		spawn:
+			HKD3 D -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Torso: thing DeadKnight "Dead Knight Torso"
+{
+	Ednum 13032
+	states
+	{
+		spawn:
+			HKD4 D -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Alt: thing DeadKnight "Dead Knight (Alt Death)"
+{
+	Ednum 13033
+	states
+	{
+		spawn:
+			HKD5 D -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Head: thing DeadKnight "Knight Head"
+{
+	Ednum 13034
+	states
+	{
+		spawn:
+			HKHE A -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Horns: thing DeadKnight "Knight Horns"
+{
+	Ednum 13035
+	states
+	{
+		spawn:
+			HKHE I -1
+			stop
+	}
+}
+
+auto thing DeadBaron "Dead Baron"
+{
+	//$Category "Decoration/Dead/Baron"
+	//$Color 7
+
+	Ednum 13036
+	states
+	{
+		spawn:
+			BHD1 L -1
+			stop
+	}
+}
+
+auto thing DeadBaron_Headless: thing DeadBaron "Dead Baron (Headless)"
+{
+	Ednum 13037
+	states
+	{
+		spawn:
+			BHD2 D -1
+			stop
+	}
+}
+
+auto thing DeadBaron_Donut: thing DeadBaron "Dead Baron (Donut)"
+{
+	Ednum 13038
+	states
+	{
+		spawn:
+			BHD6 Q -1
+			stop
+	}
+}
+
+auto thing DeadBaron_Head: thing DeadBaron "Baron Head"
+{
+	Ednum 13039
+	states
+	{
+		spawn:
+			BHHE A -1
+			stop
+	}
+}
+
+auto thing DeadBaron_Horns: thing DeadBaron "Baron Horns"
+{
+	Ednum 13040
+	states
+	{
+		spawn:
+			BHHE I -1
+			stop
+	}
+}
+
+auto thing DeadFireBaron_Ash "Fire Baron Ash"
+{
+	//$Category "Decoration/Dead/Baron"
+	//$Color 7
+
+	Ednum 13041
+	states
+	{
+		spawn:
+			PYD1 M -1
+			stop
+	}
+}
+
+
+auto thing DeadWolfDog_Gib "Dog (Gib)"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+	Ednum 13043
+	states
+	{
+		spawn:
+			WDG1 D -1
+			stop
+	}
+}
+
+auto thing DeadWolfDog: thing DeadWolfDog_Gib "Dead Dog"
+{
+	Ednum 13044
+	states
+	{
+		spawn:
+			WDG1 L -1
+			stop
+	}
+}
+
+auto thing DeadNazi_Head "Nazi Head"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13045
+	states
+	{
+		spawn:
+			BR8B A -1
+			stop
+	}
+}
+
+auto thing DeadNazi_Helmet "Nazi Helmet"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13046
+	states
+	{
+		spawn:
+			GERH A -1
+			stop
+	}
+}
+
+auto thing DeadNazi_Headless "Nazi (Headless)"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13047
+	states
+	{
+		spawn:
+			NAZH E -1
+			stop
+	}
+}
+
+auto thing DeadNazi "Dead Nazi"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13048
+	states
+	{
+		spawn:
+			NAZI L -1
+			stop
+	}
+}
+
+auto thing DeadUberSoldier "Dead Ubersoldat"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13049
+	states
+	{
+		spawn:
+			UBER P -1
+			stop
+	}
+}
+
+auto thing DeadArchVile "Dead Arch-Vile"
+{
+	//$Category "Decoration/Dead/ArchVile"
+	//$Color 5
+
+	Ednum 13050
+	states
+	{
+		spawn:
+			VILE Z -1
+			stop
+	}
+}
+
+auto thing DeadArchVile_Gib: thing DeadArchVile "Arch-Vile (Gib)"
+{
+	Ednum 13051
+	states
+	{
+		spawn:
+			VILX H -1
+			stop
+	}
+}
+
+auto thing DeadDiabolist_Gib "Diabolist (Gib)"
+{
+	//$Category "Decoration/Dead/ArchVile"
+	//$Color 5
+
+	Ednum 13052
+	states
+	{
+		spawn:
+			DBD2 I -1
+			stop
+	}
+}
+
+auto thing DeadDiabolist "Dead Diabolist"
+{
+	//$Category "Decoration/Dead/ArchVile"
+	//$Color 5
+
+	Ednum 13053
+	states
+	{
+		spawn:
+			DIAD Z -1
+			stop
+	}
+}
+
+auto thing DeadDiabolist_GibAlt: thing DeadDiabolist "Diabolist (Alt Gib)"
+{
+	Ednum 13054
+	states
+	{
+		spawn:
+			DIAX H -1
+			stop
+	}
+}
+
+auto thing DeadResurrector "Dead Resurrector"
+{
+	//$Category "Decoration/Dead/ArchVile"
+	//$Color 5
+
+	Ednum 13055
+	states
+	{
+		spawn:
+			RESS Z -1
+			stop
+	}
+}
+
+auto thing DeadResurrector_Gib: thing DeadResurrector "Resurrector (Gib)"
+{
+	Ednum 13056
+	states
+	{
+		spawn:
+			RESG H -1
+			stop
+	}
+}
+
+auto thing DeadResurrector_Body: thing DeadResurrector "Resurrector Corpse"
+{
+	Ednum 13057
+	states
+	{
+		spawn:
+			REG2 I -1
+			stop
+	}
+}
+
+auto thing DeadCyberdemon "Dead Cyberdemon"
+{
+	//$Category "Decoration/Dead/Cyber"
+	//$Color 9
+
+	Ednum 13058
+	states
+	{
+		spawn:
+			CYBR P -1
+			stop
+	}
+}
+
+auto thing DeadCyberdemon_Weak: thing DeadCyberdemon "Dead Weak Cyberdemon"
+{
+	Ednum 13059
+	states
+	{
+		spawn:
+			WEAK P -1
+			stop
+	}
+}
+
+auto thing DeadArachnotron "Dead Arachnotron"
+{
+	//$Category "Decoration/Dead/Spiders"
+	//$Color 10
+
+	Ednum 13060
+	states
+	{
+		spawn:
+			FSPI P -1
+			stop
+	}
+}
+
+auto thing DeadArachnotron_Left: thing DeadArachnotron "Arachnotron Corpse (Left Missing)"
+{
+	Ednum 13061
+	states
+	{
+		spawn:
+			FUD2 G -1
+			stop
+	}
+}
+
+auto thing DeadArachnotron_Right: thing DeadArachnotron "Arachnotron Corpse (Right Missing)"
+{
+	Ednum 13062
+	states
+	{
+		spawn:
+			FUD3 G -1
+			stop
+	}
+}
+
+auto thing DeadArachnotron_Brainless: thing DeadArachnotron "Arachnotron (No Brain)"
+{
+	Ednum 13063
+	states
+	{
+		spawn:
+			FUD4 E -1
+			stop
+	}
+}
+
+auto thing DeadChainSpider "Dead Chaingunner Spider"
+{
+	//$Category "Decoration/Dead/Spiders"
+	//$Color 10
+
+	Ednum 13064
+	states
+	{
+		spawn:
+			GAND P -1
+			stop
+	}
+}
+
+auto thing DeadChainSpider_Left: thing DeadChainSpider "Chaingunner Spider (Left Missing)"
+{
+	Ednum 13065
+	states
+	{
+		spawn:
+			GAN2 G -1
+			stop
+	}
+}
+
+auto thing DeadChainSpider_Right: thing DeadChainSpider "Chaingunner Spider (Right Missing)"
+{
+	Ednum 13066
+	states
+	{
+		spawn:
+			GAN3 G -1
+			stop
+	}
+}
+
+auto thing DeadChainSpider_Brainless: thing DeadChainSpider "Chaingunner Spider (No Brain)"
+{
+	Ednum 13067
+	states
+	{
+		spawn:
+			GAN4 E -1
+			stop
+	}
+}
+
+auto thing DeadDemolisher "Dead Demolisher"
+{
+	//$Category "Decoration/Dead/Spiders"
+	//$Color 10
+
+	Ednum 13068
+	states
+	{
+		spawn:
+			DMLS S -1
+			stop
+	}
+}
+
+// GURO DECORATION
+
+auto thing HexenGuro1 "Human Kebob"
+{
+	//$Category "Decoration/Hexen/Guro"
+	//$Color 15
+	
+	Ednum 13069
+	Radius 10
+	Height 80
+	+SOLID
+	
+	states
+	{
+		Spawn:
+			CPS1 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro2: thing HexenGuro1 "Corpse Sleeping"
+{
+	Ednum 13070
+	Radius 20
+	Height 16
+	-SOLID
+	
+	states
+	{
+		Spawn:
+			CPS2 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro3: thing HexenGuro1 "Corpse Hanging"
+{
+	Ednum 13071
+	Radius 14
+	Height 88
+	+SPAWNCEILING
+	+NOGRAVITY
+	-SOLID
+	
+	states
+	{
+		Spawn:
+			CPS4 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro4: thing HexenGuro3 "Corpse Hanging 2"
+{	
+	Ednum 13072
+	states
+	{
+		Spawn:
+			CPS5 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro5: thing HexenGuro2 "Corpse Sitting"
+{
+	Ednum 13073
+	Radius 20
+	Height 16
+	
+	states
+	{
+		Spawn:
+			CPS6 A -1
+			Stop
+	}
+}
+
+auto thing HexenGuro6: thing HexenGuro3 "Corpse Hanging 3"
+{	
+	Ednum 13084
+	Height 96
+	states
+	{
+		Spawn:
+			HCOR A -1
+			Stop
+	}
+}
+
+auto thing DeadHumanTwitching "Dead Human (Twitching)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13074
+	Radius 16
+ 	Height 80
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+
+	States
+	{
+		Spawn:
+			MAR2 A -1
+			stop
+	}
+}
+
+auto thing AliveHumanTwitching "Alive Human (Twitching)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13075
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MARD ABCDEFG 8
+			loop
+	}
+}
+
+auto thing DeadHumanTwitching2 "Dead Human (Twitching2)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13076
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MARD H -1
+			stop
+	}
+}
+
+auto thing DeadHuman1 "Dead Human 1"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13077
+	Radius 8
+ 	Height 16
+	-Solid
+		
+	States
+	{
+		Spawn:
+			MRE1 A -1
+			stop
+	}
+}
+
+auto thing DeadHuman2 "Dead Human 2"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13078
+	Radius 8
+ 	Height 16
+	-Solid
+		
+	States
+	{
+		Spawn:
+			MRE2 A -1
+			stop
+	}
+}
+
+auto thing DeadHuman3 "Dead Human 3"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13079
+	Radius 8
+ 	Height 16
+	-Solid
+		
+	States
+	{
+		Spawn:
+			MRE3 A -1
+			stop
+	}
+}
+
+auto thing DeadHumanGutless "Dead Human (Gutless)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13080
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MRE4 A -1
+			stop
+	}
+}
+
+auto thing AliveHumanTwitching2 "Alive Human (Twitching2)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13081
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MRE6 AB 12
+			loop
+	}
+}
+
+auto thing DeadHumanBandage "Dead Human (Bandage)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13082
+	Radius 16
+ 	Height 64
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MRE7 A -1
+			stop
+	}
+}
+
+auto thing DeadHumanChain "Dead Human (Chain)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13083
+	Radius 16
+ 	Height 48
+	-Solid
+ 	+NoGravity
+  	+SpawnCeiling
+		
+	States
+	{
+		Spawn:
+			MRE8 A -1
+			stop
+	}
+}
+
+auto thing LargeCorpsePile "Large corpse pile"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13085
+
+	Radius 40
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		POL7 A -1
+		stop
+	}
+}
+
+auto thing HumanBBQ "Human BBQ 1"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13086
+
+	Radius 16
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		HBBQ ABC 5 Bright
+		loop
+	}
+}
+
+auto thing HumanBBQ2 "Human BBQ 2"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13087
+
+	Radius 16
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		HBB2 ABC 5 Bright
+		loop
+	}
+}
+
+auto thing HangingBodyBothLegs "Hanging victim, both legs"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13088
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 80
+
+	states
+	{
+	spawn:
+		GOR6 A -1
+		stop
+	}
+}
+
+auto thing HangingBodyBothLegsSolid : thing HangingBodyBothLegs "Hanging victim, both legs (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13089
+
+	+SOLID
+}
+
+auto thing HangingBodyCrucified "Hanging victim, crucified"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13090
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 64
+
+	states
+	{
+	spawn:
+		GOR7 A -1
+		stop
+	}
+}
+
+auto thing HangingBodyCrucifiedSolid : thing HangingBodyCrucified "Hanging victim, crucified (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13091
+
+	+SOLID
+}
+
+auto thing HangingBodyArmsBound "Hanging victim, arms bound"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13092
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 72
+
+	states
+	{
+	spawn:
+		GOR8 A -1
+		stop
+	}
+}
+
+auto thing HangingBodyArmsBoundSolid : thing HangingBodyArmsBound "Hanging victim, arms bound (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13093
+
+	+SOLID
+}
+
+auto thing HangingBaronOfHell "Hanging baron of hell"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13094
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 80
+
+	states
+	{
+	spawn:
+		GORA A -1
+		stop
+	}
+}
+
+auto thing HangingBaronOfHellSolid : thing HangingBaronOfHell "Hanging baron of hell (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13095
+
+	+SOLID
+}
+
+auto thing HangingChainedBody "Hanging victim, chained"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13096
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 84
+
+	states
+	{
+	spawn:
+		HDB7 A -1
+		stop
+	}
+}
+
+auto thing HangingChainedBodySolid : thing HangingChainedBody "Hanging victim, chained (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13097
+
+	+SOLID
+}
+
+auto thing HangingChainedTorso "Hanging torso, chained"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13098
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	Radius 16
+	Height 52
+
+	states
+	{
+	spawn:
+		HDB8 A -1
+		stop
+	}
+}
+
+auto thing HangingChainedTorsoSolid : thing HangingChainedTorso "Hanging torso, chained (blocking)"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13099
+
+	+SOLID
+}
+
+auto thing SkullPoleTrio "Skull pole trio"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13100
+
+	Radius 16
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		POLA A -1
+		stop
+	}
+}
+
+auto thing SkullGibs "Skull gibs"
+{
+	//$Category "Decoration/Doom/Gore"
+	//$Color 13
+	EdNum 13101
+
+	Radius 16
+	Height 16
+
+	states
+	{
+	spawn:
+		POB6 A -1
+		stop
+	}
+}
+
+
+auto thing FireColumn "Column Fire"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20000
+	
+	+SOLID
+	states
+	{
+		spawn:
+			CLMF ABC 6
+			loop
+	}
+}
+
+auto thing Fire "Fire"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20001
+	states
+	{
+		spawn:
+			FARE ABC 6
+			loop
+	}
+}
+
+auto thing Torch "Torch"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20002
+	+NOGRAVITY
+	
+	states
+	{
+		spawn:
+			TORC ABC 6
+			loop
+	}
+}
+
+auto thing WhiteTorch "White Torch"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+	+SOLID
+	Ednum 20003
+	radius 24
+	height 80
+	states
+	{
+		spawn:
+			STRC ABCD 6
+			loop
+	}
+}
+
+auto thing ShortWhiteTorch "Short White Torch"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+	+SOLID
+	Ednum 20004
+	radius 24
+	height 64
+	states
+	{
+		spawn:
+			WTRC ABCD 6
+			loop
+	}
+}
+
+auto thing Chalender "Chalender"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21000
+	
+	Radius 8
+ 	Height 64
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHLD ABC 6
+			loop
+	}
+}
+
+auto thing ChalenderOff "Chalender Off"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Radius 8
+ 	Height 64
+	Ednum 21001
+	
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHLO A -1
+			stop
+	}
+}
+
+
+auto thing Chair "Office chair"
+{
+	//$Category Decoration/Tech/Props
+	EdNum 13102
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		CHR1 A -1
+		stop
+	}
+}
+
+auto thing TechColumn "Tech Column"
+{
+	//$Category Decoration/Tech/Props
+	EdNum 13103
+
+	Radius 24
+	Height 56
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		CLMT A -1
+		stop
+	}
+}
+
+auto thing Vase "Vase"
+{
+	//$Category Decoration/Tech/Props
+	EdNum 13109
+
+	Radius 24
+	Height 56
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		VASE A -1
+		stop
+	}
+}
+
+auto thing WoodBarrel "Wood Barrel"
+{
+	//$Category Decoration/Hell/Props
+	EdNum 13104
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		BARL A -1
+		stop
+	}
+}
+
+auto thing WoodBarrel2: thing WoodBarrel "Wood Barrel 2"
+{
+	Ednum 13105
+	states
+	{
+	spawn:
+		BAR7 A -1
+		stop
+	}
+}
+
+auto thing CeramicPot "Ceramic Pot"
+{
+	//$Category Decoration/Hell/Props
+	EdNum 13106
+	+SOLID
+	Radius 12
+	Height 16
+	
+	states
+	{
+	spawn:
+		POT1 A -1
+		stop
+	}
+}
+
+auto thing CeramicPot2: thing CeramicPot "Ceramic Pot 2"
+{
+	Ednum 13107
+	states
+	{
+	spawn:
+		POT2 A -1
+		stop
+	}
+}
+
+auto thing CeramicPot3: thing CeramicPot "Ceramic Pot 3"
+{
+	Ednum 13108
+	states
+	{
+	spawn:
+		POT3 A -1
+		stop
+	}
+}
+
+auto thing BrickColumn "BrickColumn"
+{
+	//$Category Decoration/Hell/Props
+	Ednum 13110
+	Radius 24
+	Height 56
+	+SOLID
+	states
+	{
+	spawn:
+		SMPL A -1
+		stop
+	}
+}
+
+auto thing Chain "Chain (Short)"
+{
+	//$Category Decoration/Hell/Props
+	Ednum 13111
+	Height 32
+	
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHNS A -1
+			stop
+	}
+}
+
+auto thing ChainLong: thing Chain "Chain (Long)"
+{
+	Ednum 13112
+	Height 64
+	states
+	{
+		spawn:
+			CHNS B -1
+			stop
+	}
+}
+
+auto thing ChainHeart: thing Chain "Chain (Heart)"
+{
+	Ednum 13113
+	Height 31
+	states
+	{
+		spawn:
+			CHNS C -1
+			stop
+	}
+}
+
+auto thing ChainHook: thing Chain "Chain (Hook)"
+{
+	Ednum 13114
+	Height 32
+	states
+	{
+		spawn:
+			CHNS D -1
+			stop
+	}
+}
+
+auto thing ChainSmall: thing Chain "Chain (Tiny)"
+{
+	Ednum 13115
+	Height 32
+	states
+	{
+		spawn:
+			CHNS E -1
+			stop
+	}
+}
+
+auto thing ChainMace: thing Chain "Chain (Mace)"
+{
+	Ednum 13116
+	Height 32
+	states
+	{
+		spawn:
+			CHNS F -1
+			stop
+	}
+}
+
+auto thing ChainSkull: thing Chain "Chain (Skull)"
+{
+	Ednum 13117
+	Height 32
+	states
+	{
+		spawn:
+			CHNS G -1
+			stop
+	}
+}
+
+auto thing ChainTooLong: thing Chain "Chain (Too Long)"
+{
+	Ednum 13118
+	Height 130
+	states
+	{
+		spawn:
+			HANC A -1
+			stop
+	}
+}
+
+
+auto thing Stalagmite1 "Stalagmite 1"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13119
+	Radius 16
+ 	Height 64
+	+Solid
+	States
+	{
+	Spawn:
+		STGR A -1
+		stop
+	}
+}
+
+auto thing Stalagmite2 "Stalagmite 2"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13120
+	Radius 12
+ 	Height 56
+	+Solid
+	States
+	{
+	Spawn:
+		STGR B -1
+		stop
+	}
+}
+
+auto thing Stalagmite3 "Stalagmite 3"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13121
+	Radius 12
+ 	Height 48
+	+Solid
+	States
+	{
+	Spawn:
+		STGR C -1
+		stop
+	}
+}
+
+auto thing Stalagtite1 "Stalagtite 1"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13122
+	Radius 16
+ 	Height 64
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		STGR D -1
+		stop
+	}
+}
+
+auto thing Stalagtite2 "Stalagtite 2"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13123
+	Radius 16
+ 	Height 48
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		STGR E -1
+		stop
+	}
+}
+
+auto thing Stalagtite3 "Stalagtite 3"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13124
+	Radius 16
+ 	Height 40
+
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	States
+	{
+	Spawn:
+		STGR F -1
+		stop
+	}
+}
+
+auto thing Stalagtite4 "Stalagtite 4"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13125
+	Radius 16
+ 	Height 128
+	+Solid
+
+	States
+	{
+	Spawn:
+		STGR G -1
+		stop
+	}
+}
+
+auto thing CaveRockColumn "Cave rock column"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13126
+
+	Radius 24
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		STMI A -1
+		stop
+	}
+}
+
+auto thing CaveStalagmiteLarge "Cave stalagmite, large"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13127
+
+	Radius 16
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		STG1 A -1
+		stop
+	}
+}
+
+auto thing CaveStalagmiteMedium "Cave stalagmite, medium"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13128
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		STG2 A -1
+		stop
+	}
+}
+
+auto thing CaveStalagmiteSmall "Cave stalagmite, small"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13129
+
+	Radius 8
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		STG3 A -1
+		stop
+	}
+}
+
+auto thing CaveStalactiteLarge "Cave stalactite, large"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13130
+
+	Radius 16
+	Height 112
+
+	+SPAWNCEILING
+	+NOGRAVITY
+
+	states
+	{
+	spawn:
+		STC1 A -1
+		stop
+	}
+}
+
+auto thing CaveStalactiteLargeSolid : thing CaveStalactiteLarge "Cave stalactite, large (blocking)"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13131
+
+	+SOLID
+}
+
+auto thing CaveStalactiteMedium "Cave stalactite, medium"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13132
+
+	Radius 12
+	Height 64
+
+	+SPAWNCEILING
+	+NOGRAVITY
+
+	states
+	{
+	spawn:
+		STC2 A -1
+		stop
+	}
+}
+
+auto thing CaveStalactiteMediumSolid : thing CaveStalactiteMedium "Cave stalactite, medium (blocking)"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13133
+
+	+SOLID
+}
+
+auto thing CaveStalactiteSmall "Cave stalactite, small"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13134
+
+	Radius 8
+	Height 32
+
+	+SPAWNCEILING
+	+NOGRAVITY
+
+	states
+	{
+	spawn:
+		STC3 A -1
+		stop
+	}
+}
+
+auto thing CaveStalactiteSmallSolid : thing CaveStalactiteSmall "Cave stalactite, small (blocking)"
+{
+	//$Category "Decoration/Cave"
+	//$Color 6
+	EdNum 13135
+
+	+SOLID
+}
+
+
+auto thing Tree1 "Tree 1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13135
+	Radius 48
+ 	Height 192
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV A -1
+			stop
+	}
+}
+
+
+auto thing Tree2 "Tree 2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13136
+	Radius 48
+ 	Height 192
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV B -1
+			stop
+	}
+}
+
+auto thing Tree3 "Tree 3"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13137
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV C -1
+			stop
+	}
+}
+
+auto thing Tree4 "Tree 4"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13138
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV D -1
+			stop
+	}
+}
+
+auto thing Tree5 "Tree 5"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13139
+	Radius 48
+ 	Height 128
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV E -1
+			stop
+	}
+}
+
+auto thing Tree6 "Tree 6"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13140
+	Radius 64
+ 	Height 192
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV F -1
+			stop
+	}
+}
+
+auto thing Tree7 "Tree 7"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13141
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV G -1
+			stop
+	}
+}
+
+auto thing Tree8 "Tree 8"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13142
+	Radius 32
+ 	Height 192
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV H -1
+			stop
+	}
+}
+
+auto thing Tree9 "Tree 9"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13143
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV I -1
+			stop
+	}
+}
+
+auto thing Tree10 "Tree 10"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13144
+	Radius 32
+ 	Height 160
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV J -1
+			stop
+	}
+}
+
+auto thing Tree11 "Tree 11"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13145
+	Radius 32
+ 	Height 120
+	+solid
+
+	States
+	{
+		Spawn:
+			TRBV K -1
+			stop
+	}
+}
+
+auto thing GreenTree1 "GreenTree1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28800
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR1 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree2 "GreenTree2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28801
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR2 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree3 "GreenTree3"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28834
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR3 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree4 "GreenTree4"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28835
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR4 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree5 "GreenTree5"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28836
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR5 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree6 "GreenTree6"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28837
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR6 A -1
+		Stop
+	}
+}
+
+auto thing GreenTree7 "GreenTree7"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28840
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		GTR7 A -1
+		Stop
+	}
+}
+
+auto thing SnowTree1 "SnowTree1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28802
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		STR1 A -1
+		Stop
+	}
+}
+
+auto thing SnowTree2 "SnowTree2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28803
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		STR2 A -1
+		Stop
+	}
+}
+
+auto thing TreeA "TreeA"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28810
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREE A -1
+		Stop
+	}
+}
+
+auto thing TreeB "TreeB"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28811
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREE B -1
+		Stop
+	}
+}
+
+auto thing TreeC "TreeC"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28812
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREE C -1
+		Stop
+	}
+}
+
+auto thing TreeD "TreeD"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28813
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREE D -1
+		Stop
+	}
+}
+
+auto thing PalmTree "Palm Tree"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28814
+
+	Radius 8
+	Height 128
+	Mass 100
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		PALM A -1
+		Stop
+	}
+}
+
+auto thing PlantA "PlantA"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28815
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT A -1
+		Stop
+	}
+}
+
+auto thing PlantB "PlantB"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28816
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT B -1
+		Stop
+	}
+}
+
+auto thing PlantC "PlantC"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28817
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT C -1
+		Stop
+	}
+}
+
+auto thing PlantD "PlantD"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28818
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT D -1
+		Stop
+	}
+}
+
+auto thing TreeRedA "TreeRedA"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28819
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TRER A -1
+		Stop
+	}
+}
+
+auto thing TreeRedB "TreeRedB"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28820
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TRER B -1
+		Stop
+	}
+}
+
+auto thing TreeRedC "TreeRedC"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28821
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TRER C -1
+		Stop
+	}
+}
+
+auto thing TreeRedD "TreeRedD"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28822
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TRER D -1
+		Stop
+	}
+}
+
+auto thing TreeYellowA "TreeYellowA"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28830
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREY A -1
+		Stop
+	}
+}
+
+auto thing TreeYellowB "TreeYellowB"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28831
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREY B -1
+		Stop
+	}
+}
+
+auto thing TreeYellowC "TreeYellowC"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28832
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREY C -1
+		Stop
+	}
+}
+
+auto thing TreeYellowD "TreeYellowD"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28833
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		TREY D -1
+		Stop
+	}
+}
+
+auto thing FallTree1 "FallTree1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28841
+	Radius 16
+	Height 48
+	
+	+SOLID
+	
+	States
+	{
+	Spawn:
+		FTR1 A -1
+		Stop
+	}
+}
+
+auto thing PlantE "PlantE"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28900
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT E -1
+		Stop
+	}
+}
+
+auto thing PlantF "PlantF"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28901
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT F -1
+		Stop
+	}
+}
+
+auto thing PlantG "PlantG"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28902
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT G -1
+		Stop
+	}
+}
+
+auto thing PlantH "PlantH"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28903
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT H -1
+		Stop
+	}
+}
+
+auto thing PlantI "PlantI"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 28904
+
+	Radius 8
+	Height 32
+	
+	+NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+		PLNT I -1
+		Stop
+	}
+}
+
+
+// SFX
 auto thing MusicChanger "Music Changer 00"
 {
 	//$Category "Sounds/Music Changer"
@@ -9834,528 +13079,5 @@ Auto thing RainSpawner5 "Rain Spawner (Single frequent)"
 		}
 }
 
-auto thing LeafsFallVFX "Leaf VFX"
-{
-	EdNum -1
-	
-	Radius 0
-	Height 0
-	
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+MISSILE
-	-SOLID
-	
-	States
-	{
-		Spawn:
-			LEF1 ABCDEFGHI 4
-			loop
-		Death:
-			LEF3 D 175
-			stop
-	}
-}
-
-auto thing LeafsFallVFX2 "Leaf VFX 2"
-{
-	EdNum -1
-	
-	Radius 0
-	Height 0
-	
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+MISSILE
-	-SOLID
-	
-	States
-	{
-		Spawn:
-			LEF2 ABCDEFGHI 4
-			loop
-		Death:
-			LEF3 C 175
-			stop
-	}
-}
-
-Auto thing LeafsSpawner "Leafs Spawner (256x256)"
-{
-	//$Category "VFX Spawners/Leafes"
-	//$Color 4
-	//$Sprite "RAINA1"
-	
-	EdNum 29916
-	Radius 16
-	Height 16
-	Mass 100
-	
-	+SPAWNCEILING
-	+NOBLOCKMAP
-	+NOGRAVITY
-	
-	States
-	{
-	Spawn:
-		TNT1 A 10 
-		TNT1 A 1 A_RandomJump(Leafs, 254)
-		TNT1 A 15
-		Loop
-	Leafs:
-		TNT1 A 1
-		TNT1 A 0 A_RandomJump("Leafs1",32)
-		TNT1 A 0 A_RandomJump("Leafs2",32)
-		TNT1 A 0 A_RandomJump("Leafs3",32)
-		TNT1 A 0 A_RandomJump("Leafs4",32)
-		TNT1 A 0 A_RandomJump("Leafs5",32)
-		TNT1 A 0 A_RandomJump("Leafs6",32)
-		TNT1 A 0 A_RandomJump("Leafs7",32)
-		TNT1 A 0 A_RandomJump("Leafs8",32)
-		Goto Spawn
-	Leafs1:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -3.4, -32.0, 64.0, 0.0, 2.6, 0.9, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  5.1,  48.0, 80.0, 0.0, 1.3, 1.4, -2.1)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -0.7,   0.0, 48.0, 0.0, 0.4, 0.3, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.3,  80.0,-32.0, 0.0, 2.9, 1.1, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -4.9,  16.0, 48.0, 0.0, 0.8, 1.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  1.8, -16.0,-16.0, 0.0, 0.2, 0.6, -2.0)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -6.2, -16.0, 16.0, 0.0, 1.7, 1.5, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  0.9, -64.0,112.0, 0.0, 2.1, 0.4, -2.2)
-		Goto Spawn
-	Leafs2:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  2.3, -32.0, 64.0, 0.0, 1.8, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -5.6,  48.0, 80.0, 0.0, 2.5, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  0.4,   0.0, 48.0, 0.0, 0.6, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.1,  80.0,-32.0, 0.0, 2.9, 0.0, -2.1)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.8,  16.0, 48.0, 0.0, 1.2, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  4.7, -16.0,-16.0, 0.0, 0.3, 0.0, -2.0)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -6.4, -16.0, 16.0, 0.0, 2.0, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  1.5, -64.0,112.0, 0.0, 2.3, 0.0, -2.2)
-		Goto Spawn
-
-	Leafs3:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -4.1, -112.0, 48.0, 0.0, 1.1, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  3.6,  -16.0, 64.0, 0.0, 2.4, 0.0, -2.1)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -6.7,  -80.0,112.0, 0.0, 0.5, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  5.4,  -64.0,-112.0,0.0, 2.9, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -1.2,  -48.0, 16.0, 0.0, 1.6, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  0.8,  112.0, 48.0, 0.0, 2.2, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.5,  -48.0,-32.0, 0.0, 0.9, 0.0, -2.0)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.0,  -48.0,-16.0, 0.0, 2.7, 0.0, -2.4)
-		Goto Spawn
-
-	Leafs4:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -5.2, -64.0, -80.0, 0.0, 1.3, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  4.4, -48.0,  64.0, 0.0, 2.6, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -0.9, -16.0,  32.0, 0.0, 0.7, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.3, -48.0, -48.0, 0.0, 2.9, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -3.1, -96.0,-112.0, 0.0, 1.8, 0.0, -2.1)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  1.6,  48.0, -16.0, 0.0, 0.4, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -6.8,  48.0,  32.0, 0.0, 2.1, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  0.5, -96.0, -48.0, 0.0, 1.0, 0.0, -2.4)
-		Goto Spawn
-
-	Leafs5:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  3.9,  48.0, -48.0, 0.0, 2.4, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -4.6,   0.0, -64.0, 0.0, 0.8, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.7,  96.0, -96.0, 0.0, 2.9, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -1.4,  96.0, 128.0, 0.0, 1.5, 0.0, -2.1)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  0.2, -32.0,  16.0, 0.0, 0.3, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -6.0,  96.0, -80.0, 0.0, 2.6, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  4.8, -80.0,  48.0, 0.0, 1.9, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -2.7, -64.0,  96.0, 0.0, 1.1, 0.0, -2.3)
-		Goto Spawn
-
-	Leafs6:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  5.5,   0.0, -80.0, 0.0, 2.7, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.2,  48.0, -32.0, 0.0, 1.0, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  0.7,  80.0,  48.0, 0.0, 0.5, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -6.9, -80.0, 128.0, 0.0, 2.8, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  2.1, -80.0,  80.0, 0.0, 1.4, 0.0, -2.1)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -4.4,  16.0, -96.0, 0.0, 2.0, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.0, 128.0, -32.0, 0.0, 2.9, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -1.0,   0.0, -16.0, 0.0, 0.6, 0.0, -2.5)
-		Goto Spawn
-
-	Leafs7:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -5.7, -48.0,  80.0, 0.0, 2.3, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  3.4, 112.0,   0.0, 0.0, 1.6, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -0.6, -32.0, -64.0, 0.0, 0.4, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.9, -80.0,  64.0, 0.0, 2.9, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -2.8,  64.0, 112.0, 0.0, 1.1, 0.0, -2.1)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  0.9, -48.0,-112.0, 0.0, 0.7, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -6.3,  80.0,  64.0, 0.0, 2.5, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  4.2, -16.0,   0.0, 0.0, 1.9, 0.0, -2.5)
-		Goto Spawn
-
-	Leafs8:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  2.6, -64.0,  48.0, 0.0, 1.7, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -4.9,  16.0, 128.0, 0.0, 2.2, 0.0, -2.2)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX,  6.5, 112.0, -96.0, 0.0, 2.9, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -1.7,  32.0,   0.0, 0.0, 0.8, 0.0, -2.5)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  0.3,  80.0, 128.0, 0.0, 0.6, 0.0, -2.1)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -6.1, -32.0,-112.0, 0.0, 2.6, 0.0, -2.3)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2,  4.7,  48.0,  48.0, 0.0, 1.9, 0.0, -2.4)
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.0,  96.0,  32.0, 0.0, 1.2, 0.0, -2.2)
-		Goto Spawn
-	}
-}
-
-Auto thing LeafsSpawner2 "Leafs Spawner (128x128)"
-{
-	//$Category "VFX Spawners/Leafes"
-	//$Color 4
-	//$Sprite "RAINA2"
-	
-	EdNum 29917
-	Radius 16
-	Height 16
-	Mass 100
-	
-	+SPAWNCEILING
-	+NOBLOCKMAP
-	+NOGRAVITY
-	
-	States
-	{
-	Spawn:
-		TNT1 A 10 
-		TNT1 A 1 A_RandomJump(Leafs, 254)
-		TNT1 A 15
-		Loop
-	Leafs:
-		TNT1 A 1
-		TNT1 A 0 A_RandomJump("Leafs1",32)
-		TNT1 A 0 A_RandomJump("Leafs2",32)
-		TNT1 A 0 A_RandomJump("Leafs3",32)
-		TNT1 A 0 A_RandomJump("Leafs4",32)
-		TNT1 A 0 A_RandomJump("Leafs5",32)
-		TNT1 A 0 A_RandomJump("Leafs6",32)
-		TNT1 A 0 A_RandomJump("Leafs7",32)
-		TNT1 A 0 A_RandomJump("Leafs8",32)
-		Goto Spawn
-	Leafs1:
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -64.0, 128.0, 0.0, 2.2, 1.0, -2.4)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 96.0, 160.0, 0.0, 1.2, 1.1, -2.1)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 0.0, 96.0, 0.0, 1.0, 1.0, -1.6)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 160.0, -64.0, 0.0, 1.0, 1.1, -1.9)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 32.0, 96.0, 0.0, 0.4, 0.9, -2.4)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, -32.0, 0.0, 0.7, 0.4, -2.7)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, 32.0, 0.0, 0.8, 1.3, -2.1)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -256.0, 224.0, 0.0, 1.2, 1.2, -1.9)
-		Goto Spawn
-	Leafs2:
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -64.0, 128.0, 0.0, 2.3, 0.0, -2.6)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 96.0, 160.0, 0.0, 2.1, 0.0, -2.4)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 0.0, 96.0, 0.0, 0.0, 0.0, -3.1)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 160.0, -64.0, 0.0, 0.0, 0.0, -2.1)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 32.0, 96.0, 0.0, 0.0, 0.0, -2.0)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, -32.0, 0.0, 0.0, 0.0, -1.9)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, 32.0, 0.0, 0.0, 0.0, -2.7)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -256.0, 224.0, 0.0, 0.0, 0.0, -2.4)
-		Goto Spawn
-
-	Leafs3:
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -224.0, 96.0, 0.0, 0.0, 0.0, -2.4)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -32.0, 128.0, 0.0, 0.0, 0.0, -2.3)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -160.0, 224.0, 0.0, 0.0, 0.0, -2.4)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -128.0, -224.0, 0.0, 0.0, 0.0, -2.6)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -96.0, 32.0, 0.0, 0.0, 0.0, -2.7)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, 224.0, 96.0, 0.0, 0.0, 0.0, -2.4)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -96.0, -64.0, 0.0, 0.0, 0.0, -2.4)
-		TNT1 A 1 A_SpawnObject(LeafsFallVFX, 0.0, -96.0, -32.0, 0.0, 0.0, 0.0, -2.6)
-		Goto Spawn
-
-	Leafs4:
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -2.5, 0.0, -32.0, -40.0,  2.0,  0.6, -2.5)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  3.2, 0.0, -24.0,  32.0,  1.5,  1.0, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  0.0, 0.0,  -8.0,  16.0,  2.7,  0.8, -2.3)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  1.1, 0.0, -24.0, -24.0,  2.2,  0.7, -2.4)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -1.0, 0.0, -48.0, -56.0,  1.2,  0.6, -2.1)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  2.3, 0.0,  24.0,  -8.0,  2.5,  0.5, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  0.5, 0.0,  24.0,  16.0,  0.9,  1.0, -2.3)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -3.0, 0.0, -48.0, -24.0,  1.8,  0.4, -2.1)
-		Goto Spawn
-
-	Leafs5:
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  2.5, 0.0, -40.0,  32.0,  2.0,  1.0, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -1.5, 0.0, -24.0, -16.0,  1.2,  0.8, -2.3)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  0.7, 0.0,  24.0,   8.0,  1.5,  0.6, -2.1)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -2.2, 0.0, -32.0, -24.0,  2.3,  1.2, -2.4)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  1.1, 0.0,  16.0,  32.0,  0.9,  0.7, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -3.0, 0.0, -48.0,  24.0,  2.7,  1.1, -2.5)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  0.5, 0.0, -24.0, -16.0,  1.8,  0.9, -2.3)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  2.3, 0.0,  40.0,  -8.0,  1.2,  0.5, -2.1)
-		Goto Spawn
-	Leafs6:
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -1.0, 0.0, -56.0,  16.0,  2.0,  1.3, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  1.5, 0.0, -32.0, -24.0,  2.3,  1.0, -2.1)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -2.3, 0.0,  24.0,  32.0,  0.7,  0.6, -2.3)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  3.0, 0.0,  16.0,  -8.0,  2.5,  1.2, -2.4)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  0.0, 0.0, -8.0,  24.0,  1.8,  0.5, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -24.0, -32.0,  2.2,  1.0, -2.3)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  2.7, 0.0,  40.0,  16.0,  1.5,  0.7, -2.1)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -0.8, 0.0, -32.0, -24.0,  0.9,  0.6, -2.2)
-		Goto Spawn
-	Leafs7:
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  1.2,  56.0, -16.0,  0.0, 2.0,  1.1, -2.3)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -2.7, 24.0,  32.0,  1.5,  0.8, -2.1)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  0.5, 0.0, -40.0,  16.0,  2.3,  1.0, -2.4)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -1.1, 0.0, -24.0, -32.0,  0.7,  0.5, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  3.0, 0.0,  16.0,  24.0,  2.5,  1.3, -2.5)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -0.5, 0.0, -8.0,  -8.0,  1.2,  0.7, -2.1)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  2.3, 0.0,  32.0,  -24.0,  1.8,  1.0, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -48.0,  8.0,  2.2,  0.9, -2.3)
-		Goto Spawn
-	Leafs8:
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  0.0, 0.0,  24.0,  16.0,  1.5,  1.2, -2.4)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -2.0, 0.0, -16.0, -32.0,  2.0,  0.7, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX,  1.0, 0.0,  32.0,  8.0,  2.5,  1.0, -2.3)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2, -1.2, 0.0, -24.0, -16.0,  1.8,  0.5, -2.1)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  2.3, 0.0,  40.0,  24.0,  1.2,  0.6, -2.4)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -0.5, 0.0, -32.0, -24.0,  2.3,  1.3, -2.2)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX2,  1.5, 0.0,  16.0,  -8.0,  0.9,  0.7, -2.1)
-		TNT1 A 8 A_SpawnObject(LeafsFallVFX, -3.0, 0.0, -48.0,  32.0,  1.5,  1.1, -2.3)
-		Goto Spawn
-	}
-}
-
-Auto thing LeafsSpawner3 "Leafs Spawner (64x64)"
-{
-	//$Category "VFX Spawners/Leafes"
-	//$Color 4
-	//$Sprite "RAINA3"
-	
-	EdNum 29918
-	Radius 16
-	Height 16
-	Mass 100
-	
-	+SPAWNCEILING
-	+NOBLOCKMAP
-	+NOGRAVITY
-	
-	States
-	{
-	Spawn:
-		TNT1 A 10 
-		TNT1 A 1 A_RandomJump(Leafs, 254)
-		TNT1 A 15
-		Loop
-	Leafs:
-		TNT1 A 1
-		TNT1 A 0 A_RandomJump("Leafs1",32)
-		TNT1 A 0 A_RandomJump("Leafs2",32)
-		TNT1 A 0 A_RandomJump("Leafs3",32)
-		TNT1 A 0 A_RandomJump("Leafs4",32)
-		TNT1 A 0 A_RandomJump("Leafs5",32)
-		TNT1 A 0 A_RandomJump("Leafs6",32)
-		TNT1 A 0 A_RandomJump("Leafs7",32)
-		TNT1 A 0 A_RandomJump("Leafs8",32)
-		Goto Spawn
-	Leafs1:
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.5, 0.0,  4.0,  0.0,  2.0,  1.0, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, 28.0, -12.0,  1.2,  0.8, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.7, 0.0, -24.0,  0.0,  1.5,  0.6, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -2.2, 0.0, 24.0,  0.0,  2.3,  1.2, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.1, 0.0, -28.0,  4.0,  0.9,  0.7, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -3.0, 0.0, 24.0, -16.0,  2.7,  1.1, -2.5)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.5, 0.0, 20.0,  -8.0,  1.8,  0.9, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  2.3, 0.0, -16.0, -28.0,  1.2,  0.5, -2.1)
-		Goto Spawn
-	Leafs2:
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.0, 0.0, -16.0, 16.0,  2.0,  1.3, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.5, 0.0, 24.0, 20.0,  2.3,  1.0, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.3, 0.0, 0.0, 24.0,  0.7,  0.6, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  3.0, 0.0, 20.0, -16.0,  2.5,  1.2, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.0, 0.0, 4.0, 24.0,  1.8,  0.5, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -4.0, -4.0,  2.2,  1.0, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.7, 0.0, -4.0, 4.0,  1.5,  0.7, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -0.8, 0.0, -16.0, 28.0,  0.9,  0.6, -2.2)
-		Goto Spawn
-	Leafs3:
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.2, 0.0, -28.0, 24.0,  2.0,  1.1, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.7, 0.0, -4.0, 16.0,  1.5,  0.8, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  0.5, 0.0, -20.0, 28.0,  2.3,  1.0, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.1, 0.0, -16.0, -28.0,  0.7,  0.5, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  3.0, 0.0, -24.0, 4.0,  2.5,  1.3, -2.5)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -0.5, 0.0, 16.0, -4.0,  1.2,  0.7, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.3, 0.0, 28.0, -16.0,  1.8,  1.0, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -24.0, -4.0,  2.2,  0.9, -2.3)
-		Goto Spawn
-	Leafs4:
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  0.0, 0.0, -16.0, -20.0,  1.5,  1.2, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.0, 0.0, -24.0, 16.0,  2.0,  0.8, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.0, 0.0, -4.0, 16.0,  2.5,  0.6, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.2, 0.0, -24.0, -24.0,  1.8,  1.0, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.3, 0.0, -24.0, -28.0,  1.2,  0.5, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -0.5, 0.0, 24.0, -4.0,  2.3,  1.3, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.5, 0.0, 24.0, 16.0,  0.9,  0.7, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -3.0, 0.0, -24.0, -24.0,  1.5,  1.1, -2.3)
-		Goto Spawn
-	Leafs5:
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.5, 0.0, -20.0,  16.0,  2.0,  1.0, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.5, 0.0, -12.0,  -8.0,  1.2,  0.8, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  0.7, 0.0,  12.0,   4.0,  1.5,  0.6, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -2.2, 0.0, -16.0, -12.0,  2.3,  1.2, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.1, 0.0,   8.0,  16.0,  0.9,  0.7, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -3.0, 0.0, -24.0,  12.0,  2.7,  1.1, -2.5)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.5, 0.0, -12.0,  -8.0,  1.8,  0.9, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.3, 0.0,  20.0,  -4.0,  1.2,  0.5, -2.1)
-		Goto Spawn
-	Leafs6:	
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.0, 0.0, -28.0,   8.0,  2.0,  1.3, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.5, 0.0, -16.0, -12.0,  2.3,  1.0, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.3, 0.0,  12.0,  16.0,  0.7,  0.6, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  3.0, 0.0,   8.0,  -4.0,  2.5,  1.2, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  0.0, 0.0,  -4.0,  12.0,  1.8,  0.5, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.5, 0.0, -12.0, -16.0,  2.2,  1.0, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  2.7, 0.0,  20.0,   8.0,  1.5,  0.7, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -0.8, 0.0, -16.0, -12.0,  0.9,  0.6, -2.2)
-		Goto Spawn
-	Leafs7:
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.2, 0.0,  28.0,  -8.0,  2.0,  1.1, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.7, 0.0,  12.0,  16.0,  1.5,  0.8, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.5, 0.0, -20.0,   8.0,  2.3,  1.0, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -1.1, 0.0, -12.0, -16.0,  0.7,  0.5, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  3.0, 0.0,   8.0,  12.0,  2.5,  1.3, -2.5)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -0.5, 0.0,  -4.0,  -4.0,  1.2,  0.7, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  2.3, 0.0,  16.0,  -12.0,  1.8,  1.0, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.5, 0.0, -24.0,  -4.0,  2.2,  0.9, -2.3)
-		Goto Spawn
-	Leafs8:
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  0.0, 0.0,  12.0,   8.0,  1.5,  1.2, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -2.0, 0.0,  -8.0, -16.0,  2.0,  0.7, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  1.0, 0.0,  16.0,   4.0,  2.5,  1.0, -2.3)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -1.2, 0.0, -12.0,  -8.0,  1.8,  0.5, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX,  2.3, 0.0,  20.0,  12.0,  1.2,  0.6, -2.4)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2, -0.5, 0.0, -16.0, -12.0,  2.3,  1.3, -2.2)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX2,  1.5, 0.0,   8.0,  -4.0,  0.9,  0.7, -2.1)
-		TNT1 A 16 A_SpawnObject(LeafsFallVFX, -3.0, 0.0, -24.0,  16.0,  1.5,  1.1, -2.3)
-		Goto Spawn
-	}
-}
-
-Auto thing LeafSpawner4 "Leaf Spawner (Single)"
-{
-	//$Category "VFX Spawners/Leafes"
-	//$Color 4
-	//$Sprite "RAINA5"
-	
-	EdNum 29919
-	
-	Radius 16
-	Height 16
-	Mass 100
-	
-	+SPAWNCEILING
-	+NOBLOCKMAP
-	+NOGRAVITY
-	
-	States
-	{
-	Spawn:
-		TNT1 A 20 
-		TNT1 A 1 A_RandomJump(Leafs, 254)
-		Loop
-	Leafs:
-		TNT1 A 15
-		TNT1 A 0 A_RandomJump("Leafs1",7)
-		TNT1 A 0 A_RandomJump("Leafs2",7)
-		TNT1 A 0 A_RandomJump("Leafs3",7)
-		TNT1 A 0 A_RandomJump("Leafs4",7)
-		TNT1 A 0 A_RandomJump("Leafs5",7)
-		TNT1 A 0 A_RandomJump("Leafs6",7)
-		TNT1 A 0 A_RandomJump("Leafs7",7)
-		TNT1 A 0 A_RandomJump("Leafs8",7)
-		Goto Spawn
-	Leafs1:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -3.2, 1.2, 0.0,  0.0, 2.2, 1.02,   -2.6)
-		Goto Spawn
-		Leafs2:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, 4.4, 2.2, 0.0, 0.0, 3.1, 1.4,  -2.8)
-		Goto Spawn
-		Leafs3:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, 7.1, -0.1, 0.0,  0.0, 1.4, 0.3,   -2.0)
-		Goto Spawn
-		Leafs4:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -2.3, 1.1, 0.0,  0.0, 1.7, 0.2,   -2.2)
-		Goto Spawn
-		Leafs5:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, 0.9, 1.5, 0.0, 0.0, 1.3, 0.1,   -2.4)
-		Goto Spawn
-		Leafs6:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.3, 1.2, 0.0, 0.0, 1.1, 1.0,  -2.8)
-		Goto Spawn
-		Leafs7:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -0.4, -0.9, 0.0,  0.0, 1.6, 1.2,   -2.5)
-		Goto Spawn
-		Leafs8:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, 7.5, 0.0, 0.0, 0.0, 1.1, 1.0, -2.6)
-		Goto Spawn
-		}
-}
-
-Auto thing LeafSpawner5 "Leaf Spawner (Single frequent)"
-{
-	//$Category "VFX Spawners/Leafes"
-	//$Color 4
-	//$Sprite "RAINA5"
-	
-	EdNum 29920
-	
-	Radius 16
-	Height 16
-	Mass 100
-	
-	+SPAWNCEILING
-	+NOBLOCKMAP
-	+NOGRAVITY
-	
-	States
-	{
-	Spawn:
-		TNT1 A 20 
-		TNT1 A 1 A_RandomJump(Leafs, 254)
-		Loop
-	Leafs:
-		TNT1 A 15
-		TNT1 A 0 A_RandomJump("Leafs1",15)
-		TNT1 A 0 A_RandomJump("Leafs2",15)
-		TNT1 A 0 A_RandomJump("Leafs3",15)
-		TNT1 A 0 A_RandomJump("Leafs4",15)
-		TNT1 A 0 A_RandomJump("Leafs5",15)
-		TNT1 A 0 A_RandomJump("Leafs6",15)
-		TNT1 A 0 A_RandomJump("Leafs7",15)
-		TNT1 A 0 A_RandomJump("Leafs8",15)
-		Goto Spawn
-	Leafs1:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -3.2, 1.2, 0.0,  0.0, 2.2, 1.02,   -2.6)
-		Goto Spawn
-		Leafs2:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, 4.4, 2.2, 0.0, 0.0, 3.1, 1.4,  -2.8)
-		Goto Spawn
-		Leafs3:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, 7.1, -0.1, 0.0,  0.0, 1.4, 0.3,   -2.0)
-		Goto Spawn
-		Leafs4:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -2.3, 1.1, 0.0,  0.0, 1.7, 0.2,   -2.2)
-		Goto Spawn
-		Leafs5:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, 0.9, 1.5, 0.0, 0.0, 1.3, 0.1,   -2.4)
-		Goto Spawn
-		Leafs6:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX, -3.3, 1.2, 0.0, 0.0, 1.1, 1.0,  -2.8)
-		Goto Spawn
-		Leafs7:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, -0.4, -0.9, 0.0,  0.0, 1.6, 1.2,   -2.5)
-		Goto Spawn
-		Leafs8:
-		TNT1 A 4 A_SpawnObject(LeafsFallVFX2, 7.5, 0.0, 0.0, 0.0, 1.1, 1.0, -2.6)
-		Goto Spawn
-		}
-}
-
-
+//#include "main/VFX/LeafSpawner.dh"
 

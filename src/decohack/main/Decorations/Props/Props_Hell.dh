@@ -1,0 +1,182 @@
+auto thing WoodBarrel "Wood Barrel"
+{
+	//$Category Decoration/Hell/Props
+	EdNum 13104
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		BARL A -1
+		stop
+	}
+}
+
+auto thing WoodBarrel2: thing WoodBarrel "Wood Barrel 2"
+{
+	Ednum 13105
+	states
+	{
+	spawn:
+		BAR7 A -1
+		stop
+	}
+}
+
+auto thing CeramicPot "Ceramic Pot"
+{
+	//$Category Decoration/Hell/Props
+	EdNum 13106
+	+SOLID
+	Radius 12
+	Height 16
+	
+	states
+	{
+	spawn:
+		POT1 A -1
+		stop
+	}
+}
+
+auto thing CeramicPot2: thing CeramicPot "Ceramic Pot 2"
+{
+	Ednum 13107
+	states
+	{
+	spawn:
+		POT2 A -1
+		stop
+	}
+}
+
+auto thing CeramicPot3: thing CeramicPot "Ceramic Pot 3"
+{
+	Ednum 13108
+	states
+	{
+	spawn:
+		POT3 A -1
+		stop
+	}
+}
+
+auto thing BrickColumn "BrickColumn"
+{
+	//$Category Decoration/Hell/Props
+	Ednum 13110
+	Radius 24
+	Height 56
+	+SOLID
+	states
+	{
+	spawn:
+		SMPL A -1
+		stop
+	}
+}
+
+auto thing Chain "Chain (Short)"
+{
+	//$Category Decoration/Hell/Props
+	Ednum 13111
+	Height 32
+	
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHNS A -1
+			stop
+	}
+}
+
+auto thing ChainLong: thing Chain "Chain (Long)"
+{
+	Ednum 13112
+	Height 64
+	states
+	{
+		spawn:
+			CHNS B -1
+			stop
+	}
+}
+
+auto thing ChainHeart: thing Chain "Chain (Heart)"
+{
+	Ednum 13113
+	Height 31
+	states
+	{
+		spawn:
+			CHNS C -1
+			stop
+	}
+}
+
+auto thing ChainHook: thing Chain "Chain (Hook)"
+{
+	Ednum 13114
+	Height 32
+	states
+	{
+		spawn:
+			CHNS D -1
+			stop
+	}
+}
+
+auto thing ChainSmall: thing Chain "Chain (Tiny)"
+{
+	Ednum 13115
+	Height 32
+	states
+	{
+		spawn:
+			CHNS E -1
+			stop
+	}
+}
+
+auto thing ChainMace: thing Chain "Chain (Mace)"
+{
+	Ednum 13116
+	Height 32
+	states
+	{
+		spawn:
+			CHNS F -1
+			stop
+	}
+}
+
+auto thing ChainSkull: thing Chain "Chain (Skull)"
+{
+	Ednum 13117
+	Height 32
+	states
+	{
+		spawn:
+			CHNS G -1
+			stop
+	}
+}
+
+auto thing ChainTooLong: thing Chain "Chain (Too Long)"
+{
+	Ednum 13118
+	Height 130
+	states
+	{
+		spawn:
+			HANC A -1
+			stop
+	}
+}

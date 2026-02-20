@@ -1,0 +1,77 @@
+auto thing FireColumn "Column Fire"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20000
+	
+	+SOLID
+	states
+	{
+		spawn:
+			CLMF ABC 6
+			loop
+	}
+}
+
+auto thing Fire "Fire"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20001
+	states
+	{
+		spawn:
+			FARE ABC 6
+			loop
+	}
+}
+
+auto thing Torch "Torch"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20002
+	+NOGRAVITY
+	
+	states
+	{
+		spawn:
+			TORC ABC 6
+			loop
+	}
+}
+
+auto thing WhiteTorch "White Torch"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+	+SOLID
+	Ednum 20003
+	radius 24
+	height 80
+	states
+	{
+		spawn:
+			STRC ABCD 6
+			loop
+	}
+}
+
+auto thing ShortWhiteTorch "Short White Torch"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+	+SOLID
+	Ednum 20004
+	radius 24
+	height 64
+	states
+	{
+		spawn:
+			WTRC ABCD 6
+			loop
+	}
+}

@@ -1,0 +1,39 @@
+auto thing Chalender "Chalender"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21000
+	
+	Radius 8
+ 	Height 64
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHLD ABC 6
+			loop
+	}
+}
+
+auto thing ChalenderOff "Chalender Off"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Radius 8
+ 	Height 64
+	Ednum 21001
+	
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHLO A -1
+			stop
+	}
+}

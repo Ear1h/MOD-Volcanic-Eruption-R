@@ -1,0 +1,849 @@
+thing DeadDoomImp "Dead Ancient Imp"
+{
+	//$Category "Decoration/Dead/Imp/Ancient"
+	//$Color 1
+
+	states
+	{
+		spawn:
+			TROO M -1
+			stop
+	}
+}
+
+auto thing DeadImp: thing DeadDoomImp "Dead Ancient Imp Gib"
+{
+	Ednum 13001
+	states
+	{
+		spawn:
+			TROO U -1
+			stop
+	}
+}
+
+auto thing DeadImpTopless: thing DeadDoomImp "Dead Ancient Imp Topless"
+{
+	Ednum 13002
+	states
+	{
+		spawn:
+			TROG E -1
+			stop
+	}
+}
+
+auto thing DeadImpGuts: thing DeadDoomImp "Dead Ancient Imp Guts"
+{
+	Ednum 13003
+	states
+	{
+		spawn:
+			TRO3 L -1
+			stop
+	}
+}
+
+auto thing DeadImpHand: thing DeadDoomImp "Dead Ancient Imp Hand"
+{
+	Ednum 13004
+	states
+	{
+		spawn:
+			TRO4 D -1
+			stop
+	}
+}
+
+auto thing DeadImpHead: thing DeadDoomImp "Dead Ancient Imp Head"
+{
+	Ednum 13005
+	states
+	{
+		spawn:
+			TRO5 E -1
+			stop
+	}
+}
+
+auto thing DeadDarkDoomImp "Dead Dark Imp"
+{
+	//$Category "Decoration/Dead/Imp/Dark"
+	//$Color 2
+	Ednum 13000
+
+	states
+	{
+		spawn:
+			DTRO M -1
+			stop
+	}
+}
+
+auto thing DeadDarkImp: thing DeadDarkDoomImp "Dead Dark Imp Gib"
+{
+	Ednum 13006
+	states
+	{
+		spawn:
+			DTRO U -1
+			stop
+	}
+}
+
+auto thing DeadDarkImpTopless: thing DeadDarkDoomImp "Dead Dark Imp Topless"
+{
+	Ednum 13007
+	states
+	{
+		spawn:
+			DTR2 E -1
+			stop
+	}
+}
+
+auto thing DeadDarkImpGuts: thing DeadDarkDoomImp "Dead Dark Imp Guts"
+{
+	Ednum 13008
+	states
+	{
+		spawn:
+			DTR3 E -1
+			stop
+	}
+}
+
+thing DeadDemon "Dead Blood Demon"
+{
+	//$Category "Decoration/Dead/Pinkies"
+	//$Color 3
+	states
+	{
+		spawn:
+			SARG N -1
+			stop
+	}
+}
+
+auto thing DeadDemonGib: thing DeadDemon "Dead Blood Demon Gib"
+{
+	Ednum 13009
+	states
+	{
+		spawn:
+			SARD H -1
+			stop
+	}
+}
+
+auto thing DeadMechDemon: thing DeadDemon "Dead Mech Demon"
+{
+	Ednum 13010
+	states
+	{
+		spawn:
+			MDEM N -1
+			stop
+	}
+}
+
+auto thing DeadMechDemonGib: thing DeadDemon "Dead Mech Demon Gib"
+{
+	Ednum 13011
+	states
+	{
+		spawn:
+			MDD2 D -1
+			stop
+	}
+}
+
+auto thing DeadSpectre: thing DeadDemon "Dead Spectre Demon"
+{
+	+SHADOW
+	Ednum 13012
+	states
+	{
+		spawn:
+			SARG N -1
+			stop
+	}
+}
+
+auto thing DeadSpectreGib: thing DeadDemon "Dead Spectre Demon Gib"
+{
+	+SHADOW
+	Ednum 13013
+	states
+	{
+		spawn:
+			SARG N -1
+			stop
+	}
+}
+
+thing DeadCacodemon "Dead Cacodemon"
+{
+	//$Category "Decoration/Dead/Cacos"
+	//$Color 4
+	states
+	{
+		spawn:
+			CACO M -1
+			stop
+	}
+}
+
+auto thing DeadCacoDemonGib: thing DeadCacodemon "Dead Cacodemon Gib"
+{
+	Ednum 13014
+	states
+	{
+		spawn:
+			CCD2 N -1
+			stop
+	}
+}
+
+auto thing DeadGandon4ik: thing DeadCacodemon "Dead Gandonchik"
+{
+	Ednum 13015
+	states
+	{
+		spawn:
+			HISY L -1
+			stop
+	}
+}
+
+auto thing DeadRevenant "Dead Revenant"
+{
+	//$Category "Decoration/Dead/Revenant"
+	//$Color 5
+	
+	Ednum 13016
+	states
+	{
+		spawn:
+			DRGR S -1
+			stop
+	}
+}
+
+auto thing DeadRevenantHead: thing DeadRevenant "Dead Revenant Head"
+{	
+	Ednum 13017
+	states
+	{
+		spawn:
+			DHED A -1
+			stop
+	}
+}
+
+auto thing DeadRevenantLeg: thing DeadRevenant "Dead Revenant Leg"
+{	
+	Ednum 13018
+	states
+	{
+		spawn:
+			DLEG I -1
+			stop
+	}
+}
+
+auto thing DeadRevenantTorso: thing DeadRevenant "Dead Revenant Torso"
+{	
+	Ednum 13019
+	states
+	{
+		spawn:
+			DTOR I -1
+			stop
+	}
+}
+
+auto thing DeadRevenantLegOnly: thing DeadRevenant "Dead Revenant Leg Only"
+{	
+	Ednum 13020
+	states
+	{
+		spawn:
+			DDH2 D -1
+			stop
+	}
+}
+
+auto thing DeadRevenantUnders: thing DeadRevenant "Dead Revenant Unders"
+{	
+	Ednum 13021
+	states
+	{
+		spawn:
+			DDH3 D -1
+			stop
+	}
+}
+
+auto thing DeadMancubus "Dead Mancubus"
+{
+	//$Category "Decoration/Dead/Mancubus"
+	//$Color 6
+
+	Ednum 13022
+	states
+	{
+		spawn:
+			BED2 E -1 // Headless Mancubus
+			stop
+	}
+}
+
+auto thing DeadMancubus_Donut: thing DeadMancubus "Dead Mancubus (Donut)"
+{
+	Ednum 13023
+	states
+	{
+		spawn:
+			BED4 E -1
+			stop
+	}
+}
+
+auto thing DeadMancubus_Hand: thing DeadMancubus "Mancubus Hand"
+{
+	Ednum 13024
+	states
+	{
+		spawn:
+			BEHA I -1
+			stop
+	}
+}
+
+auto thing DeadMancubus_Common: thing DeadMancubus "Dead Mancubus (Common Death)"
+{
+	Ednum 13025
+	states
+	{
+		spawn:
+			BEHE T -1
+			stop
+	}
+}
+
+auto thing DeadMancubus_Floating: thing DeadMancubus "Dead Floating Mancubus"
+{
+	Ednum 13026
+	states
+	{
+		spawn:
+			HAED L -1
+			stop
+	}
+}
+
+auto thing DeadSatyr "Dead Satyr"
+{
+	//$Category "Decoration/Dead/Nobles"
+	//$Color 7
+
+	Ednum 13027
+	states
+	{
+		spawn:
+			SATY O -1
+			stop
+	}
+}
+
+auto thing DeadSatyr_Gib: thing DeadSatyr "Dead Satyr (Gib)"
+{
+	Ednum 13028
+	states
+	{
+		spawn:
+			SATD J -1
+			stop
+	}
+}
+
+auto thing DeadKnight "Dead Knight"
+{
+	//$Category "Decoration/Dead/Knight"
+	//$Color 7
+
+	Ednum 13029
+	states
+	{
+		spawn:
+			HKD1 L -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Headless: thing DeadKnight "Dead Knight (Headless)"
+{
+	Ednum 13030
+	states
+	{
+		spawn:
+			HKD2 D -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Legs: thing DeadKnight "Dead Knight Legs"
+{
+	Ednum 13031
+	states
+	{
+		spawn:
+			HKD3 D -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Torso: thing DeadKnight "Dead Knight Torso"
+{
+	Ednum 13032
+	states
+	{
+		spawn:
+			HKD4 D -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Alt: thing DeadKnight "Dead Knight (Alt Death)"
+{
+	Ednum 13033
+	states
+	{
+		spawn:
+			HKD5 D -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Head: thing DeadKnight "Knight Head"
+{
+	Ednum 13034
+	states
+	{
+		spawn:
+			HKHE A -1
+			stop
+	}
+}
+
+auto thing DeadKnight_Horns: thing DeadKnight "Knight Horns"
+{
+	Ednum 13035
+	states
+	{
+		spawn:
+			HKHE I -1
+			stop
+	}
+}
+
+auto thing DeadBaron "Dead Baron"
+{
+	//$Category "Decoration/Dead/Baron"
+	//$Color 7
+
+	Ednum 13036
+	states
+	{
+		spawn:
+			BHD1 L -1
+			stop
+	}
+}
+
+auto thing DeadBaron_Headless: thing DeadBaron "Dead Baron (Headless)"
+{
+	Ednum 13037
+	states
+	{
+		spawn:
+			BHD2 D -1
+			stop
+	}
+}
+
+auto thing DeadBaron_Donut: thing DeadBaron "Dead Baron (Donut)"
+{
+	Ednum 13038
+	states
+	{
+		spawn:
+			BHD6 Q -1
+			stop
+	}
+}
+
+auto thing DeadBaron_Head: thing DeadBaron "Baron Head"
+{
+	Ednum 13039
+	states
+	{
+		spawn:
+			BHHE A -1
+			stop
+	}
+}
+
+auto thing DeadBaron_Horns: thing DeadBaron "Baron Horns"
+{
+	Ednum 13040
+	states
+	{
+		spawn:
+			BHHE I -1
+			stop
+	}
+}
+
+auto thing DeadFireBaron_Ash "Fire Baron Ash"
+{
+	//$Category "Decoration/Dead/Baron"
+	//$Color 7
+
+	Ednum 13041
+	states
+	{
+		spawn:
+			PYD1 M -1
+			stop
+	}
+}
+
+
+auto thing DeadWolfDog_Gib "Dog (Gib)"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+	Ednum 13043
+	states
+	{
+		spawn:
+			WDG1 D -1
+			stop
+	}
+}
+
+auto thing DeadWolfDog: thing DeadWolfDog_Gib "Dead Dog"
+{
+	Ednum 13044
+	states
+	{
+		spawn:
+			WDG1 L -1
+			stop
+	}
+}
+
+auto thing DeadNazi_Head "Nazi Head"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13045
+	states
+	{
+		spawn:
+			BR8B A -1
+			stop
+	}
+}
+
+auto thing DeadNazi_Helmet "Nazi Helmet"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13046
+	states
+	{
+		spawn:
+			GERH A -1
+			stop
+	}
+}
+
+auto thing DeadNazi_Headless "Nazi (Headless)"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13047
+	states
+	{
+		spawn:
+			NAZH E -1
+			stop
+	}
+}
+
+auto thing DeadNazi "Dead Nazi"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13048
+	states
+	{
+		spawn:
+			NAZI L -1
+			stop
+	}
+}
+
+auto thing DeadUberSoldier "Dead Ubersoldat"
+{
+	//$Category "Decoration/Dead/Wolfenstein"
+	//$Color 8
+
+	Ednum 13049
+	states
+	{
+		spawn:
+			UBER P -1
+			stop
+	}
+}
+
+auto thing DeadArchVile "Dead Arch-Vile"
+{
+	//$Category "Decoration/Dead/ArchVile"
+	//$Color 5
+
+	Ednum 13050
+	states
+	{
+		spawn:
+			VILE Z -1
+			stop
+	}
+}
+
+auto thing DeadArchVile_Gib: thing DeadArchVile "Arch-Vile (Gib)"
+{
+	Ednum 13051
+	states
+	{
+		spawn:
+			VILX H -1
+			stop
+	}
+}
+
+auto thing DeadDiabolist_Gib "Diabolist (Gib)"
+{
+	//$Category "Decoration/Dead/ArchVile"
+	//$Color 5
+
+	Ednum 13052
+	states
+	{
+		spawn:
+			DBD2 I -1
+			stop
+	}
+}
+
+auto thing DeadDiabolist "Dead Diabolist"
+{
+	//$Category "Decoration/Dead/ArchVile"
+	//$Color 5
+
+	Ednum 13053
+	states
+	{
+		spawn:
+			DIAD Z -1
+			stop
+	}
+}
+
+auto thing DeadDiabolist_GibAlt: thing DeadDiabolist "Diabolist (Alt Gib)"
+{
+	Ednum 13054
+	states
+	{
+		spawn:
+			DIAX H -1
+			stop
+	}
+}
+
+auto thing DeadResurrector "Dead Resurrector"
+{
+	//$Category "Decoration/Dead/ArchVile"
+	//$Color 5
+
+	Ednum 13055
+	states
+	{
+		spawn:
+			RESS Z -1
+			stop
+	}
+}
+
+auto thing DeadResurrector_Gib: thing DeadResurrector "Resurrector (Gib)"
+{
+	Ednum 13056
+	states
+	{
+		spawn:
+			RESG H -1
+			stop
+	}
+}
+
+auto thing DeadResurrector_Body: thing DeadResurrector "Resurrector Corpse"
+{
+	Ednum 13057
+	states
+	{
+		spawn:
+			REG2 I -1
+			stop
+	}
+}
+
+auto thing DeadCyberdemon "Dead Cyberdemon"
+{
+	//$Category "Decoration/Dead/Cyber"
+	//$Color 9
+
+	Ednum 13058
+	states
+	{
+		spawn:
+			CYBR P -1
+			stop
+	}
+}
+
+auto thing DeadCyberdemon_Weak: thing DeadCyberdemon "Dead Weak Cyberdemon"
+{
+	Ednum 13059
+	states
+	{
+		spawn:
+			WEAK P -1
+			stop
+	}
+}
+
+auto thing DeadArachnotron "Dead Arachnotron"
+{
+	//$Category "Decoration/Dead/Spiders"
+	//$Color 10
+
+	Ednum 13060
+	states
+	{
+		spawn:
+			FSPI P -1
+			stop
+	}
+}
+
+auto thing DeadArachnotron_Left: thing DeadArachnotron "Arachnotron Corpse (Left Missing)"
+{
+	Ednum 13061
+	states
+	{
+		spawn:
+			FUD2 G -1
+			stop
+	}
+}
+
+auto thing DeadArachnotron_Right: thing DeadArachnotron "Arachnotron Corpse (Right Missing)"
+{
+	Ednum 13062
+	states
+	{
+		spawn:
+			FUD3 G -1
+			stop
+	}
+}
+
+auto thing DeadArachnotron_Brainless: thing DeadArachnotron "Arachnotron (No Brain)"
+{
+	Ednum 13063
+	states
+	{
+		spawn:
+			FUD4 E -1
+			stop
+	}
+}
+
+auto thing DeadChainSpider "Dead Chaingunner Spider"
+{
+	//$Category "Decoration/Dead/Spiders"
+	//$Color 10
+
+	Ednum 13064
+	states
+	{
+		spawn:
+			GAND P -1
+			stop
+	}
+}
+
+auto thing DeadChainSpider_Left: thing DeadChainSpider "Chaingunner Spider (Left Missing)"
+{
+	Ednum 13065
+	states
+	{
+		spawn:
+			GAN2 G -1
+			stop
+	}
+}
+
+auto thing DeadChainSpider_Right: thing DeadChainSpider "Chaingunner Spider (Right Missing)"
+{
+	Ednum 13066
+	states
+	{
+		spawn:
+			GAN3 G -1
+			stop
+	}
+}
+
+auto thing DeadChainSpider_Brainless: thing DeadChainSpider "Chaingunner Spider (No Brain)"
+{
+	Ednum 13067
+	states
+	{
+		spawn:
+			GAN4 E -1
+			stop
+	}
+}
+
+auto thing DeadDemolisher "Dead Demolisher"
+{
+	//$Category "Decoration/Dead/Spiders"
+	//$Color 10
+
+	Ednum 13068
+	states
+	{
+		spawn:
+			DMLS S -1
+			stop
+	}
+}
