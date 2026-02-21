@@ -8982,7 +8982,7 @@ auto thing FireColumn "Column Fire"
 	states
 	{
 		spawn:
-			CLMF ABC 6
+			CLMF ABC 6 Bright
 			loop
 	}
 }
@@ -8996,7 +8996,7 @@ auto thing Fire "Fire"
 	states
 	{
 		spawn:
-			FARE ABC 6
+			FARE ABC 6 Bright
 			loop
 	}
 }
@@ -9012,7 +9012,7 @@ auto thing Torch "Torch"
 	states
 	{
 		spawn:
-			TORC ABC 6
+			TORC ABC 6 Bright
 			loop
 	}
 }
@@ -9028,7 +9028,7 @@ auto thing WhiteTorch "White Torch"
 	states
 	{
 		spawn:
-			STRC ABCD 6
+			STRC ABCD 6 Bright
 			loop
 	}
 }
@@ -9044,10 +9044,173 @@ auto thing ShortWhiteTorch "Short White Torch"
 	states
 	{
 		spawn:
-			WTRC ABCD 6
+			WTRC ABCD 6 Bright
 			loop
 	}
 }
+
+auto thing CityLamp "City Lamp"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+	+SOLID
+	Ednum 20005
+	radius 32
+	height 128
+	states
+	{
+		spawn:
+			POL6 AB 6 Bright
+			loop
+	}
+}
+
+auto thing SneakFireColumn "Sneak Column"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+	+SOLID
+	Ednum 20006
+	radius 15
+	height 60
+	states
+	{
+		spawn:
+			BRTR ABCDEFGHIJKLM 6 Bright
+			loop
+	}
+}
+
+auto thing Torch2 "Torch 2"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20007
+	
+	states
+	{
+		spawn:
+			WLTR ABCDEFGH 6 Bright
+			loop
+	}
+}
+
+auto thing Torch2Off "Torch 2 Off"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20008
+	
+	states
+	{
+		spawn:
+			WLTR I -1
+			stop
+	}
+}
+
+auto thing Torch3 "Torch 3"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20009
+	
+	states
+	{
+		spawn:
+			WTRH ABC 6 Bright
+			loop
+	}
+}
+
+auto thing TechFloorLamp "Tech Floor Lamp"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20010
+	radius 24
+	Height 48
+	+SOLID
+	states
+	{
+		spawn:
+			C3L1 ABCD 6 Bright
+			loop
+	}
+}
+
+auto thing TechFloorLamp2 "Tech Floor Lamp 2"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20011
+	radius 24
+	Height 48
+	+SOLID
+	states
+	{
+		spawn:
+			C3L2 ABCD 6 Bright
+			loop
+	}
+}
+
+auto thing TechFloorLamp3 "Tech Floor Lamp 3"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20012
+	radius 24
+	Height 48
+	+SOLID
+	states
+	{
+		spawn:
+			C3L3 ABCD 6 Bright
+			loop
+	}
+}
+
+auto thing FloorYellowLamp "Floor Yellow Lamp"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20013
+	radius 24
+	
+	states
+	{
+		spawn:
+			CIL1 A -1 Bright
+			stop
+	}
+}
+
+auto thing Candles "Candles"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20014
+	radius 24
+	
+	states
+	{
+		spawn:
+			CNDL ABC 6 Bright
+			loop
+	}
+}
+
+
+
 
 auto thing Chalender "Chalender"
 {
@@ -9064,7 +9227,7 @@ auto thing Chalender "Chalender"
 	states
 	{
 		spawn:
-			CHLD ABC 6
+			CHLD ABC 6 Bright
 			loop
 	}
 }
@@ -9084,7 +9247,266 @@ auto thing ChalenderOff "Chalender Off"
 	states
 	{
 		spawn:
-			CHLO A -1
+			CHLO A -1 Bright
+			stop
+	}
+}
+
+auto thing CeilingLampTech "Ceil Lamp"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+ 	Height 23
+	Ednum 21001
+	
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			TLP6 A -1 Bright
+			stop
+	}
+}
+
+auto thing CeilingLampTech2 "Ceil Lamp 2"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+ 	Height 90
+	Ednum 21002
+	
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			TLP9 A -1 Bright
+			stop
+	}
+}
+
+auto thing Chalender2 "Chalender 2"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21003
+	
+	Radius 8
+ 	Height 128
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHDR ABC 6 Bright
+			loop
+	}
+}
+
+auto thing Chalender2Off "Chalender2Off"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21004
+	
+	Radius 8
+ 	Height 128
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHD2 A -1 Bright
+			stop
+	}
+}
+
+auto thing Chalender3 "Chalender 3"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21004
+	
+	Radius 8
+ 	Height 65
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHLD ABC 6 Bright
+			loop
+	}
+}
+
+auto thing Chalender3Off "Chalender3Off"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21005
+	
+	Radius 8
+ 	Height 65
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHLO A -1 Bright
+			stop
+	}
+}
+
+auto thing InvertLamp "Invert Lamp"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21006
+	
+	Height 24
+	Radius 8
+
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CI21 A -1 Bright
+			stop
+	}
+}
+
+auto thing InvertLamp2 "Invert Lamp 2"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21007
+	
+	Height 24
+	Radius 8
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CI23 A -1 Bright
+			stop
+	}
+}
+
+auto thing InvertLamp3 "Invert Lamp 3"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21008
+	
+	Radius 8
+	Height 40
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CI24 A -1 Bright
+			stop
+	}
+}
+
+auto thing InvertLamp4 "Invert Lamp 4"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21009
+	
+	Radius 8
+	Height 30
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CI25 A -1 Bright
+			stop 
+	}
+}
+
+auto thing AlarmLamp "Alarm Lamp"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21010
+	
+	Radius 8
+
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CIL2 ABCD 6 Bright
+			loop
+	}
+}
+
+auto thing YellowLamp "Ceiling Yellow Lamp"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21011
+	
+	Radius 8
+ 	Height 8
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CIL3 A -1 Bright
+			stop
+	}
+}
+
+auto thing HomeLamp "Ceiling Lamp v2"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21012
+	
+	Radius 8
+ 	Height 86
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			HANL A -1 Bright
 			stop
 	}
 }
@@ -9332,7 +9754,7 @@ auto thing Stalagmite1 "Stalagmite 1"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13119
+	EdNum 15119
 	Radius 16
  	Height 64
 	+Solid
@@ -9348,7 +9770,7 @@ auto thing Stalagmite2 "Stalagmite 2"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13120
+	EdNum 15120
 	Radius 12
  	Height 56
 	+Solid
@@ -9364,7 +9786,7 @@ auto thing Stalagmite3 "Stalagmite 3"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13121
+	EdNum 15121
 	Radius 12
  	Height 48
 	+Solid
@@ -9380,7 +9802,7 @@ auto thing Stalagtite1 "Stalagtite 1"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13122
+	EdNum 15122
 	Radius 16
  	Height 64
 	+NOGRAVITY
@@ -9397,7 +9819,7 @@ auto thing Stalagtite2 "Stalagtite 2"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13123
+	EdNum 15123
 	Radius 16
  	Height 48
 	+NOGRAVITY
@@ -9414,7 +9836,7 @@ auto thing Stalagtite3 "Stalagtite 3"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13124
+	EdNum 15124
 	Radius 16
  	Height 40
 
@@ -9433,7 +9855,7 @@ auto thing Stalagtite4 "Stalagtite 4"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13125
+	EdNum 15125
 	Radius 16
  	Height 128
 	+Solid
@@ -10382,6 +10804,113 @@ auto thing PlantI "PlantI"
 	Spawn:
 		PLNT I -1
 		Stop
+	}
+}
+
+
+auto thing BushShort "Bush, short"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13119
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		BSH1 A -1
+		stop
+	}
+}
+
+auto thing BushShortBurned1 "Bush, short burned 1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13120
+
+	Radius 12
+	Height 16
+
+	states
+	{
+	spawn:
+		BSH1 B -1
+		stop
+	}
+}
+
+auto thing BushShortBurned2 "Bush, short burned 2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13121
+
+	Radius 12
+	Height 16
+
+	states
+	{
+	spawn:
+		BSH1 C -1
+		stop
+	}
+}
+
+auto thing BushTall "Bush, tall"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13122
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		BSH2 A -1
+		stop
+	}
+}
+
+auto thing BushTallBurned1 "Bush, tall burned 1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13123
+
+	Radius 12
+	Height 16
+
+	states
+	{
+	spawn:
+		BSH2 B -1
+		stop
+	}
+}
+
+auto thing BushTallBurned2 "Bush, tall burned 2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13124
+
+	Radius 12
+	Height 16
+
+	states
+	{
+	spawn:
+		BSH2 C -1
+		stop
 	}
 }
 

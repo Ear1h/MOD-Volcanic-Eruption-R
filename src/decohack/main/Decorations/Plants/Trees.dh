@@ -772,3 +772,110 @@ auto thing PlantI "PlantI"
 		Stop
 	}
 }
+
+
+auto thing BushShort "Bush, short"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13119
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		BSH1 A -1
+		stop
+	}
+}
+
+auto thing BushShortBurned1 "Bush, short burned 1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13120
+
+	Radius 12
+	Height 16
+
+	states
+	{
+	spawn:
+		BSH1 B -1
+		stop
+	}
+}
+
+auto thing BushShortBurned2 "Bush, short burned 2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13121
+
+	Radius 12
+	Height 16
+
+	states
+	{
+	spawn:
+		BSH1 C -1
+		stop
+	}
+}
+
+auto thing BushTall "Bush, tall"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13122
+
+	Radius 12
+	Height 16
+
+	+SOLID
+
+	states
+	{
+	spawn:
+		BSH2 A -1
+		stop
+	}
+}
+
+auto thing BushTallBurned1 "Bush, tall burned 1"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13123
+
+	Radius 12
+	Height 16
+
+	states
+	{
+	spawn:
+		BSH2 B -1
+		stop
+	}
+}
+
+auto thing BushTallBurned2 "Bush, tall burned 2"
+{
+	//$Category Decoration / Plants
+	//$Color 7
+	EdNum 13124
+
+	Radius 12
+	Height 16
+
+	states
+	{
+	spawn:
+		BSH2 C -1
+		stop
+	}
+}

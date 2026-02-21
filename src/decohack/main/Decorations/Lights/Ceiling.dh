@@ -13,7 +13,7 @@ auto thing Chalender "Chalender"
 	states
 	{
 		spawn:
-			CHLD ABC 6
+			CHLD ABC 6 Bright
 			loop
 	}
 }
@@ -33,7 +33,266 @@ auto thing ChalenderOff "Chalender Off"
 	states
 	{
 		spawn:
-			CHLO A -1
+			CHLO A -1 Bright
+			stop
+	}
+}
+
+auto thing CeilingLampTech "Ceil Lamp"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+ 	Height 23
+	Ednum 21001
+	
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			TLP6 A -1 Bright
+			stop
+	}
+}
+
+auto thing CeilingLampTech2 "Ceil Lamp 2"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+ 	Height 90
+	Ednum 21002
+	
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			TLP9 A -1 Bright
+			stop
+	}
+}
+
+auto thing Chalender2 "Chalender 2"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21003
+	
+	Radius 8
+ 	Height 128
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHDR ABC 6 Bright
+			loop
+	}
+}
+
+auto thing Chalender2Off "Chalender2Off"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21004
+	
+	Radius 8
+ 	Height 128
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHD2 A -1 Bright
+			stop
+	}
+}
+
+auto thing Chalender3 "Chalender 3"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21004
+	
+	Radius 8
+ 	Height 65
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHLD ABC 6 Bright
+			loop
+	}
+}
+
+auto thing Chalender3Off "Chalender3Off"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21005
+	
+	Radius 8
+ 	Height 65
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CHLO A -1 Bright
+			stop
+	}
+}
+
+auto thing InvertLamp "Invert Lamp"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21006
+	
+	Height 24
+	Radius 8
+
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CI21 A -1 Bright
+			stop
+	}
+}
+
+auto thing InvertLamp2 "Invert Lamp 2"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21007
+	
+	Height 24
+	Radius 8
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CI23 A -1 Bright
+			stop
+	}
+}
+
+auto thing InvertLamp3 "Invert Lamp 3"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21008
+	
+	Radius 8
+	Height 40
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CI24 A -1 Bright
+			stop
+	}
+}
+
+auto thing InvertLamp4 "Invert Lamp 4"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21009
+	
+	Radius 8
+	Height 30
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CI25 A -1 Bright
+			stop 
+	}
+}
+
+auto thing AlarmLamp "Alarm Lamp"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21010
+	
+	Radius 8
+
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CIL2 ABCD 6 Bright
+			loop
+	}
+}
+
+auto thing YellowLamp "Ceiling Yellow Lamp"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21011
+	
+	Radius 8
+ 	Height 8
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			CIL3 A -1 Bright
+			stop
+	}
+}
+
+auto thing HomeLamp "Ceiling Lamp v2"
+{
+	//$Category "Light sources/Ceiling"
+	//$Color 2
+
+	Ednum 21012
+	
+	Radius 8
+ 	Height 86
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	states
+	{
+		spawn:
+			HANL A -1 Bright
 			stop
 	}
 }

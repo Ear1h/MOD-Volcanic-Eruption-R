@@ -2,7 +2,7 @@ auto thing Stalagmite1 "Stalagmite 1"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13119
+	EdNum 15119
 	Radius 16
  	Height 64
 	+Solid
@@ -18,7 +18,7 @@ auto thing Stalagmite2 "Stalagmite 2"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13120
+	EdNum 15120
 	Radius 12
  	Height 56
 	+Solid
@@ -34,7 +34,7 @@ auto thing Stalagmite3 "Stalagmite 3"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13121
+	EdNum 15121
 	Radius 12
  	Height 48
 	+Solid
@@ -50,7 +50,7 @@ auto thing Stalagtite1 "Stalagtite 1"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13122
+	EdNum 15122
 	Radius 16
  	Height 64
 	+NOGRAVITY
@@ -67,7 +67,7 @@ auto thing Stalagtite2 "Stalagtite 2"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13123
+	EdNum 15123
 	Radius 16
  	Height 48
 	+NOGRAVITY
@@ -84,7 +84,7 @@ auto thing Stalagtite3 "Stalagtite 3"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13124
+	EdNum 15124
 	Radius 16
  	Height 40
 
@@ -103,7 +103,7 @@ auto thing Stalagtite4 "Stalagtite 4"
 {
 	//$Category "Decoration/Cave"
 	//$Color 6
-	EdNum 13125
+	EdNum 15125
 	Radius 16
  	Height 128
 	+Solid

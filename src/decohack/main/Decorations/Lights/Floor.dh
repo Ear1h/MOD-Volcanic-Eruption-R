@@ -9,7 +9,7 @@ auto thing FireColumn "Column Fire"
 	states
 	{
 		spawn:
-			CLMF ABC 6
+			CLMF ABC 6 Bright
 			loop
 	}
 }
@@ -23,7 +23,7 @@ auto thing Fire "Fire"
 	states
 	{
 		spawn:
-			FARE ABC 6
+			FARE ABC 6 Bright
 			loop
 	}
 }
@@ -39,7 +39,7 @@ auto thing Torch "Torch"
 	states
 	{
 		spawn:
-			TORC ABC 6
+			TORC ABC 6 Bright
 			loop
 	}
 }
@@ -55,7 +55,7 @@ auto thing WhiteTorch "White Torch"
 	states
 	{
 		spawn:
-			STRC ABCD 6
+			STRC ABCD 6 Bright
 			loop
 	}
 }
@@ -71,7 +71,170 @@ auto thing ShortWhiteTorch "Short White Torch"
 	states
 	{
 		spawn:
-			WTRC ABCD 6
+			WTRC ABCD 6 Bright
 			loop
 	}
 }
+
+auto thing CityLamp "City Lamp"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+	+SOLID
+	Ednum 20005
+	radius 32
+	height 128
+	states
+	{
+		spawn:
+			POL6 AB 6 Bright
+			loop
+	}
+}
+
+auto thing SneakFireColumn "Sneak Column"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+	+SOLID
+	Ednum 20006
+	radius 15
+	height 60
+	states
+	{
+		spawn:
+			BRTR ABCDEFGHIJKLM 6 Bright
+			loop
+	}
+}
+
+auto thing Torch2 "Torch 2"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20007
+	
+	states
+	{
+		spawn:
+			WLTR ABCDEFGH 6 Bright
+			loop
+	}
+}
+
+auto thing Torch2Off "Torch 2 Off"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20008
+	
+	states
+	{
+		spawn:
+			WLTR I -1
+			stop
+	}
+}
+
+auto thing Torch3 "Torch 3"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20009
+	
+	states
+	{
+		spawn:
+			WTRH ABC 6 Bright
+			loop
+	}
+}
+
+auto thing TechFloorLamp "Tech Floor Lamp"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20010
+	radius 24
+	Height 48
+	+SOLID
+	states
+	{
+		spawn:
+			C3L1 ABCD 6 Bright
+			loop
+	}
+}
+
+auto thing TechFloorLamp2 "Tech Floor Lamp 2"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20011
+	radius 24
+	Height 48
+	+SOLID
+	states
+	{
+		spawn:
+			C3L2 ABCD 6 Bright
+			loop
+	}
+}
+
+auto thing TechFloorLamp3 "Tech Floor Lamp 3"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20012
+	radius 24
+	Height 48
+	+SOLID
+	states
+	{
+		spawn:
+			C3L3 ABCD 6 Bright
+			loop
+	}
+}
+
+auto thing FloorYellowLamp "Floor Yellow Lamp"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20013
+	radius 24
+	
+	states
+	{
+		spawn:
+			CIL1 A -1 Bright
+			stop
+	}
+}
+
+auto thing Candles "Candles"
+{
+	//$Category "Light sources/Floor"
+	//$Color 1
+
+	Ednum 20014
+	radius 24
+	
+	states
+	{
+		spawn:
+			CNDL ABC 6 Bright
+			loop
+	}
+}
+
+
+
