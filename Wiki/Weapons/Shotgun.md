@@ -9,8 +9,10 @@ The Gothic Shotgun is your reliable companion at medium and close range. When cr
 |  | Ammo | Shell |  
 |  | Ammo per Shot | 1 |  
 | **Melee Attack** | Damage | 9*10 | 
-|  | Attacks per minute | 350 | 
+|  | Attacks per minute | 64 | 
 |  | Horizontal Spread | 2.0 | |
 |  | Vertical Spread | 2.0 | |
 
-![L
+---
+# SCREENSHOTS
+![SHOTGUN](https://github.com/Ear1h/MOD-Volcanic-Eruption-R/blob/main/Images/Shotgun/Shotgun.png)
