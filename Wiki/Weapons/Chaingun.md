@@ -15,5 +15,5 @@ The chaingun is a modern iteration of heavy firearms, featuring increased rate o
 
 ---
 # SCREENSHOTS
-![PISTOL](https://github.com/Ear1h/MOD-Volcanic-Eruption-R/blob/main/Images/Pistol/Pistol.png)
+![CHAINGUN](https://github.com/Ear1h/MOD-Volcanic-Eruption-R/blob/main/Images/Chaingun/Chaingun.png)
 
