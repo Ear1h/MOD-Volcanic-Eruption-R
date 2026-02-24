@@ -130,4 +130,6 @@
 #include "main/VFX/SnowSpawner.dh"
 #include "main/VFX/AshSpawner.dh"
 #include "main/VFX/RainSpawner.dh"
+
+//#include "main/Monsters/Eternity.dh"
 //#include "main/VFX/LeafSpawner.dh"

@@ -1,0 +1,56 @@
+auto thing NoNaziKillCounter: thing WolfensteinSS "No CountKill Nazi MP40"
+{
+	//$Category "Monsters/Wolfenstein/Eternity"
+	//$Color 19
+	
+	Ednum 31001
+	-COUNTKILL
+}
+
+auto thing SleepingRevenant: thing Revenant "Sleeping Revenant"
+{
+	-SOLID
+	-SHOOTABLE
+	
+	Ednum 15600
+	
+	States
+	{
+	Spawn:
+		DRGR S 1
+		goto Spawn2
+	Spawn2:
+		DRGR R 5 A_XScream
+		DRGR Q 5 
+		DRGR PO 7
+		DRGR N 7
+		TNT1 A 0 A_AddFlags(SHOOTABLE)
+		TNT1 A 0 A_AddFlags(SOLID)
+	SpawnIdle:
+		DRGR A 10 A_Look
+		loop
+	See: 
+		DRGR AABBCCDDEEFF 2 A_Chase
+		Loop
+	Melee:
+		DRGR J 0 A_FaceTarget
+		DRGR J 6 A_SkelWhoosh
+		DRGR K 6 A_FaceTarget
+		DRGR L 6 A_MonsterMeleeAttack(28, 1, "SKEPCH")
+		Goto See
+	Missile:
+		DRGR G 5 A_FaceTarget
+		DRGR G 5 A_FaceTarget
+		DRGR H 4 Bright A_MonsterProjectile(McRevenantTracer, 0.0, 0.0, 0.0, 16.0)
+		DRGR I 10 A_FaceTarget
+		Goto See
+	Pain:
+		DRGR M 5
+		DRGR M 5 A_Pain
+		Goto See
+	Raise:
+		DRGR S 5
+		DRGR RQPON 5
+		Goto See
+	}
+}

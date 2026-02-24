@@ -140,12 +140,3 @@ thing NaziHelmet
         Stop
     }
 }
-
-auto thing NoNaziKillCounter: thing WolfensteinSS "No CountKill Nazi MP40"
-{
-	//$Category "Monsters/Wolfenstein/Eternity"
-	//$Color 19
-	
-	Ednum 31001
-	-COUNTKILL
-}

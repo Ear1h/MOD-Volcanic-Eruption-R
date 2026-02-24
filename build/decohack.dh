@@ -3505,15 +3505,6 @@ thing NaziHelmet
     }
 }
 
-auto thing NoNaziKillCounter: thing WolfensteinSS "No CountKill Nazi MP40"
-{
-	//$Category "Monsters/Wolfenstein/Eternity"
-	//$Color 19
-	
-	Ednum 31001
-	-COUNTKILL
-}
-
 auto thing Dog "Nazi Dog"
 {
 	//$Category "Monsters/Wolfenstein"
@@ -4888,7 +4879,7 @@ thing PainElemental "Pain Elemental"
 	//$Color 13
 
 	Health 360
-	PainChance 64
+	PainChance 60
 
 	States 
 	{ 
@@ -9060,7 +9051,7 @@ auto thing CityLamp "City Lamp"
 	states
 	{
 		spawn:
-			POL6 AB 6 Bright
+			LIT9 AB 6 Bright
 			loop
 	}
 }
@@ -13608,5 +13599,7 @@ Auto thing RainSpawner5 "Rain Spawner (Single frequent)"
 		}
 }
 
+
+//#include "main/Monsters/Eternity.dh"
 //#include "main/VFX/LeafSpawner.dh"
 

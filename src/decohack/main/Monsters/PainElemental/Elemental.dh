@@ -4,7 +4,7 @@ thing PainElemental "Pain Elemental"
 	//$Color 13
 
 	Health 360
-	PainChance 64
+	PainChance 60
 
 	States 
 	{ 

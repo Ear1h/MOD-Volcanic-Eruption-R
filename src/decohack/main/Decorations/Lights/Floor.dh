@@ -87,7 +87,7 @@ auto thing CityLamp "City Lamp"
 	states
 	{
 		spawn:
-			POL6 AB 6 Bright
+			LIT9 AB 6 Bright
 			loop
 	}
 }
