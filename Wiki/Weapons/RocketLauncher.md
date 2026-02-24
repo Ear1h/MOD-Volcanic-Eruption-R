@@ -17,4 +17,4 @@ The Champion Rocket Launcher is an extremely fast-firing version of the old prot
 
 ---
 # SCREENSHOTS
-![Rocket](https://github.com/Ear1h/MOD-Volcanic-Eruption-R/blob/main/Images/RocketLauncher/RocketLauncher.png)
+![Rocket](https://github.com/Ear1h/MOD-Volcanic-Eruption-R/blob/main/Images/Rocket/RocketLauncher.png)
