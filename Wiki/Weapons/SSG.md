@@ -4,7 +4,7 @@ The Super Shotgun deals massive damage to enemies at close range.
 
 | Category | Parameter | Value
 |---------|-----------|-------|
-| **Weapon Attributes** | Name | Fist |  
+| **Weapon Attributes** | Name | SSG |  
 |  | Weapon Slot | 3 | 
 |  | Ammo | Shell |  
 |  | Ammo per Shot | 2 |  
