@@ -9,7 +9,7 @@ The most accurate automatic weapon in the player’s arsenal. Despite its low da
 |  | Ammo | Clip |  
 |  | Ammo per Shot | 1 |  
 | **Hitscan Attack** | Damage | 15 | 
-|  | Attacks per minute | 350 | 
+|  | Attacks per minute | 300 | 
 |  | Horizontal Spread | 0.0 | |
 |  | Vertical Spread | 0.0 | |
 
