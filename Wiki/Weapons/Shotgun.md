@@ -4,7 +4,7 @@ The Gothic Shotgun is your reliable companion at medium and close range. When cr
 
 | Category | Parameter | Value
 |---------|-----------|-------|
-| **Weapon Attributes** | Name | Fist |  
+| **Weapon Attributes** | Name | Shotgun |  
 |  | Weapon Slot | 3 | 
 |  | Ammo | Shell |  
 |  | Ammo per Shot | 1 |  
