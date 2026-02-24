@@ -9,7 +9,7 @@ The Gothic Shotgun is your reliable companion at medium and close range. When cr
 |  | Ammo | Shell |  
 |  | Ammo per Shot | 1 |  
 | **Hitscan Attack** | Damage | 9*10 | 
-|  | Attacks per minute | 64 | 
+|  | Attacks per minute | 66 | 
 |  | Horizontal Spread | 2.0 | |
 |  | Vertical Spread | 2.0 | |
 
