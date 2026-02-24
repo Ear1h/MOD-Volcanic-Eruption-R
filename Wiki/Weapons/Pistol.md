@@ -4,7 +4,7 @@ The most accurate automatic weapon in the player’s arsenal. Despite its low da
 
 | Category | Parameter | Value
 |---------|-----------|-------|
-| **Weapon Attributes** | Name | Pustol |  
+| **Weapon Attributes** | Name | Pistol |  
 |  | Weapon Slot | 2 | 
 |  | Ammo | Clip |  
 |  | Ammo per Shot | 1 |  
