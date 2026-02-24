@@ -582,3 +582,13 @@ TREES
 	Jaska: fall tree 1 sprite
 	Sergeant Mark IV: TREEA - TREED and their recolors
 	MattFright: plant E - I sprites taken from fe1_v3.4.wad resources
+	
+Hexen Guro:
+	Rven Software
+	
+Minicharge Trees:
+	From MiniCharge+ by Tango
+	
+Hexen/Heretic Props by Raven Software
+
+ID24 Decorations by Xaser & ID Software
