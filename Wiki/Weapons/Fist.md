@@ -1,4 +1,6 @@
 # WEAPON: FIST
+## Summary
+Standard melee weapon. The player starts with this weapon at the very beginning of the game. Unlike the original, its damage has been increased, and the attack range has been extended to hit larger enemies, such as Arachnotrons and Mancubi. The player can attack with both fists and kicks, and when using Berserk, the damage is multiplied by 5, allowing enemies like Pinkies to be killed with a single hit.
 
 | Category | Parameter | Value
 |---------|-----------|-------|
@@ -34,6 +36,7 @@ Notes: After testing on several mapsets (_Armadosia, Eternal Doom 3, BloodStrain
 ![FIST](https://github.com/Ear1h/MOD-Volcanic-Eruption-R/blob/main/Images/Fist/Fist.png)
 ![FOOT](https://github.com/Ear1h/MOD-Volcanic-Eruption-R/blob/main/Images/Fist/Foot.png)
 ![POWERFOOT](https://github.com/Ear1h/MOD-Volcanic-Eruption-R/blob/main/Images/Fist/PowerFoot.png)
+
 
 
 
