@@ -4,11 +4,11 @@ The most accurate automatic weapon in the player’s arsenal. Despite its low da
 
 | Category | Parameter | Value
 |---------|-----------|-------|
-| **Weapon Attributes** | Name | Fist |  
+| **Weapon Attributes** | Name | Pustol |  
 |  | Weapon Slot | 2 | 
 |  | Ammo | Clip |  
 |  | Ammo per Shot | 1 |  
-| **Melee Attack** | Damage | 15 | 
+| **Hitscan Attack** | Damage | 15 | 
 |  | Attacks per minute | 350 | 
 |  | Horizontal Spread | 0.0 | |
 |  | Vertical Spread | 0.0 | |
